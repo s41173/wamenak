@@ -1,4 +1,4 @@
-# Delica Quotes Calculator [![bitHound Score][bithound-img]][bithound-url]
+# Wamenak [![bitHound Score][bithound-img]][bithound-url]
 
 Wamenak Order Application
 
@@ -6,7 +6,7 @@ Wamenak Order Application
 
 #### PhoneGap CLI
 
-Delica Quotes Calculator Application - using the [phonegap-cli][phonegap-cli-url].
+Wamenak Order Application - using the [phonegap-cli][phonegap-cli-url].
 
     phonegap create my-app
 
