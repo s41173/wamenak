@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/routing.js"></script>
+    <script src="js/app.js"></script>
+    
+    <link rel="stylesheet" href="css/newStyle.css">
+    
+    
+</head>
+<body id="order" onload="otentikasi(); transaction(0); transaction(1); transaction(2);">
+   
+    <header>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+             <div class="row">
+                <div class="navbar-header col-xs-12">
+                  <a class="navbar-brand" href="index.html"> <img alt="Logo-Delica" class="img-responsive" src="img/delica.png"> </a>
+                  <a id="cartbox" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+             </div>
+          </div>
+        </nav>
+     </header>
+      
+   <div class="main">
+   
+   <style type="text/css">
+       
+       .ordertitle{ margin-left: 15px; font-weight: bold; font-size: 16pt;}
+       .kanan{ text-align: right;}
+       .ordertable{ font-size: 11pt;}
+       .red{ color: #484848;}
+       
+   </style>
+    
+    <!-- Pesanan -->
+    <div id="order">
+    
+          <!-- On Going -->
+          <p class="ordertitle"> Unposted Orders <a class="kanan" onclick="set_attr_transaction(0);">See More</a> </p>
+           <div class="list-group">
+              <a href="#" class="list-group-item">
+               <table id="table0">
+
+               </table>
+              </a>
+           </div>
+           
+          <!-- Completed -->
+          <p class="ordertitle"> Posted Order <a class="kanan" onclick="set_attr_transaction(1);">See More</a> </p>
+           <div class="list-group">
+
+              <a href="#" class="list-group-item">
+               <table id="table1">
+                   
+               </table>
+              </a>
+           </div>
+           
+          <!-- Cancled -->
+          <p class="ordertitle"> Paid Off Order <a class="kanan" onclick="set_attr_transaction(2);">See More</a> </p>
+           <div class="list-group">
+              <a href="#" class="list-group-item">
+               <table id="table2">
+                  
+               </table>
+              </a>
+           </div>
+
+        </div>
+    
+    </div>
+ 
+  
+<!--====== Menu Tab =======-->
+<!--=======================-->
+ 
+  <ul class="nav menu-tab">
+    <li><a href="index.html"><i class="fas fa-home"></i><br><span>Home</span></a></li>
+    <li class="active"><a href="order.html"><i class="fas fa-book"></i><br><span>My Order</span></a></li>
+    <li><a href="help.html"><i class="fas fa-question"></i><br><span>Help</span></a></li>
+    <li><a href="profile.html"><i class="fas fa-user"></i><br>Account</a></li>
+  </ul>
+   
+    
+</body>
+</html>

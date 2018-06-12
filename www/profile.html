@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/routing.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/acl.js"></script>
+    
+    <link rel="stylesheet" href="css/newStyle.css">
+    
+    <script type="text/javascript">
+        
+function get_info(){
+
+    $(document).ready(function (e) {   
+    
+        var nilai = '{ "userid":"'+localStorage.getItem("userid")+'"}';
+        
+        $.ajax({
+            type: 'POST',
+            url: api+'agent/detail/',
+            data : nilai,
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(data) 
+            {
+              var result = data.content[0];    
+              console.log(result.id);
+                
+              $("#profimage").attr("src",result.image);    
+              $("#nama").html("<b>"+result.name.toUpperCase()+"</b> / "+result.type.toUpperCase());
+              $("#email").html(result.email);
+              $("#nohp").html(result.phone);
+ $("#address").html(result.address+"<br>"+result.regionname+" - "+result.zip+" - "+result.cityname+"<br>"+result.statename);
+            },
+            error: function (request, status, error) {
+                alert('Request Failed...! '+error);
+            }
+        }) 
+        return false;
+        
+    });  // end document ready	
+
+}
+    
+    </script>
+    
+</head>
+<body id="profile" onload="otentikasi(); get_info();">
+   
+    <header>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+             <div class="row">
+                <div class="navbar-header col-xs-12">
+                  <a class="navbar-brand" href="index.html"> <img alt="Logo-Delica" class="img-responsive" src="img/delica.png"> </a>
+                  <a id="cartbox" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+             </div>
+          </div>
+        </nav>
+     </header>
+     
+      
+   <div class="tab-content main">
+   
+    <!-- Profile -->
+    <div id="profile" >
+        <div class="container-fluid">
+            <h4 style="margin-bottom: 0">My Account</h4>
+            <hr style="margin-top : 5px !important">
+            
+            <!-- avatar -->
+            <img id="profimage" class="avatar" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100" alt="">
+            <p class="text-center">
+                <span id="nama"></span><br/>
+                <span id="email"></span> <br/>
+                <span id="nohp"></span><br/> 
+                <span id="address"></span><br/> <br>
+                <button class="tombol" onclick="logout();">Log Out</button>
+            </p>
+        </div>
+    </div>
+    
+  </div>
+  
+  
+  
+<!--====== Menu Tab =======-->
+<!--=======================-->
+ 
+  <ul class="nav menu-tab">
+    <li><a href="index.html"><i class="fas fa-home"></i><br><span>Home</span></a></li>
+    <li><a href="order.html"><i class="fas fa-book"></i><br><span>My Order</span></a></li>
+    <li><a href="help.html"><i class="fas fa-question"></i><br><span>Help</span></a></li>
+    <li class="active"><a href="profile.html"><i class="fas fa-user"></i><br>Account</a></li>
+  </ul>
+     
+    
+</body>
+</html>

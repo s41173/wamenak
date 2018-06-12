@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/routing.js"></script>
+<!--    <script src="js/app.js"></script>-->
+    <script src="js/acl.js"></script>
+    <script src="js/home.js"></script>
+    <link rel="stylesheet" href="css/newStyle.css">
+    
+</head>
+<!--<body id="index" onload="category(7); category(16);">-->
+ <body id="index" onload="otentikasi();">
+  
+     <header>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+             <div class="row">
+                <div class="navbar-header col-xs-12">
+                  <a class="navbar-brand" href="index.html"> <img alt="Logo-Delica" class="img-responsive" src="img/delica.png"> </a>
+                  <a id="cartbox" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+             </div>
+          </div>
+        </nav>
+     </header>
+     
+      
+   <div class="main">
+   
+    <!-- Home -->
+<!--
+     <div class="container-fluid">
+        <ul class="nav submenu">
+            <li class="active"><a href="#home"><i class="fas fa-home"></i><br><span>Home</span></a></li>
+            <li><a href="#menu1"><i class="fas fa-home"></i><br><span>Home</span></a></li>
+            <li><a href="#menu2"><i class="fas fa-home"></i><br><span>Home</span></a></li>
+            <li><a href="#menu2"><i class="fas fa-home"></i><br><span>Home</span></a></li>
+        </ul>
+     </div>
+-->
+     
+     <div class="container-fluid" id="kat">
+         <br>
+          <p class="judul"> DOOR SERIES </p> 
+
+           <!-- Doors -->  
+           <div class="row" id="doorbox">
+
+           </div>
+           
+           <hr class="sparate">
+           <!-- Doors -->
+
+          <p class="judul"> WINDOW SERIES </p> 
+
+           <div class="row" id="windowbox"> </div>
+    </div>
+    
+<!--
+    <div class="container-fluid">
+          <hr class="sparate">
+          
+          <div class="banner banner1" style="background-image: url(https://www.mitrakreasiutama.com/wp-content/uploads/2018/02/Jendela-Aluminium-Minimalis.jpg)">
+             <img alt="Logo-Delica" class="img-responsive" src="img/delica.png">
+              <p>See Whats Trending <button class="tombol">SEE DETAIL</button></p>
+          </div>
+          
+       </div>
+    </div>
+-->
+  
+<!--====== Menu Tab =======-->
+<!--=======================-->
+ 
+  <ul class="nav menu-tab">
+    <li class="active"><a href="index.html"><i class="fas fa-home"></i><br><span>Home</span></a></li>
+    <li><a href="order.html"><i class="fas fa-book"></i><br><span>My Order</span></a></li>
+    <li><a href="help.html"><i class="fas fa-question"></i><br><span>Help</span></a></li>
+    <li><a href="profile.html"><i class="fas fa-user"></i><br>Account</a></li>
+  </ul>
+ </div>
+ 
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    app.initialize(); // method penting untuk initilize
+</script>
+ 
+</body>
+</html>

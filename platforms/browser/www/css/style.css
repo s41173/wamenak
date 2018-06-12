@@ -1,0 +1,118 @@
+header{
+    background-color: black !important;
+    margin: 0;
+    height: auto;
+}
+header nav a{
+    width: 110px;
+    padding: 10px !important;
+    height: auto;
+}
+header .navbar{
+    margin-bottom: 0 !important;
+}
+.judul span{
+    font-family: 'Courgette', cursive;
+}
+.judul{
+    font-family: 'Arial';
+    font-weight: normal;
+}
+
+/*Edited*/
+#kat a span{
+    float: right;
+    padding-right: 10px;
+    color: grey;
+}
+#kat .caption .judul{
+    margin-top: 0;
+}
+#kat .caption p{
+    margin: 0;
+}
+#kat .caption a{
+    text-decoration: none;
+    color: black;
+    font-size: 9pt;
+    display: block;
+}
+.list-group-item{
+    border-radius: 0 !important;
+}
+#kat .detail h4{
+    padding-top: 5px;
+}
+/*End Edited*/
+
+
+hr{
+    margin: 15px 0 !important;
+}
+#indicat{
+    bottom: -12px;
+}
+#indicat li{
+    border: 1px solid #000;
+}
+#indicat .active{
+    background-color: #000;
+}
+#hitung a{
+    display: block;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.tombol{
+    display: block;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 8px 20px;
+    text-decoration: none;
+    border: none !important;
+}
+
+#hitung table tr td{
+    padding: 5px;
+}
+
+#hitung table tr td .tombol{
+    width: 100%;
+}
+#hitung table tr .input-group{
+    width: 100%;
+}
+#hitung table tr th{
+    font-size: 10pt;
+    font-weight: normal;
+    padding: 5px;
+}
+#result tr td{
+    padding: 5px;
+}
+table{
+    width: 100%;
+}
+
+.batas{
+    width: 100%;
+    height: 5px;
+    background-color: #000;
+    margin: 0 0 10px 0;
+}
+
+.strong{
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+#download{ margin: 10px 0 20px 0;}

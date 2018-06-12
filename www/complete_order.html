@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/routing.js"></script>
+    <script src="js/app.js"></script>
+    
+    <link rel="stylesheet" href="css/newStyle.css">
+    
+    <script type="text/javascript">
+        
+        $(document).ready(function (e) {
+            
+            var type = localStorage.getItem("ordertype");
+            if (type == 0){ $("#ordertitle").html("Unposted Orders"); }
+            else if (type == 1){ $("#ordertitle").html("Posted Orders"); }
+            else if (type == 2){ $("#ordertitle").html("Paid Off Orders"); }
+        });  // end document ready	
+        
+    </script>
+    
+</head>
+<body id="order" onload="otentikasi(); transaction(0,25,1);">
+   
+    <header>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+             <div class="row">
+                <div class="navbar-header col-xs-12">
+                  <a class="navbar-brand" href="index.html"> <img alt="Logo-Delica" class="img-responsive" src="img/delica.png"> </a>
+                  <a id="cartbox" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+             </div>
+          </div>
+        </nav>
+     </header>
+      
+   <div class="main">
+   
+   <style type="text/css">
+       
+       .ordertitle{ margin-left: 15px; font-weight: bold; font-size: 16pt;}
+       .kanan{ text-align: right;}
+       .ordertable{ font-size: 11pt;}
+       .red{ color: #484848;}
+       
+   </style>
+    
+    <!-- Pesanan -->
+    <div id="order_detail">
+    
+          <!-- On Going -->
+           <p class="ordertitle" id="ordertitle"> </p>
+           <div class="list-group">
+              <a href="#" class="list-group-item">
+               <table id="table_complete"> </table>
+              </a>
+           </div>
+
+        </div>
+    
+    </div>
+ 
+  
+<!--====== Menu Tab =======-->
+<!--=======================-->
+ 
+  <ul class="nav menu-tab">
+    <li><a href="index.html"><i class="fas fa-home"></i><br><span>Home</span></a></li>
+    <li class="active"><a href="order.html"><i class="fas fa-book"></i><br><span>My Order</span></a></li>
+    <li><a href="help.html"><i class="fas fa-question"></i><br><span>Help</span></a></li>
+    <li><a href="profile.html"><i class="fas fa-user"></i><br>Account</a></li>
+  </ul>
+   
+    
+</body>
+</html>

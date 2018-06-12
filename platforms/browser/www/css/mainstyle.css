@@ -1,0 +1,566 @@
+body{
+    margin: 0 auto;
+}
+
+#panel{
+    margin: 0;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+}
+#icon{
+    color: orangered;
+    font-size: 20pt;
+}
+#mega{
+    padding-top: 5%;
+    margin-right: 20px;
+    background-color: black;
+    border: none;
+}
+.mega{
+    padding-right: 20px;
+    text-align: center;
+}
+.mega p{
+    text-align: center;
+    
+}
+
+.mega-menu-last	{
+    list-style-type: none;
+    position: relative;
+    display: none;
+    position: absolute;		
+    background:#FFF;
+    margin-right: 100px;
+    width:250%;
+    padding:10px;
+    border:1px solid #CCC;
+    z-index: 1;
+    left:-135%;
+}
+.mega-menu-down	{position: relative;
+  				display: none;
+				position: absolute;		
+				background:#FFF;
+				z-index: 1;
+				left:-250%;				
+				width:500%;
+				padding:10px;
+				border:1px solid #CCC;}
+.mega-menu-last a{
+    display: block;
+    margin: 0;
+}
+
+.mega:hover .mega-menu-last{display: block;}
+.mega:hover .mega-menu-down{display: block;}
+
+#capt{
+    font-size: 18pt;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+#capt span{
+    font-family: 'Acme', sans-serif;
+    text-decoration: underline;
+}
+.shadow{
+    box-shadow: 2px 2px 10px #89898a;
+    border: none;
+}
+/* category*/
+
+.category{
+    height: 80%;
+    box-shadow: 0px 2px 5px #89898a;
+    padding-top: 0;
+    margin-bottom: 10px;
+}
+.category ul{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    padding: 15px 20px;
+    border-bottom: 1px solid gainsboro;
+    font-weight: bold;
+    background-color: white;
+}
+.category ul li{
+    list-style-type: none;
+    display: block;
+    
+}
+.category ul li a{
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    border-bottom: 1px solid gainsboro;
+}
+.category ul li a:hover, .category ul li a:active{
+    color: white;
+    background-color: black;  
+}
+.caption h3{
+    font-size: 14pt;
+    font-weight: bold;
+    
+}
+.caption p a{
+    text-decoration: none;
+    color: black;
+    font-size: 9pt;
+    display: block;
+    border-top: 1px solid gainsboro;
+    padding-top: 10px;
+}
+.caption p a:hover{
+    color: gray;
+}
+#pict{
+    width: 100%;
+}
+.halu{
+    padding: 0;
+}
+
+.halu li{
+    list-style-type: none;
+    padding: 0;
+}
+
+
+/*Calculator*/
+.clear{
+    clear: both;
+}
+#bread{
+    border: 0;
+    background-color:white;
+    font-size: 9pt;
+    width: 100%;
+    margin: 0;
+    clear: both;
+    border-radius: 0;
+}
+#rumah{
+    padding-left: 0px;
+}
+#bread li a{
+    color: black;
+    
+}
+
+#dropdownMenu1:hover{
+    color: black;
+    background-color: white;
+    
+}
+#dropdownMenu1{
+    box-shadow: 1px 1px 1px #89898a;
+    border: none;
+    width: 70%;
+    background-color: black;
+    color: white;
+}
+#drop li a:hover, #drop > .active > a{
+    background-color: black;
+    color: white;
+}
+form{
+    margin-top: 0;
+}
+form h1, #calculated h1{
+    font-family: sans-serif;
+    }
+form p{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 11pt;
+}
+.luas{
+    padding-top: 20px;
+}
+input{
+   
+    border: none;
+    padding-left: 10px;
+
+}
+input:focus{
+    background-color: whitesmoke;
+    
+}
+.luas input{
+    width: 20%;
+    height: 30px;
+    padding: 10px;
+    box-shadow: 1px 1px 1px #89898a;
+}
+
+color&system select{
+    width: 50%;
+    height: 30px;
+    font-family: sans-serif;
+    
+}
+input[type=number]{
+    width: 10%;
+    height: 30px;
+}
+.memilih{
+    width: 45%;
+    height: 30px;
+    margin-right: 5px;
+    box-shadow: 1px 1px 1px #89898a;
+    border: none;
+    padding-left: 8px;
+}
+#qty{
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 1px #89898a;
+}
+#tombol{
+    background-color: black;
+    color: white;
+    width: 40%;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+#gambar{
+    width: 70%;
+}
+#gambar2{
+    width: 70%;
+}
+.pilih{
+    width: 150%;
+    box-shadow: 0px 0px 5px #89898a;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.ket{
+    text-decoration: none;
+    color: black;
+    font-size: 8pt;
+}
+.range{
+    padding-bottom: 5px;
+    padding-top: 10px;
+    margin: 0 auto;
+}
+.calculator{
+    padding-bottom: 20px;
+    border-bottom: 1px dotted black;
+}
+
+#result{
+    margin-top: 40px;
+}
+#calculated{
+    margin-bottom: 200px;
+}
+
+#satu, #dua, #tiga{
+    font-size: 12pt;
+    height: 200%;
+  
+    
+}
+#empat{
+    font-size: 14pt;
+    padding-top: 10px;
+}
+.slide{
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+/*Checkout*/
+#border{
+    background-color: white;
+    border-top: 1px solid gainsboro;
+}
+.head{
+    color: black;
+    height: 50px;
+    padding: 1px 5px 10px 20px;
+    margin-left: -15px;
+    margin-right: -15px;
+    border-bottom: 1px solid gainsboro;
+}
+.head h3{
+    font-size: 16pt;
+    margin-top: 15px;
+}
+
+#pesanan{
+    margin-top: 10px;
+}
+#pesanan .ordered{
+    width: 120px;
+    border: 2px solid white;
+    margin-left: 10px
+}
+#pesanan .detail{
+    font-family: sans-serif;
+    font-size: 9pt
+}
+#pesanan .detail span{
+    color: orangered;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+
+/*
+#cart{
+    margin-top: 10px;
+}
+#cart .ordered{
+    width: 50px;
+    border: 2px solid white;
+    margin-left: 10px
+}
+#cart .detail{
+
+    font-family: sans-serif;
+    font-size: 9px;
+}
+.detail span{
+   
+    font-weight: bold;
+    font-size: 10px;
+}
+*/
+
+
+.baris{
+    margin: 0;
+}
+#alamat{
+    margin-left: 20px;
+    margin-top: 5px;
+}
+.new{
+    margin-bottom: 50px;
+}
+#alamat tr td{
+    padding-left: 20px;
+    padding-bottom: 5px;
+}
+#alamat input[type=email], #alamat input[type=tel], #alamat input[type=text], #alamat select, #alamat input[type=date], #alamat input[type=password]{
+    border-bottom: 1px solid gainsboro;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    height: 30px;
+    width: 100%;
+    font-size: 9pt;
+    font-family: sans-serif; 
+}
+#struk{
+    margin-top: 30px;
+    background-color: whitesmoke;
+}
+#struk tr td{
+    padding: 10px 10px 10px 20px;
+}
+.nilai{
+    text-align: right;
+}
+#bayar{
+    padding-top: 100px;
+}
+.bank{
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+.rekening tr td{
+    padding-bottom: 5px;
+    padding-right: 10px;
+    font-size: 11pt;
+    font-family: sans-serif;
+    padding-left: 10px;
+}
+.office{
+    padding-left: 20px;
+    font-family: sans-serif;
+}
+#map{
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+.subtotal{
+    padding-right: 20px;
+}
+.subtotal tr td h3{
+    font-weight: bold;
+}
+.google-maps {
+    position: relative;
+    padding-bottom: 30%; // This is the aspect ratio
+    height: 0;
+    overflow: hidden;
+}
+.google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    /*
+    width: 700px !important;
+    height: 300px !important;
+    */
+}
+
+
+.pesan{
+    margin: 10px;
+    height: 35px;
+}
+.gi-3x{
+    font-size: 24pt;
+    margin-top: 6px;
+}
+#action{
+    background-color: white;
+}
+#action li{
+    
+}
+.utama{
+    padding-top: 20px;
+}
+#profil input[type=email], #profil input[type=tel], #profil input[type=text], #profil select, #profil input[type=date], #profil input[type=password]{
+    border-bottom: 1px solid gainsboro;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    height: 35px;
+    width: 400px;
+    font-size: 9pt;
+    font-family: sans-serif; 
+    padding-left: 20px;
+}
+#profil input[type=radio]{
+    margin-left: 20px;
+}
+#profil tr td{
+    padding: 5px;
+}
+#profil tr td label{
+    width: 200%;
+}
+#aside{
+    margin-left: 20px;
+    margin-right: 5px;
+}
+#langganan tr td{
+    padding-left: 20px; 
+}
+#langganan tr th{
+    padding-left: 20px; 
+    padding-top: 20px;
+}
+#grandtotal{
+    float: right;
+}
+#grandtotal tr td h3{
+    font-size: 20pt;
+}
+#add {
+    text-decoration: none;
+    color: dimgray;
+    position: absolute;
+}
+#add span{
+    padding-right: 10px;
+    padding-top: 25px;
+}
+#buyer{
+    border-bottom: 1px solid gainsboro;
+}
+/*navbar*/
+
+
+
+.navpanel img{
+    width: 150px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+}
+.navpanel button{
+    margin-top: 18px;
+}
+/*Footer*/
+footer{
+    background-color: black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+footer img{
+    width: 200px;
+    float: right;
+}
+footer #first{
+    text-decoration: none;
+    color: white;
+    font-size: 8.65pt;
+    padding-right: 18px;
+    padding-left: 0;
+}
+.no-padleft {
+    padding-left: 0;
+    padding-top: 18px;
+    font-size: 8.65pt;
+}
+footer p a{
+    text-decoration: none;
+    color: white;
+    padding: 0 10px;
+    font-size: 9pt;
+}
+footer p a:hover{
+    color: gray;
+    text-decoration: none;
+}
+footer p{
+    color: gray;
+    font-size: 9pt;
+}
+
+@media (max-width:768px) {
+    footer #first {
+        display: block;
+        text-align: center;
+        padding-top: 2%;
+    }
+    .no-padleft {
+        text-align: center;
+    }
+    footer img {
+        float: none;
+        margin: 0 auto;
+    }
+    #gambar{
+        width: 100%;
+    }
+    #gambar2{
+        width: 100%;
+    }
+}
+@media (min-width:7680px) and (max-width:996px) {
+    .navku {
+        text-align: center;
+    }
+    footer img {
+        float: none;
+        margin: 0 auto;
+    }
+}
