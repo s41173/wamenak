@@ -3,102 +3,500 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
-    <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-
-    <title>Calculator</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     
-    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <!--Add to homescreen And color theme-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-title" content="JKitchen">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <!-- Theme color for chrome, firefox and opera-->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#27a542">
+
+    <title>Wamenak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/routing.js"></script>
-<!--    <script src="js/app.js"></script>-->
-    <script src="js/acl.js"></script>
-    <script src="js/home.js"></script>
-    <link rel="stylesheet" href="css/newStyle.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/myJS.js"></script>
     
+    <script src="js/acl.js"></script>
+<!--    <script src="js/home.js"></script>-->
+    
+    <script>
+        $(document).ready(function(){
+          $('.owl-carousel').owlCarousel({
+                loop:true,
+                margin:10,
+                responsiveClass:true,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:true
+                    },
+                    600:{
+                        items:3,
+                        nav:false
+                    },
+                    1000:{
+                        items:5,
+                        nav:true,
+                        loop:false
+                    }
+                }
+            })
+        });
+    </script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript">
+         $(document).ready(function () {
+             $("#sidebar").niceScroll({
+                 cursorcolor: '#000',
+                 cursorwidth: 4,
+                 cursorborder: 'none'
+             });
+
+             $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').fadeOut();
+             });
+
+             $('#sidebarCollapse').on('click', function () {
+                 $('#sidebar').addClass('active');
+                 $('.overlay').fadeIn();
+                 $('.collapse.in').toggleClass('in');
+                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+             });
+         });
+     </script>
+
 </head>
-<!--<body id="index" onload="category(7); category(16);">-->
- <body id="index" onload="otentikasi();">
-  
-     <header>
-        <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-             <div class="row">
-                <div class="navbar-header col-xs-12">
-                  <a class="navbar-brand" href="index.html"> <img alt="Logo-Delica" class="img-responsive" src="img/delica.png"> </a>
-                  <a id="cartbox" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+<body onload="otentikasi();">
+     <div class="overlay"></div>
+         <nav id="sidebar">
+            <div id="main-nav">
+                <div id="dismiss">
+                    <i class="fa fa-times" aria-hidden="true"></i>
                 </div>
-             </div>
+
+                <ul class="nav navbar-nav navbar-left" style="background-color: whitesmoke;">
+                    <li><h3>Hello, <span>Harvine</span></h3></li>
+                    <li><img width="30px" src="img/Shopping-bag-black.png" alt=""> <span>0</span> <img width="30px" src="img/45271-200.png" alt=""> <span>0</span></li>
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-left" style="background-color: gainsboro;">
+                    <li><a href="index.html">Catering</a></li>
+                    <li><a href="ready-to-eat.html">Ready To Eat</a></li>
+                    <li><a href="snack.html">Snack Box</a></li>
+                    <li><a href="cara-pesan.html">Cara Pesan</a></li>
+                    <li><a href="track.html">Cek Pesanan</a></li>
+                    <li><a href="profil.html">Akun Saya</a></li>
+                    <li><a href="tips.html">Tips</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="contact.html">Hubungi Kami</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-left" style="background-color: whitesmoke;">
+                    <li><p>Copyright &copy; 2018 Wamenak.</p></li>
+                </ul>
           </div>
         </nav>
-     </header>
      
-      
-   <div class="main">
-   
-    <!-- Home -->
-<!--
-     <div class="container-fluid">
-        <ul class="nav submenu">
-            <li class="active"><a href="#home"><i class="fas fa-home"></i><br><span>Home</span></a></li>
-            <li><a href="#menu1"><i class="fas fa-home"></i><br><span>Home</span></a></li>
-            <li><a href="#menu2"><i class="fas fa-home"></i><br><span>Home</span></a></li>
-            <li><a href="#menu2"><i class="fas fa-home"></i><br><span>Home</span></a></li>
-        </ul>
-     </div>
--->
-     
-     <div class="container-fluid" id="kat">
-         <br>
-          <p class="judul"> DOOR SERIES </p> 
+      <header>
 
-           <!-- Doors -->  
-           <div class="row" id="doorbox">
-
-           </div>
-           
-           <hr class="sparate">
-           <!-- Doors -->
-
-          <p class="judul"> WINDOW SERIES </p> 
-
-           <div class="row" id="windowbox"> </div>
-    </div>
-    
-<!--
-    <div class="container-fluid">
-          <hr class="sparate">
+          <div id="main-nav">
           
-          <div class="banner banner1" style="background-image: url(https://www.mitrakreasiutama.com/wp-content/uploads/2018/02/Jendela-Aluminium-Minimalis.jpg)">
-             <img alt="Logo-Delica" class="img-responsive" src="img/delica.png">
-              <p>See Whats Trending <button class="tombol">SEE DETAIL</button></p>
+			<nav class="navbar">
+               <div class="container" id="catering">
+                    <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse"  id="sidebarCollapse">
+                        <span class="sr-only">Toggle</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand text-center" style="padding-right: 0 !important;">
+                        <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin-top:-4px;">
+                    </div>
+                    <button type="button" class="navbar-toggle" id="bag" onclick="location='pay.html'" style="margin-bottom:0 !important;">
+                        <img width="60px" src="img/wallet.png" alt="" style="margin-top:-5px;">
+                    </button>
+                    <button type="button" class="navbar-toggle" id="bag" onclick="location='checkout.html'">
+                        <img width="30px" src="img/Shopping-bag-inv.png" alt="" style="margin-top:5px;">
+                    </button>
+                </div>
+            </nav>
+
+		</div>
+      </header>
+       
+    
+     <div class="container-fluid" id="content">
+        <div class="text-center date">
+            <span id="day"></span>
+            <span id="date"></span>
+            <span id="month"></span>
+            <span id="year"></span>
+        </div>
+<!--        Slide-->
+       <div class="row">
+           <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators" id="indicat">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active banner" style="background-image: url(img/banner9.jpg)">
+                  <div class="caption">
+                    <div class="containerx" id="capti">
+                        <p class="text-center" id="capthi">Kami menyediakan berbagai macam bento, snack, juice yang dapat diantarkan ke tempat kamu dihari yang sama tanpa minimum order</p>
+                        <br>
+                        <a href="#" class="btn">PESAN SEKARANG</a>
+                    </div>                
+                  </div>
+                </div>
+                <div class="item banner" style="background-image: url(img/banner1.jpg)">
+                  <div class="caption">
+                    <div class="containerx" id="capti">
+                        <p class="text-center" id="capthi">Kami menyediakan berbagai macam bento, snack, juice yang dapat diantarkan ke tempat kamu dihari yang sama tanpa minimum order</p>
+                        <br>
+                        <a href="#" class="btn">PESAN SEKARANG</a>
+                    </div>                
+                  </div>
+                </div>
+                <div class="item banner" style="background-image: url(img/banner8.jpg)">
+                  <div class="caption">
+                    <div class="containerx" id="capti">
+                        <p class="text-center" id="capthi">Kami menyediakan berbagai macam bento, snack, juice yang dapat diantarkan ke tempat kamu dihari yang sama tanpa minimum order</p>
+                        <br>
+                        <a href="#" class="btn">PESAN SEKARANG</a>
+                    </div>                
+                  </div>
+                </div>
+                <div class="item banner" style="background-image: url(img/banner3.jpg)">
+                  <div class="caption">
+                    <div class="containerx" id="capti">
+                        <p class="text-center" id="capthi">Kami menyediakan berbagai macam bento, snack, juice yang dapat diantarkan ke tempat kamu dihari yang sama tanpa minimum order</p>
+                        <br>
+                        <a href="#" class="btn">PESAN SEKARANG</a>
+                    </div>                
+                  </div>
+                </div>
+              </div>
+           </div>
+       </div>
+       
+      
+        <h1 class="text-center" style="font-family:'Josefin Sans'; font-size: 18px;">Recommended</h1>
+        <div class="owl-carousel owl-theme">
+          <div>
+            <div id="img">
+                <img class="img-responsive" src="img/cumi.jpg" alt="">
+            </div>
+            <div class="caption">
+                <div class="title">
+                    <a href="#">Cumi Bakar</a>
+                    <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                    <p>160 Kkal</p>
+                </div>
+                <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+            </div>
+          </div>
+
+          <div>
+            <div id="img">
+                <img class="img-responsive" src="img/kwetiaw.jpg" alt="">
+            </div>
+            <div class="caption">
+                <div class="title">
+                    <a href="#">Kwetiaw Goreng</a>
+                    <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                    <p>160 Kkal</p>
+                </div>
+                <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+            </div>
+          </div>
+
+          <div>
+            <div id="img">
+                <img class="img-responsive" src="img/tahu.jpg" alt="">
+            </div>
+            <div class="caption">
+                <div class="title">
+                    <a href="#">Tahu Isi Daging</a>
+                    <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                    <p>160 Kkal</p>
+                </div>
+                <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+            </div>
           </div>
           
-       </div>
-    </div>
--->
-  
-<!--====== Menu Tab =======-->
-<!--=======================-->
- 
-  <ul class="nav menu-tab">
-    <li class="active"><a href="index.html"><i class="fas fa-home"></i><br><span>Home</span></a></li>
-    <li><a href="order.html"><i class="fas fa-book"></i><br><span>My Order</span></a></li>
-    <li><a href="help.html"><i class="fas fa-question"></i><br><span>Help</span></a></li>
-    <li><a href="profile.html"><i class="fas fa-user"></i><br>Account</a></li>
-  </ul>
- </div>
- 
+          <div>
+            <div id="img">
+                <img class="img-responsive" src="img/cakes.jpg" alt="">
+            </div>
+            <div class="caption">
+                <div class="title">
+                    <a href="#">Mini Cake</a>
+                    <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                    <p>160 Kkal</p>
+                </div>
+                <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+            </div>
+          </div>
+          
+        </div>
+           
+<!--           menu-->
+        
+        <hr>
+        
+        
+           <h1 class="text-center" style="font-family:'Josefin Sans'; font-size: 18px;">Main Course</h1>
+            <div class="owl-carousel owl-theme">
+         
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/ayam.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Ayam Saus Padang</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/cumi.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Cumi Bakar</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/kwetiaw.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Kwetiaw Goreng</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/nasi-merah.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Nasi Merah</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/nasi.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Nasi Putih</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/nasgor.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Nasi Goreng</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+
+            </div>
+        <hr>
+        
+
+           <h1 class="text-center" style="font-family:'Josefin Sans'; font-size: 18px;">Veggie</h1>
+           <div class="owl-carousel owl-theme">
+         
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/salad.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Salad Spicy Mayo</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/sawi.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Cah Sawi Putih</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/kacang.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Tumis Kacang Panjang</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/labu.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Lalapan Labu</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+
+            </div>
+            
+        <hr>
+        
+         
+           <h1 class="text-center" style="font-family:'Josefin Sans'; font-size: 18px;">Dessert</h1>
+            <div class="owl-carousel owl-theme">
+         
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/redvelvet.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Red Velvet Cake</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/pudding-tapai.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Pudding Tapai</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/tahu.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Tahu Isi Daging</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/getuk.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Getuk</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+
+            </div>
+        <hr>
+        
+       
+           <h1 class="text-center" style="font-family:'Josefin Sans'; font-size: 18px;">Drink</h1>
+            <div class="owl-carousel owl-theme">
+         
+              <div>
+                <div id="img">
+                    <img class="img-responsive" src="img/aqua.jpg" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a href="#">Aqua Botol 600ml</a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p>160 Kkal</p>
+                    </div>
+                    <a href="#" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
+                </div>
+              </div>
+
+            </div>
+     </div>
+        
+      
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript">
     app.initialize(); // method penting untuk initilize
 </script>
- 
+    
 </body>
 </html>

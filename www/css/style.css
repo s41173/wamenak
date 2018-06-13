@@ -1,118 +1,1100 @@
+body{
+    margin: 0 auto;
+}
 header{
-    background-color: black !important;
-    margin: 0;
-    height: auto;
+    margin: 0 auto;
+    background-color: aqua;
 }
-header nav a{
-    width: 110px;
-    padding: 10px !important;
-    height: auto;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Josefin sans', sans-serif !important;
 }
-header .navbar{
-    margin-bottom: 0 !important;
-}
-.judul span{
-    font-family: 'Courgette', cursive;
-}
-.judul{
-    font-family: 'Arial';
-    font-weight: normal;
+/*Side*/
+#main-nav #catering{
+    padding: 0;
 }
 
-/*Edited*/
-#kat a span{
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+.date {
+    padding: 3% 0;
+    font-family: 'Josefin sans', sans-serif;
+    font-weight: bold;
+}
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+#sidebar {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    height: 100vh;
+    z-index: 999;
+    background: whitesmoke;
+    color: black;
+    overflow-y: scroll;
+    transition: all 0.3s;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#dismiss {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    position: absolute;
+    color: gainsboro;
+    top: 10px;
+    z-index: 2;
+    right: 10px;
+    cursor: pointer;
+    display: block;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+#dismiss:hover {
+    color: #000;
+}
+
+.overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    display: none;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: whitesmoke;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #000;
+}
+
+#sidebar ul p {
+    color: #ababab;
+    padding: 10px;
+}
+
+#sidebar ul li {
+    display: block;
+    width: 100%;
+    padding: 7px 0 7px 20px;
+    text-align: left;
+}
+#sidebar ul {
+    width: 100%;
+    margin: 0;
+}
+#sidebar ul li a{
+    padding: 5px;;
+    font-size: 1.1em;
+    display: block;
+    color: #2b2b2b;
+}
+#sidebar ul li a:hover {
+    background: none;
+}
+/*Nagivation Ori*/
+
+
+#main-nav .navbar {
+	margin:0 auto;
+    text-align: center;
+    min-height: 40px;
+    margin-bottom: 0;
+    background: #000;
+    border-radius: 0!important;
+
+}
+
+#bagimg {
+    margin-top: 20px;
+}
+#main-nav #bag{
+	padding: 0;
+}
+
+#catering .navbar-brand  {
+    padding-top: 10px !important;
+}
+#main-nav .navbar-brand  {
+	color: white;
+    font-family: 'Josefin Sans';
+    display: inline-block;
+    float: none;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 17px;
+}
+#main-nav .navbar-brand p {
+	font-size: 11px;
+}
+
+
+#main-nav .navbar-toggle {
+	background-color: none;
+    display: inline-block;
+}
+
+#main-nav .navbar-toggle span {
+	background-color: white;
+}
+
+
+#main-nav ul{
+    padding: 14px 0;
+}
+
+/*
+#main-nav .navbar-left li a {
+	font-family: 'Josefin Sans';
+	font-size: 18px;
+	line-height: 30px;
+    padding: 0;
+    letter-spacing: 1px;
+    display: block;
+	color: #2b2b2b;
+    background: white;
+    text-align: left;
+    font-weight: 400px;
+    background: none;
+}
+*/
+#main-nav .navbar-left li p {
+	margin: 0;
+}
+#main-nav .navbar-left li span {
+	color: #000;
+    padding: 0 5px;
+    
+}
+
+
+
+
+/*slides*/
+.banner{
+    margin: 0 auto;
+    
+    color: #141316;
+    text-align: center;
+    float: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.banner p {
+
+    font-family: 'Josefin Sans';
+    padding: 15px;
+    font-size: 12px;
+    background-color:rgba(255, 255, 255, .6);
+    width: 70%;
+    margin: 0 auto;
+}
+.banner .containerx{
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+/*  background: rgba(255,255,255,.2);*/
+}
+
+.banner .containerx a{
+    width: 160px;
+    margin: 0 auto;
+    color: white;
+    
+}
+
+
+
+
+.MultiCarousel h1{ 
+    font-weight: bold; 
+}
+.MultiCarousel { 
+    float: left; 
+    overflow: hidden; 
+    width: 100%; 
+    position:relative; 
+}
+.MultiCarousel .MultiCarousel-inner { 
+    transition: 1s ease all; 
+    float: left; 
+}
+.MultiCarousel .MultiCarousel-inner .item { 
+    float: left;
+    padding: 0 !important;
+}
+.MultiCarousel .MultiCarousel-inner .item > div { 
+   padding: 5px;
+    margin: 0;
+    background:#f1f1f1; 
+    color:#666;
+}
+.MultiCarousel .leftLst, .MultiCarousel .rightLst {
+    position:absolute;
+    width: 40px;
+    height: 40px;
+    top:calc(50% - 20px);
+    border-radius: 100%;
+}
+.MultiCarousel .leftLst { 
+    left:0;
+}
+.MultiCarousel .rightLst {
+    right:0;
+}
+    
+.MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { 
+    pointer-events: none; background:#ccc; 
+}
+#indicat{
+    bottom: 0px;
+    z-index: 1;
+}
+#indicat li{
+    border: none;
+    background-color: white;
+    width: 8px;
+    height: 8px;
+}
+#indicat .active{
+    background-color: #000;
+    width: 10px;
+    height: 10px;
+    
+}
+.title{
+    padding: 10px 8px;
+    background: #eeeeee;
+}
+.title a{
+    font-family: 'Josefin Sans';
+    font-size: 16pt;
+    color: black;
+    display: inline-block;
+    text-decoration: none;
+}
+.title a:hover{
+    text-decoration: none;
+    color: black;
+}
+.title #rateYo{
+    display: block;
+}
+.title #rateYo i{
+    color: #cee21c;
+    padding-right: 3px;
+}
+#history #rateYo{
+    display: inline-block;
+    float: right;
+}
+
+#history #rateYo i{
+    color: #cee21c;
+    padding-right: 3px;
+}
+
+#content .title #rateYo{
+    display: inline-block;
+    float: right;
+    padding-top: 4px;
+}
+
+#content{
+    margin-bottom: 20px;
+}
+/*button*/
+.btn {
+  position: relative;
+
+  display: block;
+  margin: 0 auto;
+  
+  padding: 10px;
+
+  overflow: hidden;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 0 ;
+  
+  
+  background-color: #000;
+  color: #ecf0f1;
+  
+}
+
+.btn:hover, .btn:focus {
+  background-color: #000;
+    color: white !important;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .6);
+
+
+}
+.btn:hover span, .btn:focus span{
+    color: white;
+
+
+}
+
+.btn > * {
+  position: relative;
+}
+
+.btn span {
+  display: block;
+}
+
+.btn:before {
+  content: "";
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  display: block;
+  width: 0;
+  padding-top: 0;
+    
+  border-radius: 100%;
+  
+  background-color: rgba(236, 240, 241, .3);
+  
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+  
+  transition: .2s ease-in, .2s ease-out;
+}
+a{
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+}
+#tombol{
+    width: 100%;
+    padding: 10px;
+    height: 40px;
+    vertical-align: middle;
+    color: white;
+    font-size: 11pt;
+    margin: 0 auto;
+    border-radius: 0;
+    text-align: center;
+    background-color: #000;
+}
+/*rte*/
+#rte #sort select{
+    width: 100%;
+    height: 30px;
+    background: none;
+    border: 0;
+}
+#rte #sort select:focus{
+    box-shadow: none;
+    border: none;
+}
+#rte #sort{
+    background-color: gainsboro;
+    
+}
+#item{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#item select{
+    background-color: gainsboro;
+    border-radius: 0 !important;
+    width: 100%;
+}
+#detail select{
+    width: 49%;
+    display: inline-block;
+    margin-bottom: 20px;
+    border: 0
+}
+#detail .title{
+    padding: 15px;
+    background: none;
+}
+#detail .title p{
+    margin-bottom: 0;
+}
+#detail #item{
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+/*tab*/
+#detail .card{
+    margin-top: 20px;
+}
+#detail .card .tab-content{
+    height: 200px;
+}
+.card{
+    margin-top: 0;
+}
+.card .nav-tabs { 
+    border-bottom: 1px solid #DDD; 
+    margin: 0;
+}
+.card > .nav-tabs > li.active > a, .card .nav-tabs > li.active > a:focus, .card .nav-tabs > li.active > a:hover { 
+    border-width: 0; 
+}
+.card > .nav-tabs > li > a {
+    border: none; 
+    color: #666; 
+}
+.card > .nav-tabs > li.active > a, .card .nav-tabs > li > a:hover { 
+    border: none; 
+    color: #000 !important; 
+    background: transparent; 
+}
+.card > .nav-tabs > li > a::after {
+    content: ""; 
+    background: #000; 
+    height: 3px;
+    position: absolute; 
+    width: 100%;
+    left: 0px; 
+    bottom: -3px;
+    transition: all 250ms ease 0s; 
+    transform: scale(0); 
+}
+.card > .nav-tabs > li.active > a::after, .card .nav-tabs > li:hover > a::after { 
+    transform: scale(1);
+}
+.card > .tab-nav > li > a::after { 
+    background: #000 none repeat scroll 0% 0%;
+    color: #fff; 
+}
+.card > .tab-pane {
+    padding: 15px 0; 
+}
+.card > .tab-content{
+    padding:20px;
+}
+.card > ul > li{
+    float: left;
+    display: inline-block;
+    width: 33.3%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid gainsboro;
+}
+#howto .card > ul > li, #history .card > ul > li{
+    width: 50%;
+}
+#htd{
+    margin-bottom: 20px;
+}
+#htd img{
+    margin: 0 auto;
+    display: block;
+    width: 50%;
+}
+#cek p{
+    color: gray;
+    padding-top: 20px;
+}
+#cek a{
+    width: 100%;
+}
+#cek table tr th{
+    border: none;
+    color: gray;
+    font-weight: normal;
+    padding-bottom: 0;
+}
+#cek table tr td{
+    border: none;
+}
+#cek input:focus{
+    border: 1px solid #000;
+}
+#back{
+    background: none;
+    float: left;
+    position: relative;
+    border: none;
+    color: white;
+    padding: 15px 15px 0 15px;
+    outline: none;
+}
+#add{
+    background: none;
+    position: relative;
+    border: none;
+    color: white;
+    float: right;
+    padding: 15px 15px 0 15px;
+    outline: none;
+}
+#tips{
+    margin: 20px 0;
+}
+#tips p{
+    text-align: justify;
+    text-indent: 20px;
+}
+.required::after{
+    content: "*";
+    color: #000;
+}
+#contact{
+    margin-bottom: 20px;
+}
+#contact form{
+    margin-top: 20px;
+}
+#contact a{
+    width: 100%;
+}
+#contact label{
+    font-weight: normal;
+}
+#contact teaxtarea{
+    resize: none;
+}
+#contact input:focus, #contact textarea:focus, #contact select:focus{
+    border: 1px solid #000;
+}
+#contact table tr span{
+    color: #000
+}
+#contact table tr td{
+    border: none;
+    font-weight: bold;
+}
+#contact table tr th{
+    border: none;
+    font-weight: normal;
+    padding-right: 15px;
+}
+#profil #avatar {
+    padding: 20px;
+    text-align: center;
+    
+}
+#profil #avatar img {
+    
+    margin: 0 auto;
+}
+#profil #avatar .box{
+    background: white;
+    color: black;
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+#info{
+    margin-top: 20px;
+}
+#info #list a{
+    border: none;
+    border-radius: 0
+}
+#info #list a:hover, #info #list a:active, {
+    background: none;
+    color: #000;
+}
+#info #list a span{
     float: right;
     padding-right: 10px;
     color: grey;
 }
-#kat .caption .judul{
-    margin-top: 0;
+#info hr{
+    margin: 0 auto;
 }
-#kat .caption p{
-    margin: 0;
+/*check*/
+
+
+.styled-checkbox {
+  position: absolute;
+  opacity: 0;
 }
-#kat .caption a{
-    text-decoration: none;
-    color: black;
-    font-size: 9pt;
+.styled-checkbox + label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+.styled-checkbox + label:before {
+  content: '';
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+    margin-top: -2px;
+}
+.styled-checkbox:hover + label:before {
+  background: #000;
+  border: 1px solid #000;
+}
+.styled-checkbox:checked + label:before {
+  background: #000;
+  border: 1px solid #000;
+}
+.styled-checkbox:checked + label:after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  background: white;
+  width: 3px;
+  height: 3px;
+  box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+#alamat #list a{
+    border-radius: 0;
+}
+#contact form button{
+    width: 100%;
+}
+#contact h4{
+    margin-top: 20px;
+}
+#history table tr th{
+    text-align: center;
+}
+/*rating*/
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+    color: #000;
+}
+#login{
+    margin-top: 20px;
+}
+#login label{
+    font-weight: normal;
+}
+#login a{
     display: block;
+    text-align: center;
+    padding-top: 10px;
+    color: #000;
+    text-decoration: none;
 }
-.list-group-item{
-    border-radius: 0 !important;
+#login button{
+    text-align: center;
+    width: 100%;
 }
-#kat .detail h4{
-    padding-top: 5px;
+#social{
+    margin-top: 20px;
 }
-/*End Edited*/
-
-
-hr{
-    margin: 15px 0 !important;
+#social .facebook{
+    width: 100%;
+    background-color: #3C5A9A;
 }
-#indicat{
-    bottom: -12px;
+#social .gmail{
+    width: 100%;
+    background-color: #C53626;
 }
-#indicat li{
+#social button span{
+    font-size: 16px;
+    text-align: center;
+}
+#login input:focus{
     border: 1px solid #000;
 }
-#indicat .active{
-    background-color: #000;
+#login hr{
+    margin-bottom: 0;
 }
-#hitung a{
-    display: block;
-    background-color: black;
-    color: white;
+#login p{
     text-align: center;
-    border-radius: 5px;
-    padding: 8px;
-    text-decoration: none;
 }
-
-.tombol{
-    display: block;
-    background-color: black;
-    color: white;
+#login p a{
+    color: #000;
+    display: inline-block;
+}
+#checkout #step ul li{
+    display: inline-block;
+    margin: 0 auto;
     text-align: center;
-    border-radius: 5px;
-    padding: 8px 20px;
+    width: 32%
+}
+#checkout #step ul li.disabled a{
+    color: #ccc;
+}
+#checkout #step ul .active a{
+    color: #000;
+    
+}
+#checkout #step ul li a{
+    color: #000;
     text-decoration: none;
-    border: none !important;
+    
 }
-
-#hitung table tr td{
-    padding: 5px;
+#checkout ul li a h4 span{
+    text-align: right;
+    float: right;
 }
-
-#hitung table tr td .tombol{
-    width: 100%;
-}
-#hitung table tr .input-group{
-    width: 100%;
-}
-#hitung table tr th{
-    font-size: 10pt;
+#checkout #step ul li a h4{
     font-weight: normal;
-    padding: 5px;
+    font-size: 15px;
+    margin: 10px 0;
 }
-#result tr td{
-    padding: 5px;
-}
-table{
-    width: 100%;
-}
-
-.batas{
-    width: 100%;
-    height: 5px;
-    background-color: #000;
-    margin: 0 0 10px 0;
-}
-
-.strong{
-    font-weight: bold;
+#checkout ul{
     padding: 0;
-    margin: 0;
-    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+#checkout #step{
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .2);
+    margin-bottom: 10px;
+}
+#checkout #ringkasan li{
+    display: block;
+    width: 100%;
+    border-radius: 0;
+}
+#checkout #ringkasan .detail{
+    padding-right: 0;
+    
+}
+#checkout #ringkasan .detail h4 button{
+    float: right;
+    background: none;
+    border: none;
+}
+#checkout #ringkasan .detail p{
+    text-align: left;
+    display: inline-block;
+    margin-top: 30px;
+    font-size: 16px;
+}
+#checkout #qty, #qty2{
+    margin-top: 20px;
+    width: 100px;
+    float: right;
+}
+#checkout #bill tr th, #checkout #bill tr td{
+    border: none;
+}
+#checkout #bill #total th, #checkout #bill #total td{
+    border-bottom: 1px  solid grey;
+    border-top: 1px  solid grey;
+}
+#checkout .next{
+    width: 100%;
+}
+#checkout #box {
+    padding: 15px;
+    background-color: gainsboro;
+}
+#checkout #box{
+    padding: 15px;
+    background-color: gainsboro;
+}
+#checkout #date1 #box select:focus{
+    border: 1px solid #000;
+}
+#checkout #step-3 .card ul li{
+    width: 25%;
+}
+/*tag*/
+#checkout .tab-content .tag, .tag{
+    width: 70px;
+    height: 45px;
+    margin: 1px 2px;
+    display: inline-block;
+    background-image: url(../img/bank2.png);
+}
+.master-card{
+    background-position: -83px 0px;
+}
+.visa{
+    background-position: -3px 0px;
 }
 
-#download{ margin: 10px 0 20px 0;}
+.cod{
+    background-position: -1115px 0px;
+}
+.cc{
+    background-position: -1182px 0px;
+}
+.dc{
+    background-position: -1255px 0px;
+}
+.tf{
+    background-position: -1320px 0px;
+}
+#checkout .card ul li a{
+    padding: 5px;
+}
+#checkout #pay{
+    margin-top: 20px;
+}
+#checkout #note{
+    font-size: 12px;
+}
+#checkout #finish{
+    width: 100%;
+    margin-top: 20px;
+}
+#checkout #pay #tab2 ul li{
+    list-style-type: circle;
+    margin-left: 20px;
+}
+
+/*Material Form css*/
+#material  {
+	font-family: 'Josefin sans', sans-serif;
+	padding-top: 8%;
+}
+#material .group {
+	position: relative; 
+	margin-bottom: 10%;
+	padding-bottom: 2%;
+}
+#material textarea {
+  resize: none;
+  height:10%;
+	width: 100%;
+}
+#material input, #material textarea {
+	font-size: 18px;
+	padding: 10px 10px 10px 5px;
+	-webkit-appearance: none;
+	display: block;
+	color: #636363;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid grey;
+	width: 100%;
+}
+
+#material input:focus, #material textarea:focus { outline: none; border: none; }
+
+
+/* Label */
+
+#material label {
+	color: #999; 
+	font-size: 14px;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 10px;
+	transition: all 0.2s ease;
+}
+
+
+/* active */
+
+#material input:focus ~ label, #material input.used ~ label, #material textarea:focus ~ label {
+	top: -20px;
+  transform: scale(.75); left: -2px;
+	color: #4a89dc;
+}
+#material textarea:focus ~ label, #material textarea.used ~ label, #material textarea:focus ~ label {
+	top: -20px;
+  transform: scale(.75); left: -2px;
+	color: #4a89dc;
+}
+
+/* Underline */
+
+.bar {
+	position: relative;
+	display: block;
+	width: 100%;
+}
+.bar:before, .bar:after {
+	content: '';
+	height: 2px; 
+	width: 0;
+	bottom: 10px; 
+	position: absolute;
+	background: black; 
+	transition: all 0.2s ease;
+}
+
+.bar:before { left: 50%; }
+
+.bar:after { right: 50%; }
+#barname:before, #barname:after {
+	bottom: 5%;
+}
+#barmail:before, #barmail:after {
+	bottom: 0;
+}
+#barsub:before, #barsub:after {
+	bottom: 5%;
+}
+#barmsg:before, #barmsg:after {
+	bottom: 0;
+}
+/* active */
+
+#material input:focus ~ .bar:before, #material input:focus ~ .bar:after, #material textarea:focus ~ .bar:before, #material textarea:focus ~ .bar:after  { width: 50%; }
+
+
+/* Highlight */
+
+.highlight {
+	position: absolute;
+	height: 60%; 
+	top: 35%; 
+	left: 0;
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+
+/* active */
+
+input:focus ~ .highlight, textarea:focus ~ .highlight {
+	animation: inputHighlighter 0.3s ease;
+}
+
+
+/* Animations */
+
+@keyframes inputHighlighter {
+	from { background: black; }
+	to 	{ width: 0; background: transparent; }
+}
+
+
+/* Ripples container */
+
+.ripples {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+
+/* Ripples circle */
+
+.ripplesCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.ripples.is-active .ripplesCircle {
+  animation: ripples .4s ease-in;
+}
+
+
+/* Ripples animation */
+
+@keyframes ripples {
+  0% { opacity: 0; }
+
+  25% { opacity: 1; }
+
+  100% {
+    width: 200%;
+    padding-bottom: 200%;
+    opacity: 0;
+  }
+}
+
+.check {
+    margin-bottom: 18% !important;
+}
+.check label {
+    font-size: 25px;
+}
+
+.group select, .group select:focus, .myOwnForm {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    width: 100%;
+    border-left: none !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid grey;
+}
+.addBorder {
+    border-bottom: 2px solid #000;
+}
+/*/Material Form css*/
+h3.balance {
+    background-color: #e8af00;
+    color: white;
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.ff2 {
+    font-weight: bold !important;
+    font-family: 'Josefin sans', sans-serif;
+}
+a.terms{
+    font-size: 10px !important;
+    color: #3C5A9A;
+    text-align: center !important;
+    display: block;
+    margin: 0 auto;
+}
+/* Material Dropdown */
+

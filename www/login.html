@@ -1,178 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-   <meta charset="utf-8" />
-   <meta name="format-detection" content="telephone=no" />
-   <meta name="msapplication-tap-highlight" content="no" />
-   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-   <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-   <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-
-    <title>Login</title>
-    <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style_login.css">
-    <link rel="stylesheet" href="js/sweetalert/sweetalert.css">
-<!--    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
     
-    <!-- JS -->
-    <script src="js/jquery-1.11.2.min.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <!--Add to homescreen And color theme-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-title" content="JKitchen">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <!-- Theme color for chrome, firefox and opera-->
+    <meta name="theme-color" content="#27a542">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#27a542">
+
+    <title>Wamenak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/sweetalert/sweetalert.min.js"></script>
-    <script src="js/routing.js"></script>
-    
-    <!-- JS -->
-    
-<!--    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">-->
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
     <script type="text/javascript">
-    
-    $(document).ready(function (e) {
-    
-    var api = "http://calculator.dswip.com/";    
-        // ajax loading
+         $(document).ready(function () {
+             $("#sidebar").niceScroll({
+                 cursorcolor: '#000',
+                 cursorwidth: 4,
+                 cursorborder: 'none'
+             });
 
-	$(document).ajaxStart(function(){
-        $(".loader").css("display", "block");
-    });
-    $(document).ajaxComplete(function(){
-        $(".loader").css("display", "none");
-    });
-	
-            
-    $('#ajaxform').submit(function() {
-        
-        var user = $("#user").val();
-        var pass = $("#password").val();
-        
-        var nilai = '{ "username":"'+user+'", "password":"'+pass+'", "mobile":"1" }';
-        
-		$.ajax({
-			type: 'POST',
-			url: api+'agent/login',
-			data:  nilai,
-            contentType: "application/json",
-            dataType: 'json',
-			success: function(data) {
-				
-				if (data.status == true)
-				{   
-                    localStorage.setItem("username", data.user);
-                    localStorage.setItem("userid", data.userid);
-                    localStorage.setItem("group", data.group);
-                    localStorage.setItem("log", data.log);
-                    window.location = "index.html";
-				}
-				else{ swal(data.error, "", "error"); }
-			},
-			error: function(e) 
-	    	{
-				$("#error").html(e).fadeIn();
-				console.log(e.responseText);	
-	    	} 
-		})
-		return false;
-        
-	});
+             $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').fadeOut();
+             });
 
-
-// document ready end	
-});
-        
-    </script>
+             $('#sidebarCollapse').on('click', function () {
+                 $('#sidebar').addClass('active');
+                 $('.overlay').fadeIn();
+                 $('.collapse.in').toggleClass('in');
+                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+             });
+         });
+     </script>
     
-    <style type="text/css">
-    
-        /*loader */
-        .loader {
-          border: 16px solid #f5f5f5;
-          border-radius: 50%;
-          border-top: 16px solid #000;
-          width: 80px;
-          height: 80px;
-          -webkit-animation: spin 2s linear infinite;
-          animation: spin 2s linear infinite;
-          margin-left: auto;
-          margin-right: auto;
-          display: none;
-          z-index: 10;
-          position: absolute;
-          top: 45%;
-          left: 38%;
-        }
-
-        @-webkit-keyframes spin {
-          0% { -webkit-transform: rotate(0deg); }
-          100% { -webkit-transform: rotate(360deg); }
-        }
-
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-    
-    </style>
-    
+  
 </head>
-<body id="index">
-    <div class="container-fluid">
+<body>
      
-    <!-- loader class -->
-    <div class="loader"></div>
-    <!-- loader class -->    
      
-      <!--main content-->
-      
-       <div class="row main">
-        <div class="col-sm-6 logo">
-          <img class="gambar" src="img/delica.png" alt="">
-            <h1>Member Area</h1>
-            <div class="gambar1">
-                <img src="img/gpeople.png" alt="">
+     <div class="overlay"></div>
+         <nav id="sidebar">
+            <div id="main-nav">
+                <div id="dismiss">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                
+                
+                    <ul class="nav navbar-nav navbar-left" style="background-color: whitesmoke;">
+                        <li><h3>Hello, <span>Harvine</span></h3></li>
+                        <li><img width="30px" src="img/Shopping-bag-black.png" alt=""> <span>0</span> <img width="30px" src="img/45271-200.png" alt=""> <span>0</span></li>
+                    </ul>
+                
+
+                
+                <ul class="nav navbar-nav navbar-left" style="background-color: gainsboro;">
+                    <li><a href="index.html">Catering</a></li>
+                    <li><a href="ready-to-eat.html">Ready To Eat</a></li>
+                    <li><a href="snack.html">Snack Box</a></li>
+                    <li><a href="cara-pesan.html">Cara Pesan</a></li>
+                    <li><a href="track.html">Cek Pesanan</a></li>
+                    <li><a href="profil.html">Akun Saya</a></li>
+                    <li><a href="tips.html">Tips</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="contact.html">Hubungi Kami</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-left" style="background-color: whitesmoke;">
+                    <li><p>Copyright &copy; 2017 JKitchen.</p></li>
+                </ul>
+          </div>
+        </nav>
+     
+      <header>
+
+          <div id="main-nav">
+          
+			<nav class="navbar">
+               <div class="container">
+                        <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse"  id="sidebarCollapse">
+                            <span class="sr-only">Toggle</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand text-center">
+                            <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin-top:-12%;">
+                        </div>
+                        <button type="button" class="navbar-toggle" id="bag" onclick="location='checkout.html'">
+                            <img width="30px" src="img/Shopping-bag-inv.png" alt="" style="margin-top:5px;">
+                        </button>
+				    </div>
+              </nav>
+
+		</div>
+      </header>
+       
+    
+    
+     <div class="container-fluid" id="login">
+         <h3 class="text-center">Login</h3>
+         <form action="" id="material">
+            <div class="group">
+                <input type="text"><span class="highlight"></span><span id="barname" class="bar"></span>
+                <label>Username</label>
             </div>
-        </div>
-        
-        <!--form login-->
-        
-        <div class="col-sm-6">
-           <div class="box">
-               <p class="tittle">Member Login</p>
-                 <form id="ajaxform" method="post">
-                    <div class="form-group user">
-                        <label for="email"></label>
-                        <input name="tuser" type="email" class="form-control" id="user" placeholder="Email" required>
-                    </div>
-                    <div class="form-group pass">
-                        <label for="password"></label>
-                        <input name="tpass" type="password" class="form-control" id="password" placeholder="Password" required> 
-                    </div>
-                    <div class="form-goup check">
-                    </div>
-                    <div class="footer">
-                    <button class="btn btn-default login" type="submit">Log In</button>
-                    <p class="forgot">Forgot password? <a href="forgot.html" style="color: white;">
-                        <b> Click Here </b></a>
-                    </p>
-                    </div>
-                </form>
+            <div class="group">
+                <input type="password"><span class="highlight"></span><span id="barmail" class="bar"></span>
+                <label>Password</label>
             </div>
+            <button formaction="index.html" type="submit" class="btn">Masuk</button>
+            <a href="forgot.html">Lupa Password?</a>
+        </form>
+        <script>
+            $(window, document, undefined).ready(function() {
+    
+              $('input').blur(function() {
+                var $this = $(this);
+                if ($this.val())
+                  $this.addClass('used');
+                else
+                  $this.removeClass('used');
+              });
+    
+              var $ripples = $('.ripples');
+    
+              $ripples.on('click.Ripples', function(e) {
+    
+                var $this = $(this);
+                var $offset = $this.parent().offset();
+                var $circle = $this.find('.ripplesCircle');
+    
+                var x = e.pageX - $offset.left;
+                var y = e.pageY - $offset.top;
+    
+                $circle.css({
+                  top: y + 'px',
+                  left: x + 'px'
+                });
+    
+                $this.addClass('is-active');
+    
+              });
+              $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
+                $(this).removeClass('is-active');
+              });
+    
+            });
+            </script>
+           <script>
+            $(window, document, undefined).ready(function() {
+    
+              $('textarea').blur(function() {
+                var $this = $(this);
+                if ($this.val())
+                  $this.addClass('used');
+                else
+                  $this.removeClass('used');
+              });
+    
+              var $ripples = $('.ripples');
+    
+              $ripples.on('click.Ripples', function(e) {
+    
+                var $this = $(this);
+                var $offset = $this.parent().offset();
+                var $circle = $this.find('.ripplesCircle');
+    
+                var x = e.pageX - $offset.left;
+                var y = e.pageY - $offset.top;
+    
+                $circle.css({
+                  top: y + 'px',
+                  left: x + 'px'
+                });
+    
+                $this.addClass('is-active');
+    
+              });
+    
+              $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
+                $(this).removeClass('is-active');
+              });
+    
+            });
+            </script>
+    
+
+
+        <p>Belum punya akun? <a href="signup.html" style="color:#8597bf;">Daftar Sekarang</a></p>
+        <hr>
+        <div class="row" id="social">
+            <div class="col-xs-6">
+                <button type="button" class="btn facebook" onclick="">
+                    <span><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</span>
+                </button>
+            </div>
+            <div class="col-xs-6">
+                <button type="button" class="btn gmail" onclick="">
+                    <span><i class="fa fa-google-plus" aria-hidden="true"></i> Google+</span>
+                </button>
+            </div>
+            
         </div>
-        <!--end form login-->
-        
-        </div>
-        <!--end main content-->
         
     </div>
-
-    <!-- important file cordova -->
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize(); // method penting untuk initilize
-    </script>
-    <!-- important file cordova -->
+        
+      
+    
+    
 </body>
 </html>
