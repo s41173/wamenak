@@ -40,7 +40,6 @@
     $(document).ajaxComplete(function(){
         $(".loader").css("display", "none");
     });
-	
             
     $('#btnotp').click(function() {
         
@@ -66,6 +65,8 @@
                     $("#btnlogin").show();
                     
                     $("#gotp").css("display", "block");
+                    $("#user").prop( "disabled", true );
+                    intervals();
 				}
 				else{ swal(data.error, "", "error"); }
 			},
@@ -97,6 +98,61 @@
 
         }else{ swal('OTP Code Required', "", "error"); }
 	});
+             
+    $('#resendlink').click(function() {
+        
+        var nilai = '{ "customer":"'+$("#huserid").val()+'" }';
+        
+		$.ajax({
+			type: 'POST',
+			url: api+'api/otp',
+			data:  nilai,
+            contentType: "application/json",
+            dataType: 'json',
+			success: function(data) {
+				
+				if (data.status == true)
+				{   
+                    $("#hotp").val(data.code);
+                    intervals();
+				}
+				else{ swal(data.error, "", "error"); }
+			},
+			error: function(e) 
+	    	{
+				$("#error").html(e).fadeIn();
+				console.log(e.responseText);	
+	    	} 
+		})
+		return false;
+        
+	});
+             
+    function intervals(){
+        
+        $("#resend").css("display", "block");
+        $("#resendlink").css("display", "none");
+        
+        var duration = 60 * 1;
+        var timers = duration, minutes, seconds;
+        var myVar = setInterval(function () {
+            minutes = parseInt(timers / 60, 10)
+            seconds = parseInt(timers % 60, 10);
+    
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+    
+            // display.textContent = minutes + ":" + seconds;
+            $("#resend").html("Resend Code in 00:"+seconds);
+    
+            if (--timers < 0) {
+                timers = duration;
+            }
+
+        }, 1000);
+
+        setTimeout(function(){ clearInterval(myVar); $("#resend").css("display", "none"); $("#resendlink").css("display", "block");  }, 60000);
+    }
                    
     }); // end document ready
      </script>   
@@ -130,25 +186,36 @@
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
         }
+        
+        #resend{
+            text-align: center;
+            font-size: 9pt;
+            display: none;
+        }
+        
+        #resendlink{
+            text-align: center;
+            font-size: 10pt;
+            font-weight: bold;
+            color: #ff6f00 !important;
+            display: none;
+        }
     
     </style>
         
   
 </head>
-<body id="login">
+<body id="index">
      
       <header>
-
           <div id="main-nav">
-          
 			<nav class="navbar">
                <div class="container">
-                        <div class="navbar-brand text-center">
-                            <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin-top:-12%;">
-                        </div>
-				    </div>
-              </nav>
-
+                    <div class="navbar-brand text-center">
+                        <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin-top:-12%;">
+                    </div>
+               </div>
+            </nav>
 		</div>
       </header>
        
@@ -160,7 +227,7 @@
     <!-- loader class -->  
         
          <h3 class="text-center">Login</h3>
-         <form action="" id="material" class="ajaxform">
+         <form action="" id="material" class="ajaxform" style="margin: 0 0 10px 0; ">
            
             <div id="guser" class="group">
 <input type="number" id="user" required><span class="highlight"></span><span id="barname" class="bar"></span>
@@ -216,8 +283,11 @@
     
             });
             </script>
-
-
+       
+        <center>
+        <span id="resend"> </span>
+        <a id="resendlink" style="display:none;">Resend</a>
+         </center> 
         <p>Belum punya akun? <a href="signup.html" style="color:#8597bf;">Daftar Sekarang</a></p>
         <hr>
         
