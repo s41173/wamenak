@@ -8,12 +8,12 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-title" content="JKitchen">
+    <meta name="apple-mobile-web-app-title" content="Wamenak">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
     <!-- Theme color for chrome, firefox and opera-->
     <meta name="theme-color" content="#000">
     <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#27a542">
+    <meta name="msapplication-navbutton-color" content="#000">
 
     <title>Wamenak</title>
     <link rel="stylesheet" href="css/style.css">
@@ -29,6 +29,7 @@
     <script src="js/myJS.js"></script>
     
     <script src="js/acl.js"></script>
+    <script src="js/routing.js"></script>
 <!--    <script src="js/home.js"></script>-->
     
     <script>
@@ -79,7 +80,7 @@
      </script>
 
 </head>
-<body onload="otentikasi();">
+<body id="index" onload="otentikasi();">
      <div class="overlay"></div>
          <nav id="sidebar">
             <div id="main-nav">
@@ -102,6 +103,7 @@
                     <li><a href="tips.html">Tips</a></li>
                     <li><a href="about.html">Tentang Kami</a></li>
                     <li><a href="contact.html">Hubungi Kami</a></li>
+                    <li><a href="#" onclick="logout();">Logout</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-left" style="background-color: whitesmoke;">
                     <li><p>Copyright &copy; 2018 Wamenak.</p></li>

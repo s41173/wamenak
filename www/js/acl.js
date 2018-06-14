@@ -5,6 +5,7 @@ function otentikasi(){
     
     $(document).ready(function(e){  
 
+        var bodyId = document.body.id;   
         var nilai = '{ "userid":"'+localStorage.userid+'", "log":"'+localStorage.log+'", "mobile":"1" }';
         $.ajax({
             type: 'POST',
@@ -14,8 +15,11 @@ function otentikasi(){
             dataType: 'json',
             success: function(data)
             {   
-//               if (data.status == false){ logout(); }
-//               else if (data.status == true){ /*category(7);*/ alert("Welcome Home");  }
+              if (data.status == false){ logout(); }
+              else if (data.status == true){ 
+                  /*category(7);*/
+                  alert('Welcome To Home');
+              }
             },
             error: function (request, status, error) {
                 console.log('Request Failed...!'+error);

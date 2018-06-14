@@ -8,12 +8,12 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-title" content="JKitchen">
-    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="apple-mobile-web-app-title" content="Wamenak">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- Theme color for chrome, firefox and opera-->
-    <meta name="theme-color" content="#27a542">
+    <meta name="theme-color" content="#000">
     <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#27a542">
+    <meta name="msapplication-navbutton-color" content="#000">
 
     <title>Wamenak</title>
     <link rel="stylesheet" href="css/style.css">
@@ -21,67 +21,121 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="js/sweetalert/sweetalert.css">
+    
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
-    <script type="text/javascript">
-         $(document).ready(function () {
-             $("#sidebar").niceScroll({
-                 cursorcolor: '#000',
-                 cursorwidth: 4,
-                 cursorborder: 'none'
-             });
-
-             $('#dismiss, .overlay').on('click', function () {
-                $('#sidebar').removeClass('active');
-                $('.overlay').fadeOut();
-             });
-
-             $('#sidebarCollapse').on('click', function () {
-                 $('#sidebar').addClass('active');
-                 $('.overlay').fadeIn();
-                 $('.collapse.in').toggleClass('in');
-                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-             });
-         });
-     </script>
+    <script src="js/sweetalert/sweetalert.min.js"></script>
     
+    <script type="text/javascript">
+         $(document).ready(function (e) {
+             
+    var api = "http://administrator.wamenak.com/";  
+    $("#btnlogin").hide();
+        // ajax loading
+
+	$(document).ajaxStart(function(){
+        $(".loader").css("display", "block");
+    });
+    $(document).ajaxComplete(function(){
+        $(".loader").css("display", "none");
+    });
+	
+            
+    $('#btnotp').click(function() {
+        
+        var user = $("#user").val();
+        if (user){
+
+        var nilai = '{ "username":"'+user+'" }';
+		$.ajax({
+			type: 'POST',
+			url: api+'customer/login',
+			data:  nilai,
+            contentType: "application/json",
+            dataType: 'json',
+			success: function(data) {
+				
+				if (data.status == true)
+				{   
+                    $("#husername").val(data.user);
+                    $("#huserid").val(data.userid);
+                    $("#hotp").val(data.log);
+                    
+                    $("#btnotp").hide();
+                    $("#btnlogin").show();
+                    
+                    $("#gotp").css("display", "block");
+				}
+				else{ swal(data.error, "", "error"); }
+			},
+			error: function(e) 
+	    	{
+				$("#error").html(e).fadeIn();
+				console.log(e.responseText);	
+	    	} 
+		})
+		return false;
+
+        }else{ swal('Mobile No Required', "", "error"); }
+    });
+    
+    $('#btnlogin').click(function() {
+        
+        var otp = $("#otptext").val();
+        var hotp = $("#hotp").val();
+        if (otp){
+
+            if (otp == hotp){
+                
+                localStorage.setItem("username", $("#husername").val());
+                localStorage.setItem("userid", $("#huserid").val());
+                localStorage.setItem("log", hotp);
+                window.location = "index.html";
+
+            }else{ swal('Invalid OTP Code', "", "error"); }
+
+        }else{ swal('OTP Code Required', "", "error"); }
+	});
+                   
+    }); // end document ready
+     </script>   
+     
+    <style type="text/css">
+    
+        /*loader */
+        .loader {
+          border: 16px solid #000;
+          border-radius: 50%;
+          border-top: 16px solid #EAB700;
+          width: 75px;
+          height: 75px;
+          -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+          margin-left: auto;
+          margin-right: auto;
+          display: none;
+          z-index: 10;
+          position: absolute;
+          top: 25%;
+          left: 38%;
+        }
+
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+    
+    </style>
+        
   
 </head>
-<body>
-     
-     
-     <div class="overlay"></div>
-         <nav id="sidebar">
-            <div id="main-nav">
-                <div id="dismiss">
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                </div>
-                
-                
-                    <ul class="nav navbar-nav navbar-left" style="background-color: whitesmoke;">
-                        <li><h3>Hello, <span>Harvine</span></h3></li>
-                        <li><img width="30px" src="img/Shopping-bag-black.png" alt=""> <span>0</span> <img width="30px" src="img/45271-200.png" alt=""> <span>0</span></li>
-                    </ul>
-                
-
-                
-                <ul class="nav navbar-nav navbar-left" style="background-color: gainsboro;">
-                    <li><a href="index.html">Catering</a></li>
-                    <li><a href="ready-to-eat.html">Ready To Eat</a></li>
-                    <li><a href="snack.html">Snack Box</a></li>
-                    <li><a href="cara-pesan.html">Cara Pesan</a></li>
-                    <li><a href="track.html">Cek Pesanan</a></li>
-                    <li><a href="profil.html">Akun Saya</a></li>
-                    <li><a href="tips.html">Tips</a></li>
-                    <li><a href="about.html">Tentang Kami</a></li>
-                    <li><a href="contact.html">Hubungi Kami</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-left" style="background-color: whitesmoke;">
-                    <li><p>Copyright &copy; 2017 JKitchen.</p></li>
-                </ul>
-          </div>
-        </nav>
+<body id="login">
      
       <header>
 
@@ -89,18 +143,9 @@
           
 			<nav class="navbar">
                <div class="container">
-                        <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse"  id="sidebarCollapse">
-                            <span class="sr-only">Toggle</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
                         <div class="navbar-brand text-center">
                             <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin-top:-12%;">
                         </div>
-                        <button type="button" class="navbar-toggle" id="bag" onclick="location='checkout.html'">
-                            <img width="30px" src="img/Shopping-bag-inv.png" alt="" style="margin-top:5px;">
-                        </button>
 				    </div>
               </nav>
 
@@ -108,21 +153,33 @@
       </header>
        
     
-    
      <div class="container-fluid" id="login">
+         
+    <!-- loader class -->
+    <div class="loader"></div>
+    <!-- loader class -->  
+        
          <h3 class="text-center">Login</h3>
-         <form action="" id="material">
-            <div class="group">
-                <input type="text"><span class="highlight"></span><span id="barname" class="bar"></span>
-                <label>Username</label>
+         <form action="" id="material" class="ajaxform">
+           
+            <div id="guser" class="group">
+<input type="number" id="user" required><span class="highlight"></span><span id="barname" class="bar"></span>
+            <label>No Handphone</label>
             </div>
-            <div class="group">
-                <input type="password"><span class="highlight"></span><span id="barmail" class="bar"></span>
-                <label>Password</label>
+            
+            <div id="gotp" class="group" style="display:none;">
+<input type="number" id="otptext"><span class="highlight"></span><span id="barmail" class="bar"></span>
+            <label> OTP Code </label>
             </div>
-            <button formaction="index.html" type="submit" class="btn">Masuk</button>
-            <a href="forgot.html">Lupa Password?</a>
+            
+            <input type="hidden" id="hotp">
+            <input type="hidden" id="husername">
+            <input type="hidden" id="huserid">
+            
+            <button type="button" id="btnotp" class="btn" value="otp"> GET OTP </button>
+            <button type="button" id="btnlogin" class="btn" value="otp"> Login </button>
         </form>
+        
         <script>
             $(window, document, undefined).ready(function() {
     
@@ -159,48 +216,12 @@
     
             });
             </script>
-           <script>
-            $(window, document, undefined).ready(function() {
-    
-              $('textarea').blur(function() {
-                var $this = $(this);
-                if ($this.val())
-                  $this.addClass('used');
-                else
-                  $this.removeClass('used');
-              });
-    
-              var $ripples = $('.ripples');
-    
-              $ripples.on('click.Ripples', function(e) {
-    
-                var $this = $(this);
-                var $offset = $this.parent().offset();
-                var $circle = $this.find('.ripplesCircle');
-    
-                var x = e.pageX - $offset.left;
-                var y = e.pageY - $offset.top;
-    
-                $circle.css({
-                  top: y + 'px',
-                  left: x + 'px'
-                });
-    
-                $this.addClass('is-active');
-    
-              });
-    
-              $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
-                $(this).removeClass('is-active');
-              });
-    
-            });
-            </script>
-    
 
 
         <p>Belum punya akun? <a href="signup.html" style="color:#8597bf;">Daftar Sekarang</a></p>
         <hr>
+        
+<!--
         <div class="row" id="social">
             <div class="col-xs-6">
                 <button type="button" class="btn facebook" onclick="">
@@ -214,10 +235,15 @@
             </div>
             
         </div>
+-->
         
     </div>
         
-      
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    app.initialize(); // method penting untuk initilize
+</script>    
     
     
 </body>
