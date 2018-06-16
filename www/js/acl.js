@@ -1,6 +1,5 @@
 var api = "http://administrator.wamenak.com/";  
 
-// setInterval(otentikasi, 3000);
 function otentikasi(){
     
     $(document).ready(function(e){  

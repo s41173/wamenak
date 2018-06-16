@@ -27,10 +27,12 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/sweetalert/sweetalert.min.js"></script>
     
+    <script src="js/acl.js"></script>
+    
     <script type="text/javascript">
          $(document).ready(function (e) {
              
-    var api = "http://administrator.wamenak.com/";  
+    // var api = "http://administrator.wamenak.com/";
     $("#btnlogin").hide();
         // ajax loading
 
@@ -121,7 +123,7 @@
 			error: function(e) 
 	    	{
 				$("#error").html(e).fadeIn();
-				console.log(e.responseText);	
+				console.log(e.responseText);
 	    	} 
 		})
 		return false;
@@ -203,7 +205,6 @@
     
     </style>
         
-  
 </head>
 <body id="index">
      
