@@ -38,6 +38,5 @@ function category(param){
         }) 
         return false;
         
-    });  // end document ready	
-       
+    });  // end document ready	    
 }

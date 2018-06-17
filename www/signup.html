@@ -23,6 +23,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="js/sweetalert/sweetalert.css">
     
+    <link rel="stylesheet" href="css/toast.css">
+    
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.nicescroll.min.js"></script>
@@ -125,7 +127,7 @@
 
                        send_otp(no);
                    }
-                   else{ swal(data.error, "", "error"); }
+                   else{ toast(data.error); }
                },
                error: function(e) 
                {
@@ -135,7 +137,7 @@
            })
            return false;
 
-        }else{ swal(mess, "", "error"); }
+        }else{ toast(mess); }
     });
 
     $('#resendlink').click(function() {
@@ -169,7 +171,7 @@
                         setTimeout(function(){ window.location = "login.html"; }, 4000);
                         
                     }
-                    else{ swal(data.error, "", "error"); }
+                    else{ toast(data.error); }
                 },
                 error: function(e) 
                 {
@@ -179,14 +181,15 @@
             })
             return false;
 
-        }else{ swal('Invalid OTP Code', "", "error"); }
+        }else{ toast('Invalid OTP Code'); }
 
     });
 
-    function send_otp(no=null){
+    function send_otp(no){
         
-        if (no == null){ no = $("#hno").val(); }
+        if (!no){ no = $("#hno").val(); }
         var nilai = '{ "phone":"'+no+'"  }';
+
         $.ajax({
             type: 'POST',
             url: api+'api/send_otp',
@@ -200,7 +203,7 @@
                   $("#hotp").val(data.code);
                   intervals();
                 }
-                else{ swal(data.error, "", "error"); }
+                else{ toast(data.error); }
             },
             error: function(e) 
             {
@@ -264,6 +267,8 @@
 </head>
 <body>
      
+     <!-- snackbar -->
+     <div id="snackbar"></div>
      
      <div class="overlay"></div>
      

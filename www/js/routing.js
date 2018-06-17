@@ -22,7 +22,7 @@ document.addEventListener('deviceready', function () {
 //       navigator.app.exitApp();
    }
 //   else if (bodyId == 'product'){ window.location.href = "series.html";  }
-//   else if (bodyId == 'calculator'){ window.location.href = "product.html";  }
+   else if (bodyId == 'register'){ window.location.href = "index.html";  }
    else {
        navigator.app.backHistory()
    }

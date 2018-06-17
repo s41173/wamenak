@@ -28,34 +28,14 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/myJS.js"></script>
     
+    <link rel="stylesheet" href="js/sweetalert/sweetalert.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/sweetalert/sweetalert.min.js"></script>
+    
     <script src="js/acl.js"></script>
     <script src="js/routing.js"></script>
-<!--    <script src="js/home.js"></script>-->
+    <script src="js/home.js"></script>
     
-    <script>
-        $(document).ready(function(){
-          $('.owl-carousel').owlCarousel({
-                loop:true,
-                margin:10,
-                responsiveClass:true,
-                responsive:{
-                    0:{
-                        items:1,
-                        nav:true
-                    },
-                    600:{
-                        items:3,
-                        nav:false
-                    },
-                    1000:{
-                        items:5,
-                        nav:true,
-                        loop:false
-                    }
-                }
-            })
-        });
-    </script>
     <script src="js/jquery.nicescroll.min.js"></script>
     <script type="text/javascript">
          $(document).ready(function () {
@@ -80,7 +60,11 @@
      </script>
 
 </head>
-<body id="index" onload="otentikasi();">
+<body id="index" onload="home();">
+    
+     <!-- snackbar -->
+     <div id="snackbar"></div>
+    
      <div class="overlay"></div>
          <nav id="sidebar">
             <div id="main-nav">
@@ -90,7 +74,7 @@
 
                 <ul class="nav navbar-nav navbar-left" style="background-color: whitesmoke;">
                     <li><h3>Hello, <span>Harvine</span></h3></li>
-                    <li><img width="30px" src="img/Shopping-bag-black.png" alt=""> <span>0</span> <img width="30px" src="img/45271-200.png" alt=""> <span>0</span></li>
+                    <li> <img width="30px" src="img/Shopping-bag-black.png" alt=""> <span>0</span> <img width="30px" src="img/45271-200.png" alt=""> <span>0</span></li>
                 </ul>
                 
                 <ul class="nav navbar-nav navbar-left" style="background-color: gainsboro;">
@@ -126,10 +110,10 @@
                     <div class="navbar-brand text-center" style="padding-right: 0 !important;">
                         <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin-top:-4px;">
                     </div>
-                    <button type="button" class="navbar-toggle" id="bag" onclick="location='pay.html'" style="margin-bottom:0 !important;">
+<button type="button" class="navbar-toggle" id="bag" onclick="otentikasi('wallet')" style="margin-bottom:0 !important;">
                         <img width="60px" src="img/wallet.png" alt="" style="margin-top:-5px;">
                     </button>
-                    <button type="button" class="navbar-toggle" id="bag" onclick="location='checkout.html'">
+                    <button type="button" class="navbar-toggle" id="bag" onclick="otentikasi('cart');">
                         <img width="30px" src="img/Shopping-bag-inv.png" alt="" style="margin-top:5px;">
                     </button>
                 </div>
@@ -139,360 +123,36 @@
       </header>
        
     
-     <div class="container-fluid" id="content">
-        <div class="text-center date">
-            <span id="day"></span>
-            <span id="date"></span>
-            <span id="month"></span>
-            <span id="year"></span>
-        </div>
+<div class="container-fluid" id="content">
+
+<div class="text-center date">
+    <span id="day"></span>
+    <span id="date"></span>
+    <span id="month"></span>
+    <span id="year"></span>
+</div>
+
 <!--        Slide-->
        <div class="row">
            <div id="myCarousel" class="carousel slide" data-ride="carousel">
               <!-- Indicators -->
-              <ol class="carousel-indicators" id="indicat">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="4"></li>
-                <li data-target="#myCarousel" data-slide-to="5"></li>
-              </ol>
 
               <!-- Wrapper for slides -->
-              <div class="carousel-inner">
-                <div class="item active banner" style="background-image: url(img/banner9.jpg)">
-                  <div class="caption">
-                    <div class="containerx" id="capti">
-                        <p class="text-center" id="capthi">Kami menyediakan berbagai macam bento, snack, juice yang dapat diantarkan ke tempat kamu dihari yang sama tanpa minimum order</p>
-                        <br>
-                        <a href="#" class="btn">PESAN SEKARANG</a>
-                    </div>                
-                  </div>
-                </div>
-                <div class="item banner" style="background-image: url(img/banner1.jpg)">
-                  <div class="caption">
-                    <div class="containerx" id="capti">
-                        <p class="text-center" id="capthi">Kami menyediakan berbagai macam bento, snack, juice yang dapat diantarkan ke tempat kamu dihari yang sama tanpa minimum order</p>
-                        <br>
-                        <a href="#" class="btn">PESAN SEKARANG</a>
-                    </div>                
-                  </div>
-                </div>
-                <div class="item banner" style="background-image: url(img/banner8.jpg)">
-                  <div class="caption">
-                    <div class="containerx" id="capti">
-                        <p class="text-center" id="capthi">Kami menyediakan berbagai macam bento, snack, juice yang dapat diantarkan ke tempat kamu dihari yang sama tanpa minimum order</p>
-                        <br>
-                        <a href="#" class="btn">PESAN SEKARANG</a>
-                    </div>                
-                  </div>
-                </div>
-                <div class="item banner" style="background-image: url(img/banner3.jpg)">
-                  <div class="caption">
-                    <div class="containerx" id="capti">
-                        <p class="text-center" id="capthi">Kami menyediakan berbagai macam bento, snack, juice yang dapat diantarkan ke tempat kamu dihari yang sama tanpa minimum order</p>
-                        <br>
-                        <a href="#" class="btn">PESAN SEKARANG</a>
-                    </div>                
-                  </div>
-                </div>
-              </div>
+              <div class="carousel-inner" id="sliderbox"> </div>
            </div>
        </div>
        
-      
-        <h1 class="text-center" style="font-family:'Josefin Sans'; font-size: 18px;">Recommended</h1>
-        <div class="owl-carousel owl-theme">
-          <div>
-            <div id="img">
-                <img class="img-responsive" src="img/cumi.jpg" alt="">
-            </div>
-            <div class="caption">
-                <div class="title">
-                    <a href="#">Cumi Bakar</a>
-                    <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                    <p>160 Kkal</p>
-                </div>
-                <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-            </div>
-          </div>
-
-          <div>
-            <div id="img">
-                <img class="img-responsive" src="img/kwetiaw.jpg" alt="">
-            </div>
-            <div class="caption">
-                <div class="title">
-                    <a href="#">Kwetiaw Goreng</a>
-                    <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                    <p>160 Kkal</p>
-                </div>
-                <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-            </div>
-          </div>
-
-          <div>
-            <div id="img">
-                <img class="img-responsive" src="img/tahu.jpg" alt="">
-            </div>
-            <div class="caption">
-                <div class="title">
-                    <a href="#">Tahu Isi Daging</a>
-                    <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                    <p>160 Kkal</p>
-                </div>
-                <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-            </div>
-          </div>
-          
-          <div>
-            <div id="img">
-                <img class="img-responsive" src="img/cakes.jpg" alt="">
-            </div>
-            <div class="caption">
-                <div class="title">
-                    <a href="#">Mini Cake</a>
-                    <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                    <p>160 Kkal</p>
-                </div>
-                <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-            </div>
-          </div>
-          
-        </div>
-           
-<!--           menu-->
-        
-        <hr>
-        
-        
-           <h1 class="text-center" style="font-family:'Josefin Sans'; font-size: 18px;">Main Course</h1>
-            <div class="owl-carousel owl-theme">
-         
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/ayam.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Ayam Saus Padang</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/cumi.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Cumi Bakar</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/kwetiaw.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Kwetiaw Goreng</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/nasi-merah.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Nasi Merah</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/nasi.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Nasi Putih</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/nasgor.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Nasi Goreng</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-
-            </div>
-        <hr>
-        
-
-           <h1 class="text-center" style="font-family:'Josefin Sans'; font-size: 18px;">Veggie</h1>
-           <div class="owl-carousel owl-theme">
-         
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/salad.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Salad Spicy Mayo</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/sawi.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Cah Sawi Putih</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/kacang.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Tumis Kacang Panjang</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/labu.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Lalapan Labu</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-
-            </div>
-            
-        <hr>
-        
-         
-           <h1 class="text-center" style="font-family:'Josefin Sans'; font-size: 18px;">Dessert</h1>
-            <div class="owl-carousel owl-theme">
-         
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/redvelvet.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Red Velvet Cake</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/pudding-tapai.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Pudding Tapai</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/tahu.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Tahu Isi Daging</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/getuk.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Getuk</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-
-            </div>
-        <hr>
-        
+<!-- / recommended  -->
+<div id="recommendbox">
+</div>
+<!--  / recommended -->
        
-           <h1 class="text-center" style="font-family:'Josefin Sans'; font-size: 18px;">Drink</h1>
-            <div class="owl-carousel owl-theme">
-         
-              <div>
-                <div id="img">
-                    <img class="img-responsive" src="img/aqua.jpg" alt="">
-                </div>
-                <div class="caption">
-                    <div class="title">
-                        <a href="#">Aqua Botol 600ml</a>
-                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                        <p>160 Kkal</p>
-                    </div>
-                    <a href="#" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>
-                </div>
-              </div>
-
-            </div>
-     </div>
+<!-- / Category  -->
+<div id="catbox">
+</div>
+<!--  / category -->
         
+</div>    
       
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>

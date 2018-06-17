@@ -23,11 +23,14 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="js/sweetalert/sweetalert.css">
     
+    <link rel="stylesheet" href="css/toast.css">
+    
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/sweetalert/sweetalert.min.js"></script>
     
     <script src="js/acl.js"></script>
+    <script src="js/routing.js"></script>
     
     <script type="text/javascript">
          $(document).ready(function (e) {
@@ -70,7 +73,7 @@
                     $("#user").prop( "disabled", true );
                     intervals();
 				}
-				else{ swal(data.error, "", "error"); }
+				else{ toast(data.error); }
 			},
 			error: function(e) 
 	    	{
@@ -80,7 +83,7 @@
 		})
 		return false;
 
-        }else{ swal('Mobile No Required', "", "error"); }
+        }else{ toast('Mobile No Required'); }
     });
     
     $('#btnlogin').click(function() {
@@ -94,11 +97,12 @@
                 localStorage.setItem("username", $("#husername").val());
                 localStorage.setItem("userid", $("#huserid").val());
                 localStorage.setItem("log", hotp);
+
                 window.location = "index.html";
 
-            }else{ swal('Invalid OTP Code', "", "error"); }
+            }else{ /*swal('Invalid OTP Code', "", "error");*/ toast("Invalid OTP Code");  }
 
-        }else{ swal('OTP Code Required', "", "error"); }
+        }else{ toast('OTP Code Required'); }
 	});
              
     $('#resendlink').click(function() {
@@ -118,7 +122,7 @@
                     $("#hotp").val(data.code);
                     intervals();
 				}
-				else{ swal(data.error, "", "error"); }
+				else{ toast(data.error); }
 			},
 			error: function(e) 
 	    	{
@@ -207,6 +211,9 @@
         
 </head>
 <body id="index">
+     
+     <!-- snackbar -->
+     <div id="snackbar"></div>
      
       <header>
           <div id="main-nav">
