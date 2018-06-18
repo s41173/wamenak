@@ -164,7 +164,25 @@ function carousel(){
 function add_cart(pid){
 
     if (localStorage.userid != undefined && localStorage.log != undefined){
-        alert(pid);
+        
+        var nilai = '{ "customer":"'+localStorage.userid+'", "product_id":"'+pid+'", "qty":"1", "description":"", "attribute":"" }';
+        
+        $.ajax({
+            type: 'POST',
+            url: api+'cart/add',
+            data : nilai,
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(data)
+            {   
+              if (data.status == true){ toast("Produk berhasil ditambahkan");}else{ toast(data.error); }
+            },
+            error: function (request, status, error) {
+                console.log('Request Failed...!'+error);
+            }
+        })
+        return false;
+
     }else{ toast("Silahkan masuk sebelum membeli produk ini"); }
 
 }

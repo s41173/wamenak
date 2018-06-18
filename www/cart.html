@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+    
+    <!--Add to homescreen And color theme-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-title" content="JKitchen">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <!-- Theme color for chrome, firefox and opera-->
+    <meta name="theme-color" content="#27a542">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#27a542">
+
+    <title>Wamenak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-material-datetimepicker.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <script type="text/javascript">
+        function goBack() { window.history.back(); }
+    </script>
+    
+    <script>
+    $(document).ready(function() {
+        $input = $('#qty input[type="number"]');
+
+        $('.btn').on('click',function(){
+             $val = $input.val();
+            if ($(this).hasClass('btn-minus')) {
+             $input.val(parseInt($val)-1);
+            } else {
+            $input.val(parseInt($val)+1);
+            }
+        });   
+    });
+    </script>
+
+    <script>
+    $(document).ready(function() {
+    
+        var navListItems = $('ul.setup-panel li a'),
+            allWells = $('.setup-content');
+
+        allWells.hide();
+
+        navListItems.click(function(e)
+        {
+            e.preventDefault();
+            var $target = $($(this).attr('href')),
+                $item = $(this).closest('li');
+
+            if (!$item.hasClass('disabled')) {
+                navListItems.closest('li').removeClass('active');
+                $item.addClass('active');
+                allWells.hide();
+                $target.show();
+            }
+        });
+
+        $('ul.setup-panel li.active a').trigger('click');
+
+        // DEMO ONLY //
+        $('#activate-step-2').on('click', function(e) {
+            $('ul.setup-panel li:eq(1)').removeClass('disabled');
+            $('ul.setup-panel li a[href="#step-2"]').trigger('click');
+            $(this).remove();
+        })
+        $('#activate-step-3').on('click', function(e) {
+            $('ul.setup-panel li:eq(2)').removeClass('disabled');
+            $('ul.setup-panel li a[href="#step-3"]').trigger('click');
+            $(this).remove();
+        })    
+    });
+    </script>
+    
+    <script src="js/acl.js"></script>
+    <script src="js/routing.js"></script>
+    <script src="js/cart.js"></script>
+    
+  
+</head>
+<body id="checkout">
+      <header>
+
+          <div id="main-nav">
+
+			<nav class="navbar" style="margin-bottom: 0;">
+				
+                <div class="container">
+					<div class="navbar-header">
+                        <button onclick="goBack()" id="back"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+						<div class="navbar-brand text-center">
+                            <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin:-12% 0 0 -15%;">
+                        </div>
+					</div>
+				</div>
+			</nav>
+
+		</div>
+      </header>
+       
+    
+    
+     <div class="container-fluid" id="checkout">
+         <div class="row" id="step">
+            <div class="col-xs-12">
+                <ul class="setup-panel">
+                    <li class="active"><a href="#step-1">
+                        <h4 class="list-group-item-heading">Rangkuman <span>»</span></h4>
+                    </a></li>
+                    <li class="disabled"><a href="#step-2">
+                        <h4 class="list-group-item-heading">Pengiriman <span>»</span></h4>
+                    </a></li>
+                    <li class="disabled"><a href="#step-3">
+                        <h4 class="list-group-item-heading">Pembayaran</h4>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <form action="">
+        <div class="row setup-content" id="step-1">
+            
+                <h4 class="text-center">Rangkuman Transaksi</h4>
+                <ul class="list-group" id="ringkasan">
+                  <li class="list-group-item col-xs-12">
+                      <div class="col-xs-4" style="padding: 0;">
+<img src="http://administrator.wamenak.com/images/product/teh-tarik-wamenak.jpg" class="img-responsive" alt="">
+                      </div>
+                      <div class="col-xs-8 detail">
+                           <h4 class="list-group-item-heading">Bento Box <button><i class="fa fa-times" aria-hidden="true"></i></button></h4>
+                           <p class="list-group-item-text">Rp. 45.000</p>
+                           <div class="input-group" id="qty">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-minus" type="button">-</button>
+                                </span>
+                                <input type="number" class="form-control no-padding add-color text-center height-25" min="1" maxlength="3" value="1" disabled>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-plus" type="button">+</button>
+                                </span>
+                           </div><!-- /input-group -->
+                      </div>
+                  </li>
+                </ul>
+                <div class="col-xs-12">
+                    <table class="table" id="bill">
+                        <tr>
+                            <th>Sub Total</th>
+                            <td class="text-right">45.000</td>
+                        </tr>
+                        <tr>
+                            <th>PPN</th>
+                            <td class="text-right">4.090</td>
+                        </tr>
+                        <tr id="total">
+                            <th>Total</th>
+                            <td class="text-right"><b>49.000</b></td>
+                        </tr>
+                    </table>
+                
+                <button id="activate-step-2" class="btn next">Lanjutkan</button>
+                </div>
+              
+           
+        </div>
+        
+<!--        step 2-->
+       
+        <div class="row setup-content" id="step-2">
+            <div class="col-xs-12">
+                <h4 class="text-center">Pengaturan Pengantaran</h4>
+                
+                 <div class="list-group">
+                  <a  data-toggle="collapse" data-target="#date1" class="list-group-item">
+                    <h4 class="list-group-item-heading">Kantor</h4>
+                    <p class="list-group-item-text">Jl. Ayahanda No. 41-C Medan-Petisah</p>
+                    <input type="hidden" name="tujuan" value="alamat-default">
+                  </a>
+<!--                  collaps-->
+                 
+                  <div id="date1" class="collapse">
+                       <div id="box">
+                            <div class="form-control-wrapper form-group">
+                               <label for="date" class="required">Masukkan tanggal</label>
+                                <input type="text" id="date" class="form-control floating-label" placeholder="dd/mm/yyyy">
+                            </div>
+                            <div class="form-group">
+                               <label for="trip">Waktu Pengiriman</label>
+                                <select class="form-control" id="trip" name="trip">
+                                  <option value="trip1">11.00-12.00</option>
+                                  <option value="trip2">14.00-15.00</option>
+                                </select>
+                            </div>
+
+                           <div class="form-group">
+                               <button id="activate-step-3" class="btn next" type="submit" class="btn">Simpan</button>
+                           </div>
+                        </div>
+
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#date').bootstrapMaterialDatePicker({ 
+                                    weekStart : 0, 
+                                    time: false ,
+                                    format: 'DD/MM/YYYY',
+                                });
+                            });
+                        </script>
+                        <script src="js/bootstrap-material-datetimepicker.js"></script>
+                   </div>
+            <!--       end-->
+                </div>
+               </div>
+        </div>
+        <div class="row setup-content" id="step-3">
+            <div class="col-xs-12">
+                
+                <div class="row">
+                      <div class="col-md-12 card">
+                           <ul class="nav nav-tabs">
+                               <li class="active"><a data-toggle="tab" href="#tab1"><span class="tag cod"></span></a></li>
+                               <li><a data-toggle="tab" href="#tab2"><span class="tag cc"></span></a></li>
+                               <li><a data-toggle="tab" href="#tab3"><span class="tag dc"></span></a></li>
+                               <li><a data-toggle="tab" href="#tab4"><span class="tag tf"></span></a></li>
+                          </ul>
+                       </div>
+                  </div>
+
+                    <div class="row">
+                       <div class="col-xs-12">
+                           <div class="tab-content" id="pay">
+                              <div id="tab1" class="tab-pane fade in active ">
+                                    <h3>Cash On Delivery</h3>
+                                    <p>Lebih mudah dan cepat</p>
+                                    <input type="hidden" name="payment" value="cod">
+                              </div>
+                              <div id="tab2" class="tab-pane fade">
+
+                                    <h3>Credit Card</h3>
+                                    <ul>
+                                        <li>Proses Konfirmasi Instant</li>
+                                        <li>Biaya Proses Rp. 3.000</li>
+                                    </ul>
+                                    <input type="hidden" name="payment" value="creditcard">
+
+
+                              </div>
+                              <div id="tab3" class="tab-pane fade">
+
+                                        <h3>Debit Card</h3>
+                                        <p>We accept : <br>
+                                        <span class="tag visa"></span><span class="tag master-card"></span></p>
+                                        <input type="hidden" name="payment" value="debit">
+
+                              </div>
+                              <div id="tab4" class="tab-pane fade">
+                                 <div class="transfer">
+                                     <h3>BCA</h3>
+                                     <p>PT. JKITCHEN INDONESIA, <br>
+                                     1258-xxxx-xxxx</p>
+                                 </div>
+                                 <div class="transfer">
+                                     <h3>MANDIRI</h3>
+                                     <p>PT. JKITCHEN INDONESIA, <br>
+                                     1258-xxxx-xxxx</p>
+                                 </div>
+                                 <p id="note">Pesanan hanya diproses jika pembayaran telah dikonfirmasi.</p>
+                                 
+                            </div>
+                        </div>
+                        <button id="finish" type="submit" class="btn">Selesai</button>
+                       </div>
+                        
+                    </div>
+            </div>
+        </div>
+        </form>
+        </div>
+        
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    app.initialize(); // method penting untuk initilize
+</script>      
+    
+    
+</body>
+</html>

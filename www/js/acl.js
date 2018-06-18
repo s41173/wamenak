@@ -49,7 +49,7 @@ function otentikasi(page){
                 });
                 setTimeout(function(){ window.location = "login.html"; }, 3000);
 
-              }else{ /*window.location = page+".html";*/ alert('berhasil'); }
+              }else{ window.location = page+".html"; }
             },
             error: function (request, status, error) {
                 console.log('Request Failed...!'+error);

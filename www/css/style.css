@@ -414,6 +414,18 @@ a{
     text-align: center;
     background-color: #000;
 }
+.tombol{
+    padding: 10px;
+    height: 40px;
+    vertical-align: middle;
+    color: white;
+    font-size: 11pt;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    background-color: #000;
+}
 /*rte*/
 #rte #sort select{
     width: 100%;
