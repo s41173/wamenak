@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+    
+    <!--Add to homescreen And color theme-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-title" content="JKitchen">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <!-- Theme color for chrome, firefox and opera-->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+
+    <title>JKitchen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/toast.css">
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/multislide.js"></script>
+    
+    <script src="js/acl.js"></script>
+    <script src="js/routing.js"></script>
+    <script src="js/detail.js"></script>
+    
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
+    
+  
+</head>
+<body id="detail" onload="details();">
+     
+     <!-- snackbar -->
+     <div id="snackbar"></div>
+     
+      <header>
+
+          <div id="main-nav">
+
+			<nav class="navbar" style="margin-bottom: 0;">
+				
+                <div class="container">
+					<div class="navbar-header">
+                        <button onclick="goBack()" id="back"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+						<div class="navbar-brand text-center">
+                            <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin-top:-12%;">
+                        </div>
+                        <button type="button" class="navbar-toggle" id="bag" onclick="location='checkout.html'">
+                            <img width="30px" src="img/Shopping-bag-inv.png" alt="" style="margin-top:5px;">
+                        </button>
+					</div>
+				</div>
+			</nav>
+
+		</div>
+      </header>
+       
+     <div class="container-fluid" id="detail">
+         <div class="row" id="item" style="margin-top:5px;">
+                <div id="img">
+                    <img id="proimage" class="img-responsive" src="" alt="">
+                </div>
+                <div class="caption">
+                    <div class="title">
+                        <a id="protitle"></a>
+                        <div id="rateYo"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
+                        <p id="price">Rp. 0,-</p>
+                    </div>
+                    <div class="col-xs-12">
+                       <form action="#">
+                           
+ <script type="text/javascript">
+     
+    $(document).ready(function() {
+        $input = $('#qty input[type="number"]');
+
+        $('.btn').on('click',function(){
+             $val = $input.val();
+            if ($(this).hasClass('btn-minus')) {
+             if ($val != 1){ 
+                 $input.val(parseInt($val)-1);
+             }        
+            } else {
+            $input.val(parseInt($val)+1);
+            }
+        });   
+    });
+     
+</script>
+                           
+<table style="width:100%; margin:0 0 10px 0;">
+    <tr>
+        <td>
+   <div class="input-group" id="qty" style="width:85%; margin-left:2%;">
+        <span class="input-group-btn">
+            <button class="btn btn-minus" type="button">-</button>
+        </span>
+        <input type="number" class="form-control no-padding add-color text-center height-25" min="1" maxlength="3" value="1" disabled>
+        <span class="input-group-btn">
+            <button class="btn btn-plus" type="button">+</button>
+        </span>
+   </div><!-- /input-group --> 
+         </td>
+
+         <td>
+     <a type="submit" class="btn btn-default" id="tombol">Tambahkan ke Lunch Box</a>         
+         </td>
+    </tr>
+
+</table> 
+                            
+                       </form>
+                        
+                    </div>
+                </div>
+                 
+                
+<!--                 detail-->
+                  <div class="card">
+                      <ul class="nav nav-tabs">
+                           <li class="active"><a data-toggle="tab" href="#tab1">Deskripsi</a></li>
+                           <li><a data-toggle="tab" href="#tab2">Komposisi</a></li>
+                           <li><a data-toggle="tab" href="#tab3">Nutrisi</a></li>
+                      </ul>
+                      <div class="tab-content">
+                          <div id="tab1" class="tab-pane fade in active">
+                              <p>Hidangan istimewa ala negeri sakura, menggunakan saus miso teriyaki yang meresap sempurna ke dalam setiap lapisan daging ayam hingga terasa gurih manis di lidah. Dihidangkan bersama Nasi Putih, Shrimp Roll, Saus Dimsum, dan Acar.</p>
+                          </div>
+                          <div id="tab2" class="tab-pane fade">
+                              <ul>
+                                <li>Nasi Putih</li>
+                                <li>Acar</li>
+                                <li>Chicken Misoyaki</li>
+                                <li>Sambal Dimsum</li>
+                                <li>Shrimp Roll</li>
+                              </ul>
+                          </div>
+                          <div id="tab3" class="tab-pane fade">
+                              <p>Kalori 478.70 kkal</p>
+                          </div>
+                      </div>
+                  </div>
+            </div>
+        
+    </div>
+        
+      
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    app.initialize(); // method penting untuk initilize
+</script>   
+    
+</body>
+</html>

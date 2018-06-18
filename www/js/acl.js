@@ -11,6 +11,14 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function idr_format(val){
+    while (/(\d+)(\d{3})/.test(val.toString())){
+        val = val.toString().replace(/(\d+)(\d{3})/, '$1'+'.'+'$2');
+    }
+    var val = val+',-';
+    return val;
+}
+
 function otentikasi(page){
     
     $(document).ready(function(e){  

@@ -1,5 +1,6 @@
 function home(){
 
+    localStorage.removeItem("pid"); // remove product id
     slider();
     recommended();
 }
@@ -50,13 +51,13 @@ function recommended(){
 con = con+
 "<div>"+
   "<div id=\"img\">"+
-      "<img class=\"img-responsive\" src=\""+datax[i].image+"\">"+
+      "<img class=\"img-responsive\" onclick=\"detail("+datax[i].id+");\" src=\""+datax[i].image+"\">"+
   "</div>"+
   "<div class=\"caption\">"+
       "<div class=\"title\">"+
           "<a>"+capitalizeFirstLetter(datax[i].name)+"</a>"+
           "<div id=\"rateYo\"><i class=\"fa fa-star\" aria-hidden=\"true\"></i><i class=\"fa fa-star\" aria-hidden=\"true\"></i><i class=\"fa fa-star\" aria-hidden=\"true\"></i><i class=\"fa fa-star\" aria-hidden=\"true\"></i></div>"+
-          "<p></p>"+
+          "<p> Rp "+idr_format(datax[i].price)+" </p>"+
       "</div>"+
       "<a class=\"btn btn-default\" id=\"tombol\" onclick=\"add_cart("+datax[i].id+");\">Tambahkan ke Lunch Box</a>"+
   "</div>"+
@@ -107,13 +108,13 @@ itemlist(con,datax[i].id)
 con = con+
 "<div>"+
     "<div id=\"img\">"+
-        "<img class=\"img-responsive\" src=\""+datax[i].image+"\">"+
+        "<img class=\"img-responsive\" onclick=\"detail("+datax[i].id+");\" src=\""+datax[i].image+"\">"+
     "</div>"+
     "<div class=\"caption\">"+
         "<div class=\"title\">"+
             "<a>"+capitalizeFirstLetter(datax[i].name)+"</a>"+
             "<div id=\"rateYo\"><i class=\"fa fa-star\" aria-hidden=\"true\"></i><i class=\"fa fa-star\" aria-hidden=\"true\"></i><i class=\"fa fa-star\" aria-hidden=\"true\"></i><i class=\"fa fa-star\" aria-hidden=\"true\"></i></div>"+
-            "<p></p>"+
+            "<p> Rp "+idr_format(datax[i].price)+" </p>"+
         "</div>"+
         "<a class=\"btn btn-default\" id=\"tombol\" onclick=\"add_cart("+datax[i].id+");\">Tambahkan ke Lunch Box</a>"+
     "</div>"+
@@ -164,7 +165,12 @@ function add_cart(pid){
 
     if (localStorage.userid != undefined && localStorage.log != undefined){
         alert(pid);
-    }else{ toast("Silahkan masuk sebelum membeli barang ini"); }
-    
+    }else{ toast("Silahkan masuk sebelum membeli produk ini"); }
 
+}
+
+function detail(pid){
+    
+    localStorage.setItem("pid", pid);
+    window.location = "detail.html";
 }
