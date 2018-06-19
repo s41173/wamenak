@@ -1,4 +1,16 @@
-var api = "http://administrator.wamenak.com/";  
+var api = "http://administrator.wamenak.com/"; 
+
+$(document).ready(function () {
+
+    $(document).ajaxStart(function(){
+        $(".loader").css("display", "block");
+    });
+    $(document).ajaxComplete(function(){
+        $(".loader").css("display", "none");
+    });
+
+}); // end document ready
+
 
 function toast(msg) {
     var x = document.getElementById("snackbar");
@@ -53,9 +65,9 @@ function otentikasi(page){
             },
             error: function (request, status, error) {
                 console.log('Request Failed...!'+error);
-                alert('Request Failed Otentikasi Request...! - '+request.responseText);
-                alert('Request Failed Otentikasi Status...! - '+error);
-                alert('Request Failed Otentikasi Error...! - '+status);
+                toast('Request Failed Otentikasi Request...! - '+request.responseText);
+                toast('Request Failed Otentikasi Status...! - '+error);
+                toast('Request Failed Otentikasi Error...! - '+status);
             }
         })
         return false;
