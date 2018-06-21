@@ -47,21 +47,25 @@ function otentikasi(page){
             dataType: 'json',
             success: function(data)
             {   
-              if (data.status == false){ 
-                
+
                 if (page == 'cart'){ mess = "Silahkan login untuk melihat pesanan anda"; }
                 else if (page == 'wallet'){ mess = "Silahkan login untuk melihat saldo anda"; }
+                window.location = page+".html";
 
-                swal({
-                    position: 'top-right',
-                    type: 'warning',
-                    title: mess,
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-                setTimeout(function(){ window.location = "login.html"; }, 3000);
+            //   if (data.status == false){ 
+                
+                
 
-              }else{ window.location = page+".html"; }
+            //     swal({
+            //         position: 'top-right',
+            //         type: 'warning',
+            //         title: mess,
+            //         showConfirmButton: false,
+            //         timer: 2000
+            //     });
+            //     setTimeout(function(){ window.location = "login.html"; }, 3000);
+
+            //   }else{ window.location = page+".html"; }
             },
             error: function (request, status, error) {
                 console.log('Request Failed...!'+error);
