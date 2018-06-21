@@ -4,31 +4,31 @@
       var map;
       var markers = [];
 
-      function initMap(lat,long) {
+      function initMap(lati=0,long=0) {
 
-        // var lati = document.getElementById("hlat").value;
-        // var longi = document.getElementById("hlong").value;
-        // var haightAshbury = {lat: lat, lng: long};
-        var haightAshbury = {lat: 3.5516441, lng: 98.6410409};
+        var haightAshbury = {lat: lati, lng: long};
+        alert(lati+" - "+long);
+        // var haightAshbury = {lat: 3.5516441, lng: 98.6410409};
 
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 18,
-          disableDoubleClickZoom: true,
-          center: haightAshbury,
-          disableDefaultUI: true
-        });
+        // map = new google.maps.Map(document.getElementById('map'), {
+        //   zoom: 18,
+        //   disableDoubleClickZoom: true,
+        //   center: haightAshbury,
+        //   disableDefaultUI: true
+        // });
 
-        // This event listener will call addMarker() when the map is clicked.
-        map.addListener('click', function(event) {
-          clearMarkers();    
-          addMarker(event.latLng);
-          // document.getElementById('latclicked').innerHTML = event.latLng.lat();
-          // document.getElementById('longclicked').innerHTML =  event.latLng.lng();
-          console.log(event.latLng.lat()+" :: "+event.latLng.lng());
-        });
+        // // This event listener will call addMarker() when the map is clicked.
+        // map.addListener('click', function(event) {
+        //   clearMarkers();    
+        //   addMarker(event.latLng);
+        //   // document.getElementById('latclicked').innerHTML = event.latLng.lat();
+        //   // document.getElementById('longclicked').innerHTML =  event.latLng.lng();
+        //   console.log(event.latLng.lat()+" :: "+event.latLng.lng());
+        // });
 
-        // Adds a marker at the center of the map.
-        addMarker(haightAshbury);
+        // // Adds a marker at the center of the map.
+        // addMarker(haightAshbury);
+
       }
 
       // Adds a marker to the map and push to the array.
