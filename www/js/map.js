@@ -5,7 +5,10 @@
       var markers = [];
 
       function initMap() {
-        var haightAshbury = {lat: 3.551652, lng: 98.641034};
+
+        var lati = document.getElementById("hlat").value;
+        var longi = document.getElementById("hlong").value;
+        var haightAshbury = {lat: lati, lng: longi};
 
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
@@ -62,8 +65,9 @@
 
       function getcoor(){
         
-        //  console.log($("#hlat").val());
-        //  console.log($("#hlong").val());
+         
+         alert($("#hlat").val()+" : "+$("#hlong").val());
+         initMap();
 
       }
 
@@ -86,7 +90,10 @@
                           'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
                           'Heading: '            + position.coords.heading               + '<br />' +
                           'Speed: '              + position.coords.speed                 + '<br />' +
-                          'Timestamp: '          +                                   position.timestamp          + '<br />';
+                          'Timestamp: '          + position.timestamp          + '<br />';
+
+      document.getElementById("hlat").value = position.coords.latitude;                    
+      document.getElementById("hlong").value = position.coords.longitude;                    
   }
 
   // onError Callback receives a PositionError object

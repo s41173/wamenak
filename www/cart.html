@@ -166,7 +166,7 @@
        </style>
        
        <script type="text/javascript" src="js/map.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg&callback=getcoor">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg">
 </script>
        
         <div class="row setup-content" id="step-2">
@@ -174,12 +174,13 @@
                 <h4 class="text-center">Pengaturan Pengantaran</h4>
                 
                  <div class="list-group">
-<input type="hidden" id="hlat" value="12">
-<input type="hidden" id="hlong" value="13">
+<input type="hidden" id="hlat">
+<input type="hidden" id="hlong">
 <textarea id="taddress" class="form-control" rows="3">Jl. Setiabudi No 45, Medan-Johor 1314421 </textarea>
 <div id="map"></div>
 <p id="geolocation">Finding geolocation...</p>
-    <button onclick="location.reload();"> Refresh </button>
+    <button type="button" onclick="location.reload();"> Refresh </button>
+    <button type="button" onclick="getcoor();"> Get Coor </button>
                  
                 </div>
                </div>
