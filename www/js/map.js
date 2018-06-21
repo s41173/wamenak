@@ -78,6 +78,7 @@
     function onSuccess(position) {
 
       alert(position.coords.latitude+" : "+position.coords.longitude);
+      initMap(position.coords.latitude,position.coords.longitude);
       var element = document.getElementById('geolocation');
       
       element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
