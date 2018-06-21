@@ -87,6 +87,8 @@
     }
 
     function onSuccess(position) {
+
+      alert(parsetInt(position.coords.latitude)+" : "+parsetInt(position.coords.longitude));
       var element = document.getElementById('geolocation');
       element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
                           'Longitude: '          + position.coords.longitude             + '<br />' +
@@ -97,7 +99,8 @@
                           'Speed: '              + position.coords.speed                 + '<br />' +
                           'Timestamp: '          + position.timestamp          + '<br />';
 
-      initMap(parsetInt(position.coords.latitude),parsetInt(position.coords.longitude));
+      
+      // initMap(parsetInt(position.coords.latitude),parsetInt(position.coords.longitude));
       
       // document.getElementById("hlat").value = position.coords.latitude;                    
       // document.getElementById("hlong").value = position.coords.longitude;                    
