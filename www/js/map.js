@@ -4,30 +4,34 @@
       var map;
       var markers = [];
 
-      function initMap(lati=0,long=0) {
+      function initMap(lati=null,long=null) {
 
+        if (lati == ""){ lati = 0; }
+        if (long == ""){ long = 0; }
         var haightAshbury = {lat: lati, lng: long};
-        alert(lati+" - "+long);
         // var haightAshbury = {lat: 3.5516441, lng: 98.6410409};
+        // alert(lati+" - "+long);
+        console.log(haightAshbury);
+        
 
-        // map = new google.maps.Map(document.getElementById('map'), {
-        //   zoom: 18,
-        //   disableDoubleClickZoom: true,
-        //   center: haightAshbury,
-        //   disableDefaultUI: true
-        // });
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
+          disableDoubleClickZoom: true,
+          center: haightAshbury,
+          disableDefaultUI: true
+        });
 
-        // // This event listener will call addMarker() when the map is clicked.
-        // map.addListener('click', function(event) {
-        //   clearMarkers();    
-        //   addMarker(event.latLng);
-        //   // document.getElementById('latclicked').innerHTML = event.latLng.lat();
-        //   // document.getElementById('longclicked').innerHTML =  event.latLng.lng();
-        //   console.log(event.latLng.lat()+" :: "+event.latLng.lng());
-        // });
+        // This event listener will call addMarker() when the map is clicked.
+        map.addListener('click', function(event) {
+          clearMarkers();    
+          addMarker(event.latLng);
+          // document.getElementById('latclicked').innerHTML = event.latLng.lat();
+          // document.getElementById('longclicked').innerHTML =  event.latLng.lng();
+          console.log(event.latLng.lat()+" :: "+event.latLng.lng());
+        });
 
-        // // Adds a marker at the center of the map.
-        // addMarker(haightAshbury);
+        // Adds a marker at the center of the map.
+        addMarker(haightAshbury);
 
       }
 
@@ -66,9 +70,7 @@
 
       function getcoor(){
         
-         
-         alert($("#hlat").val()+" : "+$("#hlong").val());
-         initMap($("#hlat").val(),$("#hlong").val());
+        initMap($("#hlat").val(),$("#hlong").val());
         // initMap(3.5516441,98.6410409);
          
 
@@ -95,8 +97,10 @@
                           'Speed: '              + position.coords.speed                 + '<br />' +
                           'Timestamp: '          + position.timestamp          + '<br />';
 
-      document.getElementById("hlat").value = position.coords.latitude;                    
-      document.getElementById("hlong").value = position.coords.longitude;                    
+      initMap(parsetInt(position.coords.latitude),parsetInt(position.coords.longitude));
+      
+      // document.getElementById("hlat").value = position.coords.latitude;                    
+      // document.getElementById("hlong").value = position.coords.longitude;                    
   }
 
   // onError Callback receives a PositionError object
