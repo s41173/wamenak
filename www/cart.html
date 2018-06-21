@@ -28,27 +28,10 @@
     <link rel="stylesheet" href="css/bootstrap-material-datetimepicker.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
     <script type="text/javascript">
-        function goBack() { window.history.back(); }
-    </script>
-    
-    <script>
-    $(document).ready(function() {
-        $input = $('#qty input[type="number"]');
-
-        $('.btn').on('click',function(){
-             $val = $input.val();
-            if ($(this).hasClass('btn-minus')) {
-             $input.val(parseInt($val)-1);
-            } else {
-            $input.val(parseInt($val)+1);
-            }
-        });   
-    });
-    </script>
-
-    <script>
+        
+    function goBack() { window.history.back(); }    
+        
     $(document).ready(function() {
     
         var navListItems = $('ul.setup-panel li a'),
@@ -164,23 +147,13 @@
                 </ul>
                 <div class="col-xs-12">
                     <table class="table" id="bill">
-<!--
-                        <tr>
-                            <th>Sub Total</th>
-                            <td class="text-right">45.000</td>
-                        </tr>
-                        <tr>
-                            <th>PPN</th>
-                            <td class="text-right">4.090</td>
-                        </tr>
--->
                         <tr id="total">
                             <th>Total Pesanan</th>
                             <td class="text-right"><b id="ttotal">Rp 0</b></td>
                         </tr>
                     </table>
                 
-                <button id="activate-step-2" class="btn next">Lanjutkan</button>
+                <button id="activate-step-2" class="btn next">Lanjut Pengiriman</button>
                 </div>
               
            
@@ -188,49 +161,26 @@
         
 <!--        step 2-->
        
+       <style type="text/css">
+           #map{ width: 100%; height: 250px; border: 1px solid #ccc; margin: 5px 0 0 0; }
+       </style>
+       
+       <script type="text/javascript" src="js/map.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg&callback=getcoor">
+</script>
+       
         <div class="row setup-content" id="step-2">
             <div class="col-xs-12">
                 <h4 class="text-center">Pengaturan Pengantaran</h4>
                 
                  <div class="list-group">
-                  <a  data-toggle="collapse" data-target="#date1" class="list-group-item">
-                    <h4 class="list-group-item-heading">Kantor</h4>
-                    <p class="list-group-item-text">Jl. Ayahanda No. 41-C Medan-Petisah</p>
-                    <input type="hidden" name="tujuan" value="alamat-default">
-                  </a>
-<!--                  collaps-->
+<input type="hidden" id="hlat" value="12">
+<input type="hidden" id="hlong" value="13">
+<textarea id="taddress" class="form-control" rows="3">Jl. Setiabudi No 45, Medan-Johor 1314421 </textarea>
+<div id="map"></div>
+<p id="geolocation">Finding geolocation...</p>
+    <button onclick="location.reload();"> Refresh </button>
                  
-                  <div id="date1" class="collapse">
-                       <div id="box">
-                            <div class="form-control-wrapper form-group">
-                               <label for="date" class="required">Masukkan tanggal</label>
-                                <input type="text" id="date" class="form-control floating-label" placeholder="dd/mm/yyyy">
-                            </div>
-                            <div class="form-group">
-                               <label for="trip">Waktu Pengiriman</label>
-                                <select class="form-control" id="trip" name="trip">
-                                  <option value="trip1">11.00-12.00</option>
-                                  <option value="trip2">14.00-15.00</option>
-                                </select>
-                            </div>
-
-                           <div class="form-group">
-                               <button id="activate-step-3" class="btn next" type="submit" class="btn">Simpan</button>
-                           </div>
-                        </div>
-
-                        <script type="text/javascript">
-                            $(function () {
-                                $('#date').bootstrapMaterialDatePicker({ 
-                                    weekStart : 0, 
-                                    time: false ,
-                                    format: 'DD/MM/YYYY',
-                                });
-                            });
-                        </script>
-                        <script src="js/bootstrap-material-datetimepicker.js"></script>
-                   </div>
-            <!--       end-->
                 </div>
                </div>
         </div>
