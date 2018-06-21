@@ -80,7 +80,8 @@
 
       initMap(position.coords.latitude,position.coords.longitude);
       document.getElementById("hlat").value = position.coords.latitude;                    
-      document.getElementById("hlong").value = position.coords.longitude;      
+      document.getElementById("hlong").value = position.coords.longitude;    
+      getcoor();
       // var element = document.getElementById('geolocation');
       
       element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
@@ -104,7 +105,13 @@
   function getcoor(){
      var lat = document.getElementById("hlat").value;
      var long = document.getElementById("hlong").value;
-     alert(lat+" : "+long);
+     var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+lat+","+long+"&key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg&callback";
+
+     $.get(url, function(data, status){
+        var add = data.results[0].formatted_address;
+        $("#taddress").val(add);
+     });   
+
   }
 
 
