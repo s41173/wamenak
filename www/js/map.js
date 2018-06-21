@@ -25,7 +25,7 @@
           addMarker(event.latLng);
           document.getElementById("hlat").value = event.latLng.lat();                    
           document.getElementById("hlong").value = event.latLng.lng();  
-
+          getcoor();
           // console.log(event.latLng.lat()+" :: "+event.latLng.lng());
         });
 
