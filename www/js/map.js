@@ -23,9 +23,10 @@
         map.addListener('click', function(event) {
           clearMarkers();    
           addMarker(event.latLng);
-          // document.getElementById('latclicked').innerHTML = event.latLng.lat();
-          // document.getElementById('longclicked').innerHTML =  event.latLng.lng();
-          console.log(event.latLng.lat()+" :: "+event.latLng.lng());
+          document.getElementById("hlat").value = event.latLng.lat();                    
+          document.getElementById("hlong").value = event.latLng.lng();  
+
+          // console.log(event.latLng.lat()+" :: "+event.latLng.lng());
         });
 
         // Adds a marker at the center of the map.
