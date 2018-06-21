@@ -110,10 +110,7 @@
                         <h4 class="list-group-item-heading">Rangkuman <span>»</span></h4>
                     </a></li>
                     <li class="disabled"><a href="#step-2">
-                        <h4 class="list-group-item-heading">Pengiriman <span>»</span></h4>
-                    </a></li>
-                    <li class="disabled"><a href="#step-3">
-                        <h4 class="list-group-item-heading">Pembayaran</h4>
+                        <h4 class="list-group-item-heading">Pengiriman &amp; Pembayaran <span>»</span></h4>
                     </a></li>
                 </ul>
             </div>
@@ -163,6 +160,7 @@
        
        <style type="text/css">
            #map{ width: 100%; height: 250px; border: 1px solid #ccc; margin: 5px 0 0 0; }
+           #mapdesc{ font-size: 8pt; text-align: center; padding: 0; margin: 0 0 5px 0;}
        </style>
        
        <script type="text/javascript" src="js/map.js"></script>
@@ -172,6 +170,7 @@
         <div class="row setup-content" id="step-2">
             <div class="col-xs-12">
                 <h4 class="text-center">Pengaturan Pengantaran</h4>
+            <center> <span id="mapdesc"> Tap posisi pada peta untuk menentukan lokasi lebih akurat. </span> </center> 
                 
                  <div class="list-group">
                  
@@ -180,75 +179,14 @@
 
 <textarea id="taddress" class="form-control" rows="4" readonly placeholder="Alamat Pengantaran"></textarea>
 <div id="map"></div>
-<p id="geolocation">Finding geolocation...</p>
+<!--
     <button type="button" onclick="location.reload();"> Refresh </button>
     <button type="button" onclick="getcoor();"> Get Coor </button>
-                 
+-->              
                 </div>
                </div>
         </div>
-        <div class="row setup-content" id="step-3">
-            <div class="col-xs-12">
-                
-                <div class="row">
-                      <div class="col-md-12 card">
-                           <ul class="nav nav-tabs">
-                               <li class="active"><a data-toggle="tab" href="#tab1"><span class="tag cod"></span></a></li>
-                               <li><a data-toggle="tab" href="#tab2"><span class="tag cc"></span></a></li>
-                               <li><a data-toggle="tab" href="#tab3"><span class="tag dc"></span></a></li>
-                               <li><a data-toggle="tab" href="#tab4"><span class="tag tf"></span></a></li>
-                          </ul>
-                       </div>
-                  </div>
-
-                    <div class="row">
-                       <div class="col-xs-12">
-                           <div class="tab-content" id="pay">
-                              <div id="tab1" class="tab-pane fade in active ">
-                                    <h3>Cash On Delivery</h3>
-                                    <p>Lebih mudah dan cepat</p>
-                                    <input type="hidden" name="payment" value="cod">
-                              </div>
-                              <div id="tab2" class="tab-pane fade">
-
-                                    <h3>Credit Card</h3>
-                                    <ul>
-                                        <li>Proses Konfirmasi Instant</li>
-                                        <li>Biaya Proses Rp. 3.000</li>
-                                    </ul>
-                                    <input type="hidden" name="payment" value="creditcard">
-
-
-                              </div>
-                              <div id="tab3" class="tab-pane fade">
-
-                                        <h3>Debit Card</h3>
-                                        <p>We accept : <br>
-                                        <span class="tag visa"></span><span class="tag master-card"></span></p>
-                                        <input type="hidden" name="payment" value="debit">
-
-                              </div>
-                              <div id="tab4" class="tab-pane fade">
-                                 <div class="transfer">
-                                     <h3>BCA</h3>
-                                     <p>PT. JKITCHEN INDONESIA, <br>
-                                     1258-xxxx-xxxx</p>
-                                 </div>
-                                 <div class="transfer">
-                                     <h3>MANDIRI</h3>
-                                     <p>PT. JKITCHEN INDONESIA, <br>
-                                     1258-xxxx-xxxx</p>
-                                 </div>
-                                 <p id="note">Pesanan hanya diproses jika pembayaran telah dikonfirmasi.</p>
-                                 
-                            </div>
-                        </div>
-                        <button id="finish" type="submit" class="btn">Selesai</button>
-                       </div>
-                        
-                    </div>
-            </div>
-        </div>
+        
         </form>
         </div>
         
