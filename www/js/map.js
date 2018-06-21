@@ -8,8 +8,8 @@
 
         // var lati = document.getElementById("hlat").value;
         // var longi = document.getElementById("hlong").value;
-        var haightAshbury = {lat: lat, lng: long};
-        // var haightAshbury = {lat: 3.5516441, lng: 98.6410409};
+        // var haightAshbury = {lat: lat, lng: long};
+        var haightAshbury = {lat: 3.5516441, lng: 98.6410409};
 
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
