@@ -774,7 +774,7 @@ a{
     display: inline-block;
     margin: 0 auto;
     text-align: center;
-    width: 32%
+/*    width: 32%*/
 }
 #checkout #step ul li.disabled a{
     color: #ccc;
