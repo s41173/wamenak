@@ -42,7 +42,7 @@ $(document).ready(function (e) {
             dataType: 'json',
             success: function(data)
             {   
-              if (data.status == true){ $("#myModal").modal('hide');
+              if (data.status == true){ $("#myModal").modal('hide'); $("#tdescription").val() = "";
                   setTimeout(function(){ toast("Produk berhasil ditambahkan"); }, 1000);
               }else{ toast(data.error); }
             },

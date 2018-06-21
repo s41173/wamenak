@@ -6,6 +6,7 @@ function home(){
 function balance(){
 
     var nilai = '{ "customer":"'+localStorage.userid+'" }';
+    console.log(nilai);
         
     $.ajax({
         type: 'POST',
