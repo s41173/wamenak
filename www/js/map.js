@@ -77,9 +77,10 @@
 
     function onSuccess(position) {
 
-      alert(position.coords.latitude+" : "+position.coords.longitude);
       initMap(position.coords.latitude,position.coords.longitude);
-      var element = document.getElementById('geolocation');
+      document.getElementById("hlat").value = position.coords.latitude;                    
+      document.getElementById("hlong").value = position.coords.longitude;      
+      // var element = document.getElementById('geolocation');
       
       element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
                           'Longitude: '          + position.coords.longitude             + '<br />' +
@@ -89,11 +90,7 @@
                           'Heading: '            + position.coords.heading               + '<br />' +
                           'Speed: '              + position.coords.speed                 + '<br />' +
                           'Timestamp: '          + position.timestamp          + '<br />';
-
-      
-      // initMap(parsetInt(position.coords.latitude),parsetInt(position.coords.longitude));
-      // document.getElementById("hlat").value = position.coords.latitude;                    
-      // document.getElementById("hlong").value = position.coords.longitude;                    
+              
   }
 
   // onError Callback receives a PositionError object
@@ -101,6 +98,12 @@
   function onError(error) {
       alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
+  }
+
+  function getcoor(){
+     var lat = document.getElementById("hlat").value;
+     var long = document.getElementById("hlong").value;
+     alert(lat+" : "+long);
   }
 
 
