@@ -5,7 +5,6 @@ function details(){
         $.get(api+"product/product_detail/"+localStorage.pid, function(data, status){
             
             var datax = data.content[0];
-            console.log(datax);
             $("#proimage").attr("src",datax.image);
             $("#protitle").html(capitalizeFirstLetter(datax.name));
             $("#price").html("Rp "+idr_format(datax.price));
@@ -42,7 +41,9 @@ $(document).ready(function (e) {
             dataType: 'json',
             success: function(data)
             {   
-              if (data.status == true){ $("#myModal").modal('hide'); $("#tdescription").val() = "";
+              if (data.status == true){ 
+                $("#tdescription").html = ""; 
+                $("#myModal").modal('hide');
                   setTimeout(function(){ toast("Produk berhasil ditambahkan"); }, 1000);
               }else{ toast(data.error); }
             },

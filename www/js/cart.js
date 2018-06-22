@@ -140,7 +140,7 @@ function cart(){
             $("#ttotal,#xttotal").html(idr_format(total.amount_publish));
             $("#totalhidden").val(total.amount_publish); 
 
-            if ($("#balance").val() < total.amount_publish){
+            if ($("#balance").val() <= total.amount_publish){
                 $("#rcash").prop("checked", true);
             }else{ $("#rwallet").prop("checked", true); }
 
