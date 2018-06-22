@@ -80,7 +80,9 @@
 
       initMap(position.coords.latitude,position.coords.longitude);
       document.getElementById("hlat").value = position.coords.latitude;                    
-      document.getElementById("hlong").value = position.coords.longitude;    
+      document.getElementById("hlong").value = position.coords.longitude;   
+
+      
       getcoor();
       // var element = document.getElementById('geolocation');
       
@@ -110,6 +112,7 @@
      $.get(url, function(data, status){
         var add = data.results[0].formatted_address;
         $("#taddress").val(add);
+        calculate_distance();
      });   
 
   }

@@ -83,6 +83,32 @@ function del_cart(uid){
     return false;
 }
 
+function balance(){
+
+    var nilai = '{ "customer":"'+localStorage.userid+'" }';
+        
+    $.ajax({
+        type: 'POST',
+        url: api+'customer/balance',
+        data : nilai,
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(data)
+        {   
+          if (data.status == true){ 
+              $("#balancetext").html(idr_format(data.balance));
+              $("#balance").val(data.balance);
+              cart();
+          }else{ toast(data.error); }
+        },
+        error: function (request, status, error) {
+            console.log('Request Failed...!'+error);
+        }
+    })
+    return false;
+
+}
+
 function cart(){
 
     $.get(api+"cart/get/"+localStorage.userid, function(data, status){
@@ -110,10 +136,73 @@ function cart(){
             "</li>";
             }
 
-        $("#ringkasan").html(con);
-        $("#ttotal").html("Rp "+idr_format(total.amount_publish)); 
+            $("#ringkasan").html(con);
+            $("#ttotal,#xttotal").html(idr_format(total.amount_publish));
+            $("#totalhidden").val(total.amount_publish); 
 
-        }else{  $("#ringkasan").html(""); $("#ttotal").html("Rp 0"); }
+            if ($("#balance").val() < total.amount_publish){
+                $("#rcash").prop("checked", true);
+            }else{ $("#rwallet").prop("checked", true); }
+
+           calculate_distance();
+
+        }else{  $("#ringkasan").html(""); $("#ttotal,#xttotal").html("Rp 0"); $("#totalhidden").val(0); }
     });   
 
 }
+
+function calculate_distance(){
+
+    var coor = document.getElementById("hlat").value+","+document.getElementById("hlong").value;
+    var nilai = '{ "to":"'+coor+'" }';
+        
+    $.ajax({
+        type: 'POST',
+        url: api+'api/calculate_distance',
+        data : nilai,
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(data)
+        {   
+           $("#delivery").val(data.result);
+           calculate_shiprate();
+        },
+        error: function (request, status, error) {
+            alert('Request Failed - Calculate-Distance'+error);
+        }
+    })
+    return false;
+  }
+
+  function calculate_shiprate(){
+
+     var distance = $("#delivery").val();
+     var d = new Date();
+     var period = d.getHours();
+     var payment = 'CASH';
+     var amount = parseInt($("#totalhidden").val());
+     if ($("#rwallet").is(":checked")) { payment = "WALLET"; }
+
+     var nilai = '{ "period":"'+period+'", "distance":"'+distance+'", "payment":"'+payment+'", "minimum":"'+amount+'" }';
+     
+     $.ajax({
+        type: 'POST',
+        url: api+'shiprate/calculate',
+        data : nilai,
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(data)
+        {   
+            var rate = parseInt(data.result*distance);
+            $("#deliveryrate").html(idr_format(rate)); 
+            $("#grandtotal").html(idr_format(parseInt(amount+rate)));
+        },
+        error: function (request, status, error) {
+            // console.log('Request Failed...!'+error);
+            alert('Request Failed - Calculate-Shiprate'+error);
+        }
+    })
+    return false;
+     
+
+  }

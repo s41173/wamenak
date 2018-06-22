@@ -75,7 +75,7 @@
     <link rel="stylesheet" href="css/toast.css">
   
 </head>
-<body id="cart" onload="cart();">
+<body id="cart" onload="balance();">
      
     <!-- loader class -->
     <div class="loader"></div>
@@ -146,7 +146,9 @@
                     <table class="table" id="bill">
                         <tr id="total">
                             <th>Total Pesanan</th>
-                            <td class="text-right"><b id="ttotal">Rp 0</b></td>
+                            <td class="text-right"><b id="ttotal">Rp 0</b> 
+                            <input type="hidden" id="totalhidden"> 
+                            <input type="hidden" id="balance">  </td>
                         </tr>
                     </table>
                 
@@ -159,7 +161,7 @@
 <!--        step 2-->
        
        <style type="text/css">
-           #map{ width: 100%; height: 250px; border: 1px solid #ccc; margin: 5px 0 0 0; }
+           #map{ width: 100%; height: 200px; border: 1px solid #ccc; margin: 5px 0 0 0; }
            #mapdesc{ font-size: 8pt; text-align: center; padding: 0; margin: 0 0 5px 0;}
        </style>
        
@@ -183,10 +185,27 @@
     <button type="button" onclick="location.reload();"> Refresh </button>
     <button type="button" onclick="getcoor();"> Get Coor </button>
 -->              
-               
-<button id="finish" type="submit" class="btn"> Checkout </button>
-                </div>
-               </div>
+
+<table class="table" id="bill" style="font-size:10pt; padding:0px;">
+    <tr id=""> <th>Total Pesanan</th> <td class="text-right"><b id="xttotal"> 0,-</b></td> </tr>
+    <tr id=""> <th>Biaya Delivery </th> <td class="text-right"> <input type="hidden" id="delivery"> 
+    <b id="deliveryrate"> 0,-</b></td> 
+    </tr>
+    <tr id="total"> <th style="font-size:11pt;"> Grand Total </th> <td class="text-right" style="font-size:11pt;">
+    <b id="grandtotal"> 0,-</b></td> 
+    </tr>
+</table>  
+                             
+<h4>Metode Pembayaran</h4>
+<input type="radio" name="rpayment" id="rwallet" value="WALLET"> E-Wallet - <span id="balancetext"> 0 </span>
+<br>
+<input type="radio" name="rpayment" id="rcash" value="CASH" checked> Cash
+<br>        
+                              
+<button id="finish" type="submit" class="btn"> Order </button> <br>
+              
+                  </div>
+             </div>
                
         </div>
         
