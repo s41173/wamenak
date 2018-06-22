@@ -49,20 +49,20 @@ function otentikasi(page){
             {   
                 if (page == 'cart'){ mess = "Silahkan login untuk melihat pesanan anda"; }
                 else if (page == 'wallet'){ mess = "Silahkan login untuk melihat saldo anda"; }
-                window.location = page+".html";
+                // window.location = page+".html";
                 
-                // if (data.status == false){ 
+                if (data.status == false){ 
                 
-                //     swal({
-                //         position: 'top-right',
-                //         type: 'warning',
-                //         title: mess,
-                //         showConfirmButton: false,
-                //         timer: 2000
-                //     });
-                //     setTimeout(function(){ window.location = "login.html"; }, 3000);
+                    swal({
+                        position: 'top-right',
+                        type: 'warning',
+                        title: mess,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    setTimeout(function(){ window.location = "login.html"; }, 3000);
 
-                // }else{ window.location = page+".html"; }
+                }else{ window.location = page+".html"; }
             },
             error: function (request, status, error) {
                 console.log('Request Failed...!'+error);
