@@ -209,6 +209,7 @@
 				var myOptions = {
 			  		zoom: 16,
 					center: myLatlng,
+                    disableDefaultUI: true,
 			  		mapTypeId: google.maps.MapTypeId.ROADMAP}
 				map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 				
@@ -220,7 +221,7 @@
 			};
 			marker_0 = createMarker_map(markerOptions);
 			
-			marker_0.set("content", "<img src='logo.JPG' width='100'> <br><br> <b>Wamenak - Warung Makan Enak</b>");
+			marker_0.set("content", "<b>Wamenak - Warung Makan Enak</b>");
 			
 			google.maps.event.addListener(marker_0, "click", function(event) {
 				iw_map.setContent(this.get("content"));

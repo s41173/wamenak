@@ -59,7 +59,7 @@ con = con+
           "<div id=\"rateYo\"><i class=\"fa fa-star\" aria-hidden=\"true\"></i><i class=\"fa fa-star\" aria-hidden=\"true\"></i><i class=\"fa fa-star\" aria-hidden=\"true\"></i><i class=\"fa fa-star\" aria-hidden=\"true\"></i></div>"+
           "<p> Rp "+idr_format(datax[i].price)+" </p>"+
       "</div>"+
-      "<a class=\"btn btn-default\" id=\"tombol\" onclick=\"add_cart("+datax[i].id+");\">Tambahkan ke Lunch Box</a>"+
+      "<a class=\"btn btn-default\" id=\"tombol\" onclick=\"add_cart("+datax[i].id+");\">Tambahkan ke Cart </a>"+
   "</div>"+
 "</div>";
             }
@@ -116,7 +116,7 @@ con = con+
             "<div id=\"rateYo\"><i class=\"fa fa-star\" aria-hidden=\"true\"></i><i class=\"fa fa-star\" aria-hidden=\"true\"></i><i class=\"fa fa-star\" aria-hidden=\"true\"></i><i class=\"fa fa-star\" aria-hidden=\"true\"></i></div>"+
             "<p> Rp "+idr_format(datax[i].price)+" </p>"+
         "</div>"+
-        "<a class=\"btn btn-default\" id=\"tombol\" onclick=\"add_cart("+datax[i].id+");\">Tambahkan ke Lunch Box</a>"+
+        "<a class=\"btn btn-default\" id=\"tombol\" onclick=\"add_cart("+datax[i].id+");\">Tambahkan ke Cart</a>"+
     "</div>"+
 "</div>";
         

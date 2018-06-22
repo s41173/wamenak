@@ -146,7 +146,7 @@ function cart(){
 
            calculate_distance();
 
-        }else{  $("#ringkasan").html(""); $("#ttotal,#xttotal").html("Rp 0"); $("#totalhidden").val(0); }
+        }else{ setTimeout(function(){ window.location = "index.html"; }, 2000); toast("Cart anda kosong");  $("#ringkasan").html(""); $("#ttotal,#xttotal").html("Rp 0"); $("#totalhidden").val(0); }
     });   
 
 }
