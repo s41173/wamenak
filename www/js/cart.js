@@ -203,6 +203,20 @@ function calculate_distance(){
         }
     })
     return false;
-     
+  }
+
+
+  function getcoor(){
+
+     var lat = document.getElementById("hlat").value;
+     var long = document.getElementById("hlong").value;
+
+     var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+lat+","+long+"&key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg&callback";
+
+     $.get(url, function(data, status){
+        var add = data.results[0].formatted_address;
+        $("#taddress").val(add);
+        calculate_distance();
+     });   
 
   }

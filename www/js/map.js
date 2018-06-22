@@ -4,7 +4,7 @@
       var map;
       var markers = [];
 
-      function initMap(lati=null,long=null) {
+      function initMap(lati,long) {
 
         if (lati == ""){ lati = 0; }
         if (long == ""){ long = 0; }
@@ -80,8 +80,7 @@
 
       initMap(position.coords.latitude,position.coords.longitude);
       document.getElementById("hlat").value = position.coords.latitude;                    
-      document.getElementById("hlong").value = position.coords.longitude;   
-
+      document.getElementById("hlong").value = position.coords.longitude;      
       
       getcoor();
       // var element = document.getElementById('geolocation');
@@ -103,21 +102,3 @@
       alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
   }
-
-  function getcoor(){
-     var lat = document.getElementById("hlat").value;
-     var long = document.getElementById("hlong").value;
-     var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+lat+","+long+"&key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg&callback";
-
-     $.get(url, function(data, status){
-        var add = data.results[0].formatted_address;
-        $("#taddress").val(add);
-        calculate_distance();
-     });   
-
-  }
-
-
-
-
-      // https://maps.googleapis.com/maps/api/geocode/json?address=3.5516441,98.6410409&key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg&callback
