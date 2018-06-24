@@ -164,8 +164,8 @@
         $('#content').pullToRefresh({
             refreshCallback: function(){
                 setTimeout(function(){
-                    $('#content').pullToRefresh().stop();
-                },0)
+                    $('#sliderbox').pullToRefresh().stop();
+                },10)
                 recommended();
             }
         });
