@@ -35,7 +35,6 @@
     <script src="js/acl.js"></script>
     <script src="js/routing.js"></script>
     <script src="js/home.js"></script>
-    <script src="js/pullToRefresh.js"></script>
     
     <script src="js/jquery.nicescroll.min.js"></script>
     <script type="text/javascript">
@@ -158,18 +157,7 @@
 </div>
 <!--  / category -->
         
-</div>    
-      
-<script type="text/javascript">
-        $('#content').pullToRefresh({
-            refreshCallback: function(){
-                setTimeout(function(){
-                    $('#sliderbox').pullToRefresh().stop();
-                },10)
-                recommended();
-            }
-        });
-</script>      
+</div>         
       
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
