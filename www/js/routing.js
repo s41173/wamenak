@@ -1,4 +1,15 @@
 document.addEventListener('deviceready', function () {
+
+  // onesignal
+  var notificationOpenedCallback = function(jsonData) {
+    console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+  };
+
+  window.plugins.OneSignal
+  .startInit("95b026cd-a68a-42e4-bcb3-63d5bd93f341")
+  .handleNotificationOpened(notificationOpenedCallback)
+  .endInit();
+  // onesignal
     
   document.addEventListener("backbutton", function(e){
     
