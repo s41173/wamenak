@@ -102,7 +102,7 @@ function balance(){
           }else{ toast(data.error); }
         },
         error: function (request, status, error) {
-            console.log('Request Failed...!'+error);
+            console.log('Request Failed Balance...!'+error);
         }
     })
     return false;

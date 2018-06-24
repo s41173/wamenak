@@ -66,6 +66,9 @@
         },
         "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "com.phonegap.dagent"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
         }
     },
     "dependent_plugins": {

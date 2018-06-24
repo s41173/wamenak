@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+    
+    <!--Add to homescreen And color theme-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-title" content="JKitchen">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <!-- Theme color for chrome, firefox and opera-->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+
+    <title>Wamenak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/w3style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/myJS.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-material-datetimepicker.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="js/sweetalert/sweetalert.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/sweetalert/sweetalert.min.js"></script>
+   
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript">
+         $(document).ready(function () {
+             
+             $("#sidebar").niceScroll({
+                 cursorcolor: '#000',
+                 cursorwidth: 4,
+                 cursorborder: 'none'
+             });
+
+             $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').fadeOut();
+             });
+
+             $('#sidebarCollapse').on('click', function () {
+                 $('#sidebar').addClass('active');
+                 $('.overlay').fadeIn();
+                 $('.collapse.in').toggleClass('in');
+                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+             });
+             
+         });
+     </script>
+     
+    <script src="js/acl.js"></script>
+    <script src="js/routing.js"></script>
+    <script src="js/wallet.js"></script>
+    
+     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://maps-api-ssl.google.com/maps/api/js?key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg"></script>  
+
+</head>
+<body onload="home();">
+    
+     <!-- loader class -->
+    <div class="loader"></div>
+    <!-- loader class -->  
+    
+     <!-- snackbar -->
+    <div id="snackbar"></div>
+    
+     <div class="overlay"></div>
+         <nav id="sidebar">
+            <div id="main-nav">
+                <div id="dismiss">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                
+                <ul class="nav navbar-nav navbar-left" style="background-color: whitesmoke;">
+                    <li><h3>Hello, <span>Harvine</span></h3></li>
+                    <li><img width="30px" src="img/Shopping-bag-black.png" alt=""> <span>0</span> <img width="30px" src="img/45271-200.png" alt=""> <span>0</span></li>
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-left" style="background-color: gainsboro;">
+                    <li><a href="index.html">Catering</a></li>
+                    <li><a href="ready-to-eat.html">Ready To Eat</a></li>
+                    <li><a href="snack.html">Snack Box</a></li>
+                    <li><a href="cara-pesan.html">Cara Pesan</a></li>
+                    <li><a href="track.html">Cek Pesanan</a></li>
+                    <li><a href="profil.html">Akun Saya</a></li>
+                    <li><a href="tips.html">Tips</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="contact.html">Hubungi Kami</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-left" style="background-color: whitesmoke;">
+                    <li><p>Copyright &copy; 2018 Wamenak.</p></li>
+                </ul>
+          </div>
+        </nav>
+     
+        <header>
+
+            <div id="main-nav">
+    
+                <nav class="navbar" style="margin-bottom: 0;">
+                    
+                    <div class="container">
+                        <div class="navbar-header">
+<button onclick="window.location='index.html'" id="back"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                            <div class="navbar-brand text-center">
+                                <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin:-12% 0 0 -15%;">
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+    
+            </div>
+          </header>
+
+          <div class="container-fluid" id="alamat">
+            <h2 class="text-center">Wallet</h2>
+            <div class="row">
+                <div class="list-group" id="list">
+                    <div href="#" class="list-group-item">
+                        <p class="text-center">My Balance</p>
+                        <h3 id="balancetext" class="text-center balance">Rp 0,-</h3>
+                       <a data-toggle="modal" data-target="#myModal" class="terms">Terms &amp; Conditions</a>
+
+                       <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+                                
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Terms &amp; Conditions</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <ol>
+                                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                        </ol>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="tombol" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                                
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="navo">
+                <h4>Top Up</h4>
+
+                <div class="row">
+                    <a href="javascript:void(0)" onclick="openCity(event, '1');">
+                        <div class="col-xs-4 m4 tablink w3-bottombar w3-border-black w3-hover-light-grey w3-padding ff2 text-center">Kantor</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="openCity(event, '2');">
+                        <div class="col-xs-4 m4 tablink w3-bottombar w3-hover-light-grey w3-padding ff2 text-center">Driver</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="openCity(event, '3');">
+                        <div class="col-xs-4 m4 tablink w3-bottombar w3-hover-light-grey w3-padding ff2 text-center">Transfer</div>
+                    </a>
+                </div>
+
+                <div id="1" class="car">
+                    
+<!-- map -->
+    <div id="help" style="margin-top:20px;">
+        <div class="container-fluid">
+            <h4>Top Up di Kantor Kami</h4>
+            <hr style="margin-top : 5px !important">
+        </div>
+        
+        <div class="container-fluid">
+              
+        <script type="text/javascript">
+			//<![CDATA[
+			
+			var map; // Global declaration of the map
+			var lat_longs_map = new Array();
+			var markers_map = new Array();
+			
+			var iw_map = new google.maps.InfoWindow();
+				
+				 function initialize_map() {
+				
+				var myLatlng = new google.maps.LatLng(3.594112, 98.653345);
+				var myOptions = {
+			  		zoom: 16,
+					center: myLatlng,
+                    disableDefaultUI: true,
+			  		mapTypeId: google.maps.MapTypeId.ROADMAP}
+				map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+				
+			var myLatlng = new google.maps.LatLng(3.594112, 98.653345);
+				
+			var markerOptions = {
+				map: map,
+				position: myLatlng		
+			};
+			marker_0 = createMarker_map(markerOptions);
+			
+			marker_0.set("content", "<b>Wamenak - Warung Makan Enak</b>");
+			
+			google.maps.event.addListener(marker_0, "click", function(event) {
+				iw_map.setContent(this.get("content"));
+				iw_map.open(map, this);
+			
+			});
+			
+			
+			}
+		
+            function createMarker_map(markerOptions) {
+                var marker = new google.maps.Marker(markerOptions);
+                markers_map.push(marker);
+                lat_longs_map.push(marker.getPosition());
+                return marker;
+            }
+		
+			google.maps.event.addDomListener(window, "load", initialize_map);
+			
+			//]]>
+			</script>
+                                   
+            <div id="map_canvas" class="col-xs-12 mymap" style="width:100%; height:250px; margin-top:0.2%;"></div>             
+           
+        </div>
+        <div class="container-fluid" style="margin-bottom:10px;">
+            <br>
+            <h5 style="font-weight:bold;"> Wamenak - Warung Makan Enak </h5>
+            <p class="text-left" style="font-style:justify; padding-bottom:5px;">
+ Jl. Ayahanda No.41-C  Sei Putih Barat, <br>
+ Medan Petisah, Kota Medan, <br> Sumatera Utara 20118 <br> 061-4142488 / 0822 7701 4410
+            </p>
+<center>         
+<a style="margin-top:10px;" class="tombol" href="https://api.whatsapp.com/send?phone=6282277014410"><i class="fab fa-whatsapp"></i> Whatsapp</a> 
+</center>
+        </div>
+        <div class="clear"></div> <br>
+    </div>
+<!-- map -->   
+                </div>
+
+                <div id="2" class="car" style="display: none;">
+                    <h4>Top Up dengan Driver Kami</h4>
+
+                    <form action="" id="material">
+                        <div class="group">
+                            <input type="number"><span class="highlight"></span><span id="barname" class="bar"></span>
+                            <label>Masukkan Kode Digit</label>
+                        </div>
+            
+                        <button type="submit" class="btn">Top Up</button>
+                    </form>
+                </div>
+
+                <div id="3" class="car" style="display: none;">
+                    <h4>Top Up dengan Transfer</h4>
+                    <p style="font-size: 10px !important;">*Harap lengkapi form berikut</p>
+                    <form action="" id="material">
+                        <div class="group">
+<input type="number" id="amount"><span class="highlight"></span><span id="barname" class="bar"></span>
+<select id="camount" class="form-control">
+    <option value="50000">Rp. 50.000,- </option>
+    <option value="100000">Rp. 100.000,- </option>
+    <option value="250000">Rp. 250.000,- </option>
+    <option value="500000">Rp. 500.000,- </option>
+    <option value="1000000">Rp. 1.000.000,- </option>
+</select>
+                            <label>Jumlah (Rp.)</label>
+                        </div>
+<!--
+
+                        <div class="form-control-wrapper form-group">
+<input type="text" id="date" class="form-control myOwnForm floating-label" placeholder="dd/mm/yyyy">
+                        </div>
+-->
+                        <div class="group">
+                            <input type="text"><span class="highlight"></span><span id="barname" class="bar"></span>
+                            <div id="bankbox"> </div>
+                            <label>Bank Tujuan</label>
+                        </div>
+                        
+                        <div class="group">
+<input type="text" id="sender_name"><span class="highlight"></span><span id="barname" class="bar"></span>
+                            <label>Nama Pengirim</label>
+                        </div>
+
+                        <div class="group">
+<input type="number" id="sender_no"><span class="highlight"></span><span id="barname" class="bar"></span>
+                            <label>No.Rek Pengirim</label>
+                        </div>
+                        
+                        <div class="group">
+<input type="text" id="sender_bank"><span class="highlight"></span><span id="barname" class="bar"></span>
+                            <label>Bank Pengirim</label>
+                        </div>
+
+
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#date').bootstrapMaterialDatePicker({ 
+                                    weekStart : 0, 
+                                    time: false ,
+                                    format: 'DD/MM/YYYY',
+                                });
+                            });
+                        </script>
+                        <script src="js/bootstrap-material-datetimepicker.js"></script>
+<button type="button" id="bsubmit" class="tombol" style="width:100%; margin-bottom:15px;">Kirim</button>
+                    </form>
+                </div>
+
+                <script>
+                        $(window, document, undefined).ready(function() {
+                
+                            $('input').blur(function() {
+                            var $this = $(this);
+                            if ($this.val())
+                                $this.addClass('used');
+                            else
+                                $this.removeClass('used');
+                            });
+                
+                            var $ripples = $('.ripples');
+                
+                            $ripples.on('click.Ripples', function(e) {
+                
+                            var $this = $(this);
+                            var $offset = $this.parent().offset();
+                            var $circle = $this.find('.ripplesCircle');
+                
+                            var x = e.pageX - $offset.left;
+                            var y = e.pageY - $offset.top;
+                
+                            $circle.css({
+                                top: y + 'px',
+                                left: x + 'px'
+                            });
+                
+                            $this.addClass('is-active');
+                
+                            });
+                
+                            $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
+                            $(this).removeClass('is-active');
+                            });
+                
+                        });
+                    
+             </script>
+                        
+             <script type="text/javascript">
+                            
+                        $(window, document, undefined).ready(function() {
+                
+                            $('textarea').blur(function() {
+                            var $this = $(this);
+                            if ($this.val())
+                                $this.addClass('used');
+                            else
+                                $this.removeClass('used');
+                            });
+                
+                            var $ripples = $('.ripples');
+                
+                            $ripples.on('click.Ripples', function(e) {
+                
+                            var $this = $(this);
+                            var $offset = $this.parent().offset();
+                            var $circle = $this.find('.ripplesCircle');
+                
+                            var x = e.pageX - $offset.left;
+                            var y = e.pageY - $offset.top;
+                
+                            $circle.css({
+                                top: y + 'px',
+                                left: x + 'px'
+                            });
+                
+                            $this.addClass('is-active');
+                
+                            });
+                
+                            $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
+                            $(this).removeClass('is-active');
+                            });
+                
+                        });
+                            
+                </script>
+
+                <script type="text/javascript">
+                    
+                    function openCity(evt, carName) {
+                        var i, x, tablinks;
+                        x = document.getElementsByClassName("car");
+                        for (i = 0; i < x.length; i++) {
+                            x[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablink");
+                        for (i = 0; i < x.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" w3-border-black", "");
+                        }
+                        document.getElementById(carName).style.display = "block";
+                        evt.currentTarget.firstElementChild.className += " w3-border-black";
+                    }
+                    
+                </script>
+                
+            </div>
+        </div>
+        
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    app.initialize(); // method penting untuk initilize
+</script>  
+        
+</body>
+</html>

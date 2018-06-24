@@ -602,6 +602,14 @@ module.exports = [
             "navigator.notification",
             "navigator"
         ]
+    },
+    {
+        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+        "id": "onesignal-cordova-plugin.OneSignal",
+        "pluginId": "onesignal-cordova-plugin",
+        "clobbers": [
+            "OneSignal"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -627,7 +635,8 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.1.3",
     "cordova-plugin-vibration": "2.1.6",
     "cordova-plugin-whitelist": "1.2.2",
-    "cordova-plugin-crosswalk-webview": "2.4.0"
+    "cordova-plugin-crosswalk-webview": "2.4.0",
+    "onesignal-cordova-plugin": "2.4.1"
 }
 // BOTTOM OF METADATA
 });
