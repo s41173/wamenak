@@ -9,6 +9,12 @@ document.addEventListener('deviceready', function () {
   .startInit("95b026cd-a68a-42e4-bcb3-63d5bd93f341")
   .handleNotificationOpened(notificationOpenedCallback)
   .endInit();
+
+  window.plugins.OneSignal.getPermissionSubscriptionState(function(status) {
+    idapp = status.subscriptionStatus.userId;
+    alert(idapp);
+  });
+
   // onesignal
     
   document.addEventListener("backbutton", function(e){
