@@ -13,6 +13,7 @@ document.addEventListener('deviceready', function () {
   window.plugins.OneSignal.getPermissionSubscriptionState(function(status) {
     idapp = status.subscriptionStatus.userId;
     if (idapp != null){ localStorage.setItem("device", idapp); }
+    alert(localStorage.device);
   });
 
   // onesignal
