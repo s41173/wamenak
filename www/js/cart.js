@@ -148,12 +148,11 @@ function cart(){
 
 function calculate_distance(){
 
-    // var lat = 3.551989;
-    // var long = 98.641050;
-    // document.getElementById("hlat").value = lat;
-    // document.getElementById("hlong").value = long;
-    // var coor = lat+","+long;
-    // initMap(lat,long);
+    var lat = 3.551989;
+    var long = 98.641050;
+    document.getElementById("hlat").value = lat;
+    document.getElementById("hlong").value = long;
+    initMap(lat,long);
 
     var coor = document.getElementById("hlat").value+","+document.getElementById("hlong").value;
     var nilai = '{ "to":"'+coor+'" }';
