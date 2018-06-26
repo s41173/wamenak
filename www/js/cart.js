@@ -139,8 +139,6 @@ function cart(){
                 $("#rcash").prop("checked", true);
             }else{ $("#rwallet").prop("checked", true); }
 
-           calculate_distance();
-
         }else{ setTimeout(function(){ window.location = "index.html"; }, 2000); toast("Cart anda kosong");  $("#ringkasan").html(""); $("#ttotal,#xttotal").html("Rp 0"); $("#totalhidden").val(0); }
     });   
 
@@ -148,11 +146,11 @@ function cart(){
 
 function calculate_distance(){
 
-    var lat = 3.551989;
-    var long = 98.641050;
-    document.getElementById("hlat").value = lat;
-    document.getElementById("hlong").value = long;
-    initMap(lat,long);
+    // var lat = 3.551989;
+    // var long = 98.641050;
+    // document.getElementById("hlat").value = lat;
+    // document.getElementById("hlong").value = long;
+    // initMap(lat,long);
 
     var coor = document.getElementById("hlat").value+","+document.getElementById("hlong").value;
     var nilai = '{ "to":"'+coor+'" }';
@@ -253,6 +251,7 @@ function calculate_distance(){
      $.get(url, function(data, status){
         var add = data.results[0].formatted_address;
         $("#taddress").val(add);
+        calculate_distance();
      });   
   }
 

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+    
+    <!--Add to homescreen And color theme-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-title" content="JKitchen">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <!-- Theme color for chrome, firefox and opera-->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+
+    <title>JKitchen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="js/sweetalert/sweetalert.css">
+    
+    <link rel="stylesheet" href="css/toast.css">
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/sweetalert/sweetalert.min.js"></script>
+    <script src="js/acl.js"></script>
+    
+    <style type="text/css">
+    
+        /*loader */
+        .loader {
+          border: 16px solid #000;
+          border-radius: 50%;
+          border-top: 16px solid #EAB700;
+          width: 75px;
+          height: 75px;
+          -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+          margin-left: auto;
+          margin-right: auto;
+          display: none;
+          z-index: 10;
+          position: absolute;
+          top: 35%;
+          left: 38%;
+        }
+
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
+        #resend{
+            text-align: center;
+            font-size: 9pt;
+            display: none;
+        }
+        
+        #resendlink{
+            text-align: center;
+            font-size: 10pt;
+            font-weight: bold;
+            color: #ff6f00 !important;
+            display: none;
+        }
+        
+        #material{ margin: 0 0 5px 0;}
+    
+    </style>
+    
+    <script type="text/javascript">
+         $(document).ready(function () {
+             
+    $("#bgetotp").hide();
+             
+    $('#bregister').click(function() {
+        
+        var name  = $("#tname").val();
+        var email = $("#temail").val();
+        var no    = $("#tno").val();
+        var mess  = null;
+        
+        if (name == ""){ mess = 'Nama tidak valid'; }
+        else if (email == ""){ mess = 'Email tidak valid'; }
+        else if (no == ""){ mess = 'No handphone tidak valid'; }
+        
+        if (mess == null){
+
+            var nilai = '{ "email":"'+email+'","phone":"'+no+'"  }';
+            
+           $.ajax({
+               type: 'POST',
+               url: api+'customer/valid_customer',
+               data:  nilai,
+               contentType: "application/json",
+               dataType: 'json',
+               success: function(data) {
+
+                   if (data.status == true)
+                   {   
+                       $("#hname").val(name);
+                       $("#hemail").val(email);
+                       $("#hno").val(no);
+
+                       $("#bregister").hide();
+                       $("#bgetotp").show();
+                       $("#groupotp").css("display", "block");
+                       $("#tname,#temail,#tno").prop( "disabled", true );
+
+                       send_otp(no);
+                   }
+                   else{ toast(data.error); }
+               },
+               error: function(e) 
+               {
+                   $("#error").html(e).fadeIn();
+                   console.log(e.responseText);	
+               } 
+           })
+           return false;
+
+        }else{ toast(mess); }
+    });
+
+    $('#resendlink').click(function() {
+        send_otp();
+    });
+
+    $('#bgetotp').click(function() {
+        
+        if ($("#totp").val() == $("#hotp").val()){
+
+            var nilai = '{ "phone":"'+$("#hno").val()+'","email":"'+$("#hemail").val()+'","name":"'+$("#hname").val()+'" }';
+            
+            $.ajax({
+                type: 'POST',
+                url: api+'customer/register',
+                data:  nilai,
+                contentType: "application/json",
+                dataType: 'json',
+                success: function(data) {
+
+                    if (data.status == true)
+                    {   
+                        swal({
+                            position: 'top-right',
+                            type: 'success',
+                            title: data.error,
+                            text: "Silahkan login dengan akun anda.",
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                        setTimeout(function(){ window.location = "login.html"; }, 4000);
+                        
+                    }
+                    else{ toast(data.error); }
+                },
+                error: function(e) 
+                {
+                    $("#error").html(e).fadeIn();
+                    console.log(e.responseText);	
+                } 
+            })
+            return false;
+
+        }else{ toast('Invalid OTP Code'); }
+
+    });
+
+    function send_otp(no){
+        
+        if (!no){ no = $("#hno").val(); }
+        var nilai = '{ "phone":"'+no+'"  }';
+
+        $.ajax({
+            type: 'POST',
+            url: api+'api/send_otp',
+            data:  nilai,
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+
+                if (data.status == true)
+                {   
+                  $("#hotp").val(data.code);
+                  intervals();
+                }
+                else{ toast(data.error); }
+            },
+            error: function(e) 
+            {
+                $("#error").html(e).fadeIn();
+                console.log(e.responseText);	
+            } 
+        })
+        return false;
+    }
+
+    function intervals(){
+        
+        $("#resend").css("display", "block");
+        $("#resendlink").css("display", "none");
+        
+        var duration = 60 * 1;
+        var timers = duration, minutes, seconds;
+        var myVar = setInterval(function () {
+            minutes = parseInt(timers / 60, 10)
+            seconds = parseInt(timers % 60, 10);
+    
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+    
+            // display.textContent = minutes + ":" + seconds;
+            $("#resend").html("Resend Code in 00:"+seconds);
+    
+            if (--timers < 0) {
+                timers = duration;
+            }
+
+        }, 1000);
+
+        setTimeout(function(){ clearInterval(myVar); $("#resend").css("display", "none"); $("#resendlink").css("display", "block");  }, 60000);
+    }
+             
+             
+    // =======================  Batas register ==========================
+             
+             $("#sidebar").niceScroll({
+                 cursorcolor: '#000',
+                 cursorwidth: 4,
+                 cursorborder: 'none'
+             });
+
+             $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').fadeOut();
+             });
+
+             $('#sidebarCollapse').on('click', function () {
+                 $('#sidebar').addClass('active');
+                 $('.overlay').fadeIn();
+                 $('.collapse.in').toggleClass('in');
+                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+             });
+             
+         }); // end document ready
+     </script>
+    
+</head>
+<body id="register">
+     
+     <!-- snackbar -->
+     <div id="snackbar"></div>
+     
+     <div class="overlay"></div>
+     
+      <header>
+        <div id="main-nav">
+
+                <nav class="navbar">
+                   <div class="container">
+<div class="navbar-brand text-center">
+    <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin-top:-12%;">
+</div>
+                  </div>
+                </nav>
+            </div>
+      </header>
+    
+   <div class="container-fluid" id="login">
+        
+    <!-- loader class -->
+    <div class="loader"></div>
+    <!-- loader class -->  
+        
+         <h3 class="text-center">Daftar</h3>
+         <form action="#" id="material">
+            <div class="group">
+                <input type="text" id="tname"><span class="highlight"></span><span id="barname" class="bar"></span>
+                <label>Nama*</label>
+            </div>
+            <div class="group">
+                <input type="email" id="temail"><span class="highlight"></span> <span id="barmail" class="bar"></span>
+                <label>Email*</label>
+            </div>
+            <div class="group">
+                <input type="number" id="tno"><span class="highlight"></span><span id="barsub" class="bar"></span>
+                <label>No. Handphone*</label>
+            </div>
+            
+            <div class="group" id="groupotp" style="display:none;">
+                <input type="number" id="totp"><span class="highlight"></span><span id="barsub" class="bar"></span>
+                <label>OTP</label>
+            </div>
+            
+            <input type="hidden" id="hname">
+            <input type="hidden" id="hemail">
+            <input type="hidden" id="hno">
+            <input type="hidden" id="hotp">
+            
+            <button type="button" id="bregister" class="btn"> Validasi </button>
+            <button type="button" id="bgetotp" class="btn"> Register </button>
+        </form>
+        
+        <script type="application/javascript">
+            
+            $(window, document, undefined).ready(function() {
+    
+              $('input').blur(function() {
+                var $this = $(this);
+                if ($this.val())
+                  $this.addClass('used');
+                else
+                  $this.removeClass('used');
+              });
+    
+              var $ripples = $('.ripples');
+    
+              $ripples.on('click.Ripples', function(e) {
+    
+                var $this = $(this);
+                var $offset = $this.parent().offset();
+                var $circle = $this.find('.ripplesCircle');
+    
+                var x = e.pageX - $offset.left;
+                var y = e.pageY - $offset.top;
+    
+                $circle.css({
+                  top: y + 'px',
+                  left: x + 'px'
+                });
+    
+                $this.addClass('is-active');
+    
+              });
+    
+              $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
+                $(this).removeClass('is-active');
+              });
+    
+            });
+            
+           </script>
+            
+        <script type="application/javascript">
+               
+            $(window, document, undefined).ready(function() {
+    
+              $('textarea').blur(function() {
+                var $this = $(this);
+                if ($this.val())
+                  $this.addClass('used');
+                else
+                  $this.removeClass('used');
+              });
+    
+              var $ripples = $('.ripples');
+    
+              $ripples.on('click.Ripples', function(e) {
+    
+                var $this = $(this);
+                var $offset = $this.parent().offset();
+                var $circle = $this.find('.ripplesCircle');
+    
+                var x = e.pageX - $offset.left;
+                var y = e.pageY - $offset.top;
+    
+                $circle.css({
+                  top: y + 'px',
+                  left: x + 'px'
+                });
+    
+                $this.addClass('is-active');
+    
+              });
+    
+              $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
+                $(this).removeClass('is-active');
+              });
+    
+            });
+               
+        </script>
+    
+            <center>
+             <span id="resend"> </span>
+             <a id="resendlink" style="display:none;">Resend</a>
+            </center> 
+            <p> Sudah ada akun? <a href="login.html" style="color:#8597bf;">Masuk Sekarang</a> </p> <hr>
+            
+<!--
+    <div class="row" id="social">
+        <div class="col-xs-6">
+            <button type="button" class="btn facebook" onclick="">
+                <span><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</span>
+            </button>
+        </div>
+        <div class="col-xs-6">
+            <button type="button" class="btn gmail" onclick="">
+                <span><i class="fa fa-google-plus" aria-hidden="true"></i> Google+</span>
+            </button>
+        </div>
+    </div>
+-->
+        
+    </div>
+ 
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    app.initialize(); // method penting untuk initilize
+</script>
+                      
+</body>
+</html>
