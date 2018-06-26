@@ -80,8 +80,8 @@
     function onSuccess(position) {
 
       // initMap(position.coords.latitude,position.coords.longitude);
-      document.getElementById("hlat").value = position.coords.latitude;                    
-      document.getElementById("hlong").value = position.coords.longitude;      
+      // document.getElementById("hlat").value = position.coords.latitude;                    
+      // document.getElementById("hlong").value = position.coords.longitude;      
         
       // getcoor();
       // var element = document.getElementById('geolocation');
