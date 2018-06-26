@@ -188,9 +188,18 @@
 
 <table class="table" id="bill" style="font-size:10pt; padding:0px;">
     <tr id=""> <th>Total Pesanan</th> <td class="text-right"><b id="xttotal"> 0,-</b></td> </tr>
-    <tr id=""> <th>Biaya Delivery </th> <td class="text-right"> <input type="hidden" id="delivery"> 
-    <b id="deliveryrate"> 0,-</b></td> 
+    <tr id=""> <th>Biaya Delivery </th> 
+    <td class="text-right"> 
+        <input type="hidden" id="delivery"> 
+        <input type="hidden" id="hdeliveryrate"> 
+    <b id="deliveryrate"> 0,-</b>
+    </td> 
     </tr>
+    
+    <tr id=""> <th> Diskon </th> <td class="text-right"> <input type="hidden" id="hdiscount"> 
+    <b id="discount"> 0,-</b></td> 
+    </tr>
+    
     <tr id="total"> <th style="font-size:11pt;"> Grand Total </th> <td class="text-right" style="font-size:11pt;">
     <b id="grandtotal"> 0,-</b></td> 
     </tr>

@@ -193,9 +193,14 @@ function calculate_distance(){
         dataType: 'json',
         success: function(data)
         {   
-            var rate = parseInt(data.result*distance);
+            var res = parseInt(data.result);
+            if (res == 1){ res = 0; }
+
+            var rate = parseInt(res*distance);
+            $("#hdeliveryrate").val(rate);
             $("#deliveryrate").html(idr_format(rate)); 
-            $("#grandtotal").html(idr_format(parseInt(amount+rate)));
+            calculate_discount();
+            // $("#grandtotal").html(idr_format(parseInt(amount+rate)));
         },
         error: function (request, status, error) {
             // console.log('Request Failed...!'+error);
@@ -203,6 +208,37 @@ function calculate_distance(){
         }
     })
     return false;
+  }
+
+  function calculate_discount(){
+
+     var payment = 'CASH';
+     var amount = parseInt($("#totalhidden").val());
+     var rate = $("#hdeliveryrate").val();
+     if ($("#rwallet").is(":checked")) { payment = "WALLET"; }
+
+     var nilai = '{ "payment":"'+payment+'", "amount":"'+amount+'" }';
+     
+     $.ajax({
+        type: 'POST',
+        url: api+'discount/calculate',
+        data : nilai,
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(data)
+        {   
+            var res = parseInt(data.amount);
+            $("#hdiscount").val(res);
+            $("#discount").html(idr_format(res)); 
+            $("#grandtotal").html(idr_format(parseInt(amount+rate-res)));
+        },
+        error: function (request, status, error) {
+            // console.log('Request Failed...!'+error);
+            console.log('Request Failed - Calculate-Shiprate'+error);
+        }
+    })
+    return false;
+
   }
 
 
