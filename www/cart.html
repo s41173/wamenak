@@ -164,9 +164,11 @@
            #map{ width: 100%; height: 200px; border: 1px solid #ccc; margin: 5px 0 0 0; }
            #mapdesc{ font-size: 8pt; text-align: center; padding: 0; margin: 0 0 5px 0;}
        </style>
-       
+           
 <script type="text/javascript" src="js/map.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg">
+
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg&amp;libraries=places"></script>  -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg&amp;libraries=places">
 </script>
        
         <div class="row setup-content" id="step-2">
@@ -179,7 +181,7 @@
 <input type="hidden" id="hlat">
 <input type="hidden" id="hlong">
 
-<textarea id="taddress" class="form-control" rows="4" readonly placeholder="Alamat Pengantaran"></textarea>
+<textarea id="taddress" class="form-control" rows="4" placeholder="Alamat Pengantaran" onkeyup="autocompletes();"></textarea>
 <div id="map"></div>
 <!--
     <button type="button" onclick="location.reload();"> Refresh </button>
