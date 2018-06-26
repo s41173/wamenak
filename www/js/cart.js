@@ -1,21 +1,5 @@
 $(document).ready(function(e){ 
 
-    var places = new google.maps.places.Autocomplete(document.getElementById('taddress'));
-        google.maps.event.addListener(places, 'place_changed', function () {
-                    var place = places.getPlace();
-                    // var address = place.formatted_address;
-                    var lat = place.geometry.location.lat();
-                    var long = place.geometry.location.lng();
-                    // var mesg = "Address: " + address;
-                    var mesg = "LatitudeLongitude: " + lat+" - "+long;
-                  
-                    console.log(mesg);
-                    initMap(lat,long);
-                    document.getElementById("hlat").value = lat;                    
-                    document.getElementById("hlong").value = long; 
-                    calculate_distance();
-                });
-
 }); // end document ready
 
 function checkdigit(sText)
@@ -281,19 +265,22 @@ function calculate_distance(){
   // autocomplete
     function autocompletes(){
 
-        // var places = new google.maps.places.Autocomplete(document.getElementById('taddress'));
-        // google.maps.event.addListener(places, 'place_changed', function () {
-        //             var place = places.getPlace();
-        //             // var address = place.formatted_address;
-        //             var lat = place.geometry.location.lat();
-        //             var long = place.geometry.location.lng();
-        //             // var mesg = "Address: " + address;
-        //             var mesg = "LatitudeLongitude: " + lat+" - "+long;
-                  
-        //             console.log(mesg);
-        //             initMap(lat,long);
-        //             document.getElementById("hlat").value = lat;                    
-        //             document.getElementById("hlong").value = long; 
-        //             calculate_distance();
-        //         });
+        var key = event.keyCode || event.charCode;
+        if( key == 8 || key == 46 ){ return false; }else{
+            var places = new google.maps.places.Autocomplete(document.getElementById('taddress'));
+            google.maps.event.addListener(places, 'place_changed', function () {
+                        var place = places.getPlace();
+                        // var address = place.formatted_address;
+                        var lat = place.geometry.location.lat();
+                        var long = place.geometry.location.lng();
+                        // var mesg = "Address: " + address;
+                        var mesg = "LatitudeLongitude: " + lat+" - "+long;
+                    
+                        console.log(mesg);
+                        initMap(lat,long);
+                        document.getElementById("hlat").value = lat;                    
+                        document.getElementById("hlong").value = long; 
+                        calculate_distance();
+                    });
+        }
     }
