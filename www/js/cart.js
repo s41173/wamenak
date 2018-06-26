@@ -1,7 +1,3 @@
-$(document).ready(function(e){ 
-
-}); // end document ready
-
 function checkdigit(sText)
 {
    var ValidChars = "0123456789.";
@@ -152,14 +148,14 @@ function cart(){
 
 function calculate_distance(){
 
-    var coor = document.getElementById("hlat").value+","+document.getElementById("hlong").value;
-
     // var lat = 3.551989;
     // var long = 98.641050;
     // document.getElementById("hlat").value = lat;
     // document.getElementById("hlong").value = long;
     // var coor = lat+","+long;
+    // initMap(lat,long);
 
+    var coor = document.getElementById("hlat").value+","+document.getElementById("hlong").value;
     var nilai = '{ "to":"'+coor+'" }';
         
     $.ajax({
@@ -171,7 +167,7 @@ function calculate_distance(){
         success: function(data)
         {   
            $("#delivery").val(data.result);
-           calculate_shiprate();
+          calculate_shiprate();
         },
         error: function (request, status, error) {
             console.log('Request Failed - Calculate-Distance'+error);
@@ -258,29 +254,28 @@ function calculate_distance(){
      $.get(url, function(data, status){
         var add = data.results[0].formatted_address;
         $("#taddress").val(add);
-        calculate_distance();
      });   
   }
 
   // autocomplete
-    function autocompletes(){
+    // function autocompletes(){
 
-        var key = event.keyCode || event.charCode;
-        if( key == 8 || key == 46 ){ return false; }else{
-            var places = new google.maps.places.Autocomplete(document.getElementById('taddress'));
-            google.maps.event.addListener(places, 'place_changed', function () {
-                        var place = places.getPlace();
-                        // var address = place.formatted_address;
-                        var lat = place.geometry.location.lat();
-                        var long = place.geometry.location.lng();
-                        // var mesg = "Address: " + address;
-                        var mesg = "LatitudeLongitude: " + lat+" - "+long;
+    //     var key = event.keyCode || event.charCode;
+    //     if( key == 8 || key == 46 ){ return false; }else{
+    //         var places = new google.maps.places.Autocomplete(document.getElementById('taddress'));
+    //         google.maps.event.addListener(places, 'place_changed', function () {
+    //                     var place = places.getPlace();
+    //                     // var address = place.formatted_address;
+    //                     var lat = place.geometry.location.lat();
+    //                     var long = place.geometry.location.lng();
+    //                     // var mesg = "Address: " + address;
+    //                     var mesg = "LatitudeLongitude: " + lat+" - "+long;
                     
-                        console.log(mesg);
-                        initMap(lat,long);
-                        document.getElementById("hlat").value = lat;                    
-                        document.getElementById("hlong").value = long; 
-                        calculate_distance();
-                    });
-        }
-    }
+    //                     console.log(mesg);
+    //                     initMap(lat,long);
+    //                     document.getElementById("hlat").value = lat;                    
+    //                     document.getElementById("hlong").value = long; 
+    //                     calculate_distance();
+    //                 });
+    //     }
+    // }
