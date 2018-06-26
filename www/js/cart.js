@@ -154,6 +154,13 @@ function cart(){
 function calculate_distance(){
 
     var coor = document.getElementById("hlat").value+","+document.getElementById("hlong").value;
+
+    // var lat = 3.551989;
+    // var long = 98.641050;
+    // document.getElementById("hlat").value = lat;
+    // document.getElementById("hlong").value = long;
+    // var coor = lat+","+long;
+
     var nilai = '{ "to":"'+coor+'" }';
         
     $.ajax({
@@ -214,7 +221,7 @@ function calculate_distance(){
 
      var payment = 'CASH';
      var amount = parseInt($("#totalhidden").val());
-     var rate = $("#hdeliveryrate").val();
+     var rate = parseInt($("#hdeliveryrate").val());
      if ($("#rwallet").is(":checked")) { payment = "WALLET"; }
 
      var nilai = '{ "payment":"'+payment+'", "amount":"'+amount+'" }';
@@ -245,7 +252,7 @@ function calculate_distance(){
   function getcoor(){
 
      var lat = document.getElementById("hlat").value;
-     var long = document.getElementById("hlong").value;
+     var long = document.getElementById("hlong").value;    
 
      var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+lat+","+long+"&key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg&callback";
 
