@@ -164,12 +164,34 @@
            #map{ width: 100%; height: 200px; border: 1px solid #ccc; margin: 5px 0 0 0; }
            #mapdesc{ font-size: 8pt; text-align: center; padding: 0; margin: 0 0 5px 0;}
        </style>
-           
-<script type="text/javascript" src="js/map.js"></script>
 
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg&amp;libraries=places"></script>  -->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIyA_tbgcPHkf0NaVCgJZ3KtiCbYRaD0I&amp">
-</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIyA_tbgcPHkf0NaVCgJZ3KtiCbYRaD0I&amp;libraries=places"></script>  
+      
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
+
+    <script src="js/jquery.geocomplete.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    
+    <script>
+      $(function(){
+        
+        $("#taddress").geocomplete()
+          .bind("geocode:result", function(event, result){
+            console.log(result.geometry.location.lng());
+            initMap(result.geometry.location.lat(),result.geometry.location.lng());
+            document.getElementById("hlat").value = result.geometry.location.lat();                    
+            document.getElementById("hlong").value = result.geometry.location.lng(); 
+            calculate_distance();
+          })
+          .bind("geocode:error", function(event, status){
+            console.log("ERROR: " + status);
+          })
+          .bind("geocode:multiple", function(event, results){
+            console.log("Multiple: " + results.length + " results found");
+          });
+        
+      });
+    </script>
        
         <div class="row setup-content" id="step-2">
             <div class="col-xs-12">
