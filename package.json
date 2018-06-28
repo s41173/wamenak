@@ -1,0 +1,1 @@
+{"name":"com.phonegap.wamenak","version":"1.0.0","displayName":"Wamenak","cordova":{"platforms":["android"]},"dependencies":{"cordova-android":"~6.1.2"}}
