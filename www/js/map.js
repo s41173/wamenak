@@ -16,7 +16,7 @@
           zoom: 18,
           disableDoubleClickZoom: true,
           center: haightAshbury,
-          // gestureHandling: 'greedy',
+          gestureHandling: 'greedy',
           disableDefaultUI: true
         });
 
