@@ -283,10 +283,9 @@ function calculate_distance(){
            dataType: 'json',
            success: function(data)
            {   
-               if (data.status == true){
-                   toast(data.orderid);
-                   location.reload();
-               }else{ toast(data.error); }
+               if (data.status == true){ 
+                   checkout_process(data.orderid); 
+                }else{ toast(data.error); }
            },
            error: function (request, status, error) {
                // console.log('Request Failed...!'+error);
@@ -294,8 +293,47 @@ function calculate_distance(){
            }
        })
        return false;
-
      }
+  }
+
+  function checkout_process(orderid){
+
+     var rate = parseInt($("#hdeliveryrate").val());
+     var distance = $("#delivery").val();
+     var coordinate = $("#hlat").val()+","+$("#hlong").val();
+     var address = $("#taddress").val();
+
+     var nilai = '{ "status": { "orderid": "'+orderid+'" }, "shipping": { "courier": "0", "distance": "'+distance+'", "coordinate": "'+coordinate+'", "destination": "'+address+'", "amount": "'+rate+'"  } }';
+     
+     $.ajax({
+        type: 'POST',
+        url: api+'sales/add_item_mobile_json',
+        data : nilai,
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(data)
+        {   
+            var res = data.status;
+            if (res.result == true){ 
+
+                swal({
+                    position: 'top-right',
+                    type: 'success',
+                    title: 'Checkout Success - OrderId : '+orderid,
+                    text: "Pesanan Anda Sedang Diproses, Mohon tunggu konfirmasi dari admin kami.",
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+                setTimeout(function(){ window.location = "index.html"; }, 3300);
+
+            }else{ toast(res.error); }
+        },
+        error: function (request, status, error) {
+            // console.log('Request Failed...!'+error);
+            console.log('Request Failed - checkout_process'+error);
+        }
+    })
+    return false;
 
   }
 

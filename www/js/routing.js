@@ -16,25 +16,38 @@ document.addEventListener('deviceready', function () {
   });
 
   // onesignal
-    
+   
+var lastTimeBackPress=0;
+var timePeriodToExit=2000;
+
   document.addEventListener("backbutton", function(e){
     
       var bodyId = document.body.id;
 //      alert(bodyId);
       
    if(bodyId == 'index'){
+     
        e.preventDefault();
-       
-       navigator.notification.confirm('Press back again to exit'
-                    , function(button) {
-                        if (button == 2 || button == 0) {
-                            navigator.app.exitApp();
-                        }
-                      }
-                    , 'Exit App?'
-                    , ['No way', 'Exit']
-                );
-                return false;
+       e.stopPropagation();
+
+       if(new Date().getTime() - lastTimeBackPress < timePeriodToExit){
+        navigator.app.exitApp();
+       }else{
+            toast("Press again to exit");
+            lastTimeBackPress=new Date().getTime();
+        }
+
+      //  navigator.notification.confirm('Press back again to exit'
+      //               , function(button) {
+      //                   if (button == 2 || button == 0) {
+      //                       navigator.app.exitApp();
+      //                   }
+      //                 }
+      //               , 'Exit App?'
+      //               , ['No way', 'Exit']
+      //           );
+
+        return false;
        
 //       navigator.app.exitApp();
    }
