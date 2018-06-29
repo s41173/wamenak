@@ -199,6 +199,7 @@
                  
 <input type="hidden" id="hlat">
 <input type="hidden" id="hlong">
+<input type="hidden" id="herror">
 
 <textarea id="taddress" class="form-control" rows="4" placeholder="Alamat Pengantaran"></textarea>
 <div id="map"></div>
@@ -222,7 +223,7 @@
     </tr>
     
     <tr id="total"> <th style="font-size:11pt;"> Grand Total </th> <td class="text-right" style="font-size:11pt;">
-    <b id="grandtotal"> 0,-</b></td> 
+    <input type="hidden" id="hgrandtotal">  <b id="grandtotal"> 0,-</b> </td> 
     </tr>
 </table>  
                              
@@ -277,21 +278,12 @@
       </script>
 
   <!-- end payment type  -->
-
-<!--
-<input type="radio" name="rpayment" id="rwallet" value="WALLET" onclick="calculate_distance();"> E-Wallet - <span id="balancetext"> 0 </span>
-<br>
-<input type="radio" name="rpayment" id="rcash" value="CASH" checked onclick="calculate_distance();"> Cash
--->
-<br>        
-                              
-<button id="finish" type="submit" class="btn"> Order </button> <br>
-              
+                           
+<button id="finish" type="button" class="btn" onclick="checkout();" style="display:none;"> Order </button> <br>
                   </div>
              </div>
                
         </div>
-        
         
         </form>
         </div>

@@ -92,7 +92,7 @@ function balance(){
         {   
           if (data.status == true){ 
               $("#balancetext").html(idr_format(data.balance));
-              $("#balance").val(data.balance);
+              $("#balance").val(parseInt(data.balance));
               cart();
           }else{ toast(data.error); }
         },
@@ -151,7 +151,8 @@ function calculate_distance(){
     // document.getElementById("hlat").value = lat;
     // document.getElementById("hlong").value = long;
     // initMap(lat,long);
-
+    // $("#finish").css("display", "none");
+    $("#finish").hide();
     var coor = document.getElementById("hlat").value+","+document.getElementById("hlong").value;
     var nilai = '{ "to":"'+coor+'" }';
         
@@ -164,7 +165,7 @@ function calculate_distance(){
         success: function(data)
         {   
            $("#delivery").val(data.result);
-          calculate_shiprate();
+           calculate_shiprate();
         },
         error: function (request, status, error) {
             console.log('Request Failed - Calculate-Distance'+error);
@@ -193,7 +194,7 @@ function calculate_distance(){
         success: function(data)
         {   
             var res = parseInt(data.result);
-            if (res == 1){ res = 0; }
+            if (res == 1){ res = 0; $("#herror").val("Invalid Delivery"); }else{ $("#herror").val(''); }
 
             var rate = parseInt(res*distance);
             $("#hdeliveryrate").val(rate);
@@ -229,7 +230,10 @@ function calculate_distance(){
             var res = parseInt(data.amount);
             $("#hdiscount").val(res);
             $("#discount").html(idr_format(res)); 
+            $("#hgrandtotal").val(parseInt(amount+rate));
             $("#grandtotal").html(idr_format(parseInt(amount+rate-res)));
+            // $("#finish").css("display", "block");
+            $("#finish").show();
         },
         error: function (request, status, error) {
             // console.log('Request Failed...!'+error);
@@ -253,6 +257,46 @@ function calculate_distance(){
         $("#taddress").val(add);
         calculate_distance();
      });   
+  }
+
+  function checkout(){
+
+     var error = $("#herror").val();
+     var payment = 'CASH';
+     var amount = $("#hgrandtotal").val();
+     var rate = parseInt($("#hdeliveryrate").val());
+     var distance = $("#delivery").val();
+
+
+    //  if ($("#balance").val() < amount ){ toast("Saldo Wallet Anda Tidak Mencukupi");  }
+     if(error != "") { toast(error); }
+     else 
+     {
+        if ($("#rwallet").is(":checked")) { payment = "WALLET"; } 
+        var nilai = '{ "payment":"'+payment+'", "amount":"'+amount+'", "cust":"'+localStorage.userid+'" }';
+
+        $.ajax({
+           type: 'POST',
+           url: api+'sales/add_order',
+           data : nilai,
+           contentType: "application/json",
+           dataType: 'json',
+           success: function(data)
+           {   
+               if (data.status == true){
+                   toast(data.orderid);
+                   location.reload();
+               }else{ toast(data.error); }
+           },
+           error: function (request, status, error) {
+               // console.log('Request Failed...!'+error);
+               console.log('Request Failed - Calculate-Shiprate'+error);
+           }
+       })
+       return false;
+
+     }
+
   }
 
   // autocomplete
