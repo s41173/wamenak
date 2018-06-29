@@ -132,14 +132,14 @@ function cart(){
             }
 
             $("#ringkasan").html(con);
-            $("#ttotal,#xttotal").html(idr_format(total.amount_publish));
             $("#totalhidden").val(total.amount_publish); 
+            $("#ttotal,#xttotal").html(idr_format(total.amount_publish));
 
             if ($("#balance").val() <= total.amount_publish){
                 $("#rcash").prop("checked", true);
             }else{ $("#rwallet").prop("checked", true); }
 
-        }else{ setTimeout(function(){ window.location = "index.html"; }, 2000); toast("Cart anda kosong");  $("#ringkasan").html(""); $("#ttotal,#xttotal").html("Rp 0"); $("#totalhidden").val(0); }
+        }else{ setTimeout(function(){ window.location = "index.html"; }, 2000); toast("Cart anda kosong");  $("#ringkasan").html(""); $("#ttotal,#xttotal").html("Rp 0"); $("#totalhidden").val('0'); }
     });   
 
 }
@@ -229,10 +229,9 @@ function calculate_distance(){
         {   
             var res = parseInt(data.amount);
             $("#hdiscount").val(res);
-            $("#discount").html(idr_format(res)); 
             $("#hgrandtotal").val(parseInt(amount+rate));
+            $("#discount").html(idr_format(res)); 
             $("#grandtotal").html(idr_format(parseInt(amount+rate-res)));
-            // $("#finish").css("display", "block");
             $("#finish").show();
         },
         error: function (request, status, error) {
