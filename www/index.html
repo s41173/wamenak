@@ -35,9 +35,16 @@
     <script src="js/acl.js"></script>
     <script src="js/routing.js"></script>
     <script src="js/home.js"></script>
+    <script src="js/pulltorefresh.js"></script>
     
     <script src="js/jquery.nicescroll.min.js"></script>
     <script type="text/javascript">
+        
+      PullToRefresh.init({
+        mainElement: 'body',
+        onRefresh: function() { alert('refresh') }
+      });
+        
          $(document).ready(function () {
              $("#sidebar").niceScroll({
                  cursorcolor: '#000',

@@ -16,6 +16,8 @@ document.addEventListener('deviceready', function () {
   });
 
   // onesignal
+
+  navigator.geolocation.getCurrentPosition(onSuccess, onError, { maximumAge: 3000, timeout: 30000, enableHighAccuracy: true });
    
 var lastTimeBackPress=0;
 var timePeriodToExit=2000;
