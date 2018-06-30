@@ -55,6 +55,7 @@ var timePeriodToExit=2000;
    }
 //   else if (bodyId == 'product'){ window.location.href = "series.html";  }
    else if (bodyId == 'register'){ window.location.href = "index.html";  }
+   else if (bodyId == 'notif'){ window.location.href = "index.html";  }
    else {
        navigator.app.backHistory()
    }
