@@ -72,6 +72,7 @@
     <script src="js/acl.js"></script>
     <script src="js/routing.js"></script>
     <script src="js/cart.js"></script>
+    <script src="js/pulltorefresh.js"></script>
     
     <link rel="stylesheet" href="js/sweetalert/sweetalert.css">
     <link rel="stylesheet" href="css/toast.css">
@@ -295,7 +296,13 @@
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript">
     app.initialize(); // method penting untuk initilize
-</script>      
+    
+    PullToRefresh.init({
+        mainElement: 'body',
+        onRefresh: function() { location.reload(); }
+    });
+    
+</script>     
     
 </body>
 </html>

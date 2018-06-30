@@ -9,6 +9,7 @@ function slider(){
        
     $(document).ready(function (e) {   
     
+        $("#sliderbox").html("");
         $.get(api+"api/slider", function(data, status){
             
             var con = "";
@@ -37,7 +38,8 @@ con = con+"<div class=\""+classname+"\" style=\"background-image: url("+datax[i]
 function recommended(){
 
     $(document).ready(function (e) {   
-    
+        
+        $("#recommendbox").html("");
         $.get(api+"product/get_list/0/recommend", function(data, status){
             
             var title = "<h1 class=\"text-center\" style=\"font-family:'Josefin Sans'; font-size: 18px;\">Recommended</h1>";
@@ -77,7 +79,8 @@ con = con+
 function category(){
        
     $(document).ready(function (e) {   
-    
+        
+        $("#catbox").html("");
         $.get(api+"api/category", function(data, status){
             
             var con = "";
