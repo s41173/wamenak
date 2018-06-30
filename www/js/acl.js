@@ -53,13 +53,14 @@ function otentikasi(page){
                 
                 if (data.status == false){ 
                 
-                    swal({
-                        position: 'top-right',
-                        type: 'warning',
-                        title: mess,
-                        showConfirmButton: false,
-                        timer: 2000
-                    });
+                    // swal({
+                    //     position: 'top-right',
+                    //     type: 'warning',
+                    //     title: mess,
+                    //     showConfirmButton: false,
+                    //     timer: 2000
+                    // });
+                    toast(mess);
                     setTimeout(function(){ window.location = "login.html"; }, 3000);
 
                 }else{ window.location = page+".html"; }
