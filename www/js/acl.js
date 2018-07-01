@@ -90,7 +90,7 @@ function logout(){
                 }
             }
             , 'Logout ?'
-            , ['No way', 'Exit']
+            , ['No way', 'Logout']
     );
 
 }

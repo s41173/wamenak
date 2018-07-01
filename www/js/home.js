@@ -3,6 +3,7 @@ function home(){
     localStorage.removeItem("pid"); // remove product id
     slider();
     recommended();
+    sidemenu();
     var x = document.getElementById("usernamex");
     x.innerHTML=capitalizeFirstLetter(localStorage.username);
 }
@@ -196,4 +197,27 @@ function detail(pid){
     
     localStorage.setItem("pid", pid);
     window.location = "detail.html";
+}
+
+function sidemenu(){
+
+    var con = "";
+    if (localStorage.userid != undefined && localStorage.log != undefined){
+
+con  = "<li><a href=\"profil.html\">Akun Saya</a></li>"+
+       "<li><a onclick=\"otentikasi('notif');\">Notifikasi</a></li>"+
+       "<li><a href=\"cara-pesan.html\">Cara Pesan</a></li>"+
+       "<li><a href=\"tips.html\">Tips</a></li>"+
+       "<li><a href=\"about.html\">Tentang Kami</a></li>"+
+       "<li><a href=\"contact.html\">Hubungi Kami</a></li>"+
+       "<li><a onclick=\"logout();\">Logout</a></li>";
+    }else{
+
+con  =  "<li><a href=\"login.html;\">Login</a></li>"+
+        "<li><a href=\"cara-pesan.html\">Cara Pesan</a></li>"+
+        "<li><a href=\"tips.html\">Tips</a></li>"+
+        "<li><a href=\"about.html\">Tentang Kami</a></li>"+
+        "<li><a href=\"contact.html\">Hubungi Kami</a></li>";
+    }
+    $("#sidemenu").append(con);
 }
