@@ -19,6 +19,13 @@ function toast(msg) {
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
+function toastpop(msg) {
+    var x = document.getElementById("snackbarpop");
+    x.innerHTML=msg;
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -53,15 +60,7 @@ function otentikasi(page){
                 // window.location = page+".html";
                 
                 if (data.status == false){ 
-                
-                    // swal({
-                    //     position: 'top-right',
-                    //     type: 'warning',
-                    //     title: mess,
-                    //     showConfirmButton: false,
-                    //     timer: 2000
-                    // });
-                    toast(mess);
+                    if (page == 'notif'){ toastpop(mess); }else{ toast(mess); }
                     setTimeout(function(){ window.location = "login.html"; }, 3000);
 
                 }else{ window.location = page+".html"; }

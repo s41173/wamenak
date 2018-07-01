@@ -56,3 +56,10 @@ function remove_notif(){
         if (data.status == true){ setTimeout(function(){ location.reload(); }, 1000); toast("Notification Cleared"); }
     }); 
 }
+
+function remove_notif_id(){
+
+    $.get(api+"/notif/remove_id/"+localStorage.notifid, function(data, status){
+        if (data.status == true){ setTimeout(function(){ window.location='notif.html'; }, 1000); toast("Notification Removed"); }
+    }); 
+}

@@ -3,6 +3,8 @@ function home(){
     localStorage.removeItem("pid"); // remove product id
     slider();
     recommended();
+    var x = document.getElementById("usernamex");
+    x.innerHTML=capitalizeFirstLetter(localStorage.username);
 }
 
 function slider(){

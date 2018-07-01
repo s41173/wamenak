@@ -43,6 +43,14 @@
   
 </head>
 <body onload="notif_detail()">
+   
+    <!-- loader class -->
+  <div class="loader"></div>
+  <!-- loader class -->  
+  
+  <!-- snackbar -->
+  <div id="snackbar"></div>
+   
     <header>
         <div id="main-nav">
     
@@ -54,8 +62,8 @@
               <div class="navbar-brand text-center">
                 <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin-top:-12%;">
               </div>
-              <button type="button" class="navbar-toggle" id="bag" onclick="">
-                
+              <button type="button" class="navbar-toggle" id="bag" onclick="remove_notif_id()">
+                <img width="30px" src="img/trash.png" alt="" style="margin-top:5px;">
               </button>
               </div>
             </div>
