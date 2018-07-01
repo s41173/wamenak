@@ -213,7 +213,7 @@ con  = "<li><a href=\"profil.html\">Akun Saya</a></li>"+
        "<li><a onclick=\"logout();\">Logout</a></li>";
     }else{
 
-con  =  "<li><a href=\"login.html;\">Login</a></li>"+
+con  =  "<li><a href=\"login.html\">Login</a></li>"+
         "<li><a href=\"cara-pesan.html\">Cara Pesan</a></li>"+
         "<li><a href=\"tips.html\">Tips</a></li>"+
         "<li><a href=\"about.html\">Tentang Kami</a></li>"+
