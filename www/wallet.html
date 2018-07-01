@@ -38,29 +38,6 @@
     <script src="js/sweetalert/sweetalert.min.js"></script>
    
     <script src="js/jquery.nicescroll.min.js"></script>
-    <script type="text/javascript">
-         $(document).ready(function () {
-             
-             $("#sidebar").niceScroll({
-                 cursorcolor: '#000',
-                 cursorwidth: 4,
-                 cursorborder: 'none'
-             });
-
-             $('#dismiss, .overlay').on('click', function () {
-                $('#sidebar').removeClass('active');
-                $('.overlay').fadeOut();
-             });
-
-             $('#sidebarCollapse').on('click', function () {
-                 $('#sidebar').addClass('active');
-                 $('.overlay').fadeIn();
-                 $('.collapse.in').toggleClass('in');
-                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-             });
-             
-         });
-     </script>
      
     <script src="js/acl.js"></script>
     <script src="js/routing.js"></script>

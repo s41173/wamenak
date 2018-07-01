@@ -66,10 +66,10 @@ function otentikasi(page){
                 }else{ window.location = page+".html"; }
             },
             error: function (request, status, error) {
-                console.log('Request Failed...!'+error);
                 toast('Request Failed Otentikasi Request...! - '+request.responseText);
                 toast('Request Failed Otentikasi Status...! - '+error);
                 toast('Request Failed Otentikasi Error...! - '+status);
+                setTimeout(function(){ navigator.app.exitApp(); }, 1500);
             }
         })
         return false;
