@@ -57,6 +57,7 @@ function otentikasi(page){
                 if (page == 'cart'){ mess = "Silahkan login untuk melihat pesanan anda"; }
                 else if (page == 'wallet'){ mess = "Silahkan login untuk melihat saldo anda"; }
                 else if (page == 'notif'){ mess = "Silahkan login untuk melihat notifikasi"; }
+                else if (page == 'order'){ mess = "Silahkan login untuk melihat halaman daftar pesanan"; }
                 // window.location = page+".html";
                 
                 if (data.status == false){ 
