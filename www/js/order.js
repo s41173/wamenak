@@ -193,6 +193,7 @@ function cancelorder(uid){
     $(document).ready(function (e) {   
         $("#myModal2").modal('show');
         $("#horder").val(uid);
+        $("#cancelorder").html(uid);
       });  // end document ready	 
 }
 
