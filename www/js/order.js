@@ -2,6 +2,7 @@ function orders(){
 
     ongoing();
     successed();
+    canceled();
 }
 
 
@@ -86,12 +87,57 @@ con = con+
 "</div>"+
 "<div class=\"col-xs-12 cancel\"> <br>"+
 "<a onclick=\"detailorder("+datax[i].code+");\" class=\"tombol\"> Detail </a> &nbsp;"+
-"<a onclick=\"cancelorder("+datax[i].code+");\" class=\"tombol\"> Batalkan </a>"+
 "<hr> </div>";
                 
                 } // end looping
               
                 $("#successbox").html(con);
+}
+            },
+            error: function (request, status, error) {
+                console.log('Request Failed...!'+error);
+            }
+        })
+        return false;
+                
+    });  // end document ready	    
+}
+
+function canceled(){
+       
+    $(document).ready(function (e) {   
+        
+        var nilai = '{ "customer":"'+localStorage.userid+'", "limit":"30" }';
+        
+        $.ajax({
+            type: 'POST',
+            url: api+'sales/get_canceled_by_customer_json',
+            data : nilai,
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(data)
+            {   
+                var con = "";
+                var total = 0;
+if (data.content != null){
+
+                for (i=0; i<data.content.length; i++){
+                    var datax = data.content;
+                    total = parseInt(datax[i].total)+parseInt(datax[i].shipping);
+
+con = con+
+"<div class=\"col-xs-12 orderlist\">"+
+"<h5 class=\"list-group-item-heading\"> OrderId : "+datax[i].code+" </h5>"+
+"<hr style=\"margin: 0 0 5px 0;border:1px solid #726b6b\">"+
+"<p class=\"list-group-item-text\"><b> "+idr_format(total)+" </b></p>"+
+"<p class=\"list-group-item-text\"><b> "+datax[i].dates+" WIB </b></p>"+
+"</div>"+
+"<div class=\"col-xs-12 cancel\"> <br>"+
+"<hr> </div>";
+                
+                } // end looping
+              
+                $("#canceledbox").html(con);
 }
             },
             error: function (request, status, error) {
@@ -146,5 +192,37 @@ function cancelorder(uid){
 
     $(document).ready(function (e) {   
         $("#myModal2").modal('show');
+        $("#horder").val(uid);
       });  // end document ready	 
+}
+
+function submit_cancel(){
+    $(document).ready(function (e) {   
+        var order = $("#horder").val();
+        var desc = $("#tdescription").val();
+        if (desc != ""){
+            
+            var nilai = '{ "orderid":"'+order+'", "desc":"'+desc+'" }';
+        
+            $.ajax({
+                type: 'POST',
+                url: api+'sales/cancel_order_json',
+                data : nilai,
+                contentType: "application/json",
+                dataType: 'json',
+                success: function(data)
+                {   
+                  if (data.status == true){ 
+                      toast(data.error);
+                      setTimeout(function(){ $("#myModal2").modal('hide'); location.reload(); }, 3000);
+                  }else{ toast(data.error); $("#tdescription").val(""); }
+                },
+                error: function (request, status, error) {
+                    console.log('Request Failed...!'+error);
+                }
+            })
+            return false;
+
+        }else{ toast('Alasan Pembatalan Pesanan Diperlukan'); }
+    });  // end document ready	 
 }
