@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wamenak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/w3style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/myJS.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-material-datetimepicker.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="js/sweetalert/sweetalert.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/sweetalert/sweetalert.min.js"></script>
+   
+    <script src="js/jquery.nicescroll.min.js"></script>
+     
+    <script src="js/acl.js"></script>
+    <script src="js/routing.js"></script>
+    <script src="js/order.js"></script>
+    
+</head>
+<body id="order" onload="orders();">
+     
+     <!-- loader class -->
+  <div class="loader"></div>
+  <!-- loader class -->  
+     
+      <header>
+          <div id="main-nav">
+          
+                <nav class="navbar" style="margin-bottom: 0;">
+                    
+                    <div class="container">
+                        <div class="navbar-header">
+<button onclick="window.location='index.html'" id="back"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                            <div class="navbar-brand text-center">
+                                <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin:-12% 0 0 -15%;">
+                            </div>
+                        </div>
+                    </div>
+                </nav> 
+
+		</div>
+      </header>
+
+    <div class="container">
+       
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"> OrderId : <span id="transtitle"> </span> </h4>
+        <span id="transdate" class="datedetail"> </span>
+      </div>
+      <div class="modal-body">
+         
+         <div id="prodetailbox" class="prodetailbox">
+            
+<!--
+             <div style="width:40%; float:left;">
+                 <img src="http://localhost/wamenak-mobile/img/bento.jpg" class="img-responsive" alt="">
+             </div>
+
+             <div style="width:55%; float:left; margin-left:10px;">
+                 <span class="prodetail"> Ayam Geprek Crispy </span> <br>
+                 <span class="prodetail"> (3) - 15.000 </span> <br>
+                 <span class="prodetail"> Level pedas tingkat dewa </span>
+             </div>
+             <div class="clear"></div> <br>   
+-->
+         </div>
+         
+         
+         <div class="shipbox">
+             <h5 id="h4delivery"> Delivery :  </h5>
+             <span id="address" class="shipdetail"> </span> <br>
+             <span class="shipdetail"> Courier : <span id="courrier"></span> </span> <br>
+             <span class="shipdetail"> Cost : <b> <span id="shipcost"></span> </b> </span>
+         </div>
+         
+          <p class="text-right amt"> Total : <span id="gtotal"> </span> </p>
+         
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="tombol" data-dismiss="modal"> Close </button>
+      </div>    
+    </div>
+
+  </div>
+</div>     
+<!-- Modal -->
+          
+<!-- Modal Cancel -->
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"> Batalkan Pesanan </h4>
+      </div>
+      <div class="modal-body">
+         <h5 id="prodesc" class="text-center"> OrderId : 24684 </h5>
+         <textarea id="tdescription" class="form-control" rows="3" placeholder="Alasan Pembatalan Pesanan"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="tombol" id="border" data-dismiss="modal">Submit</button>
+        <button type="button" class="tombol" data-dismiss="modal">Batal</button>
+      </div>    
+    </div>
+
+  </div>
+</div>  
+<!-- Modal Cancel -->
+           
+       
+        <h4 class="text-center">Pesanan Saya</h4>
+
+
+        <div class="row">
+          <a href="javascript:void(0)" onclick="openCity(event, '1');">
+<div class="col-xs-4 m4 tablink w3-bottombar w3-border-black w3-hover-light-grey w3-padding ff2 text-center"> Ongoing </div>
+          </a>
+          <a href="javascript:void(0)" onclick="openCity(event, '2');">
+<div class="col-xs-4 m4 tablink w3-bottombar w3-hover-light-grey w3-padding ff2 text-center"> Success </div>
+          </a>
+          <a href="javascript:void(0)" onclick="openCity(event, '3');">
+<div class="col-xs-4 m4 tablink w3-bottombar w3-hover-light-grey w3-padding ff2 text-center"> Canceled </div>
+          </a>
+      </div>
+  
+
+      <style type="text/css">
+          
+          .datedetail{ font-weight: bold; font-size: 9pt;} 
+          .prodetail{ font-size: 9pt;} 
+          .amt{ margin: 0; padding: 0; font-weight: bold; font-size: 11pt;}
+          
+        .orderlist {
+            font-family:'Josefin sans', sans-serif;
+        }
+        .cancel {
+            text-align: right;
+            margin-top: 10px;
+            font-family:'Josefin sans', sans-serif;
+        }
+        .addr {
+            font-family:'Josefin sans', sans-serif;
+        }
+        .success, .cancel-text {
+            font-family:'Josefin sans', sans-serif;
+            padding: 0;
+        }
+          .prodetailbox{ margin:0px 0 15px 0;}
+          #h4delivery{ margin: 0; padding: 0;}
+          .shipdetail{ font-size: 10pt;}  
+          
+      </style>
+      
+    <div id="1" class="car">
+       
+        <br>
+        <div id="ongoingbox">
+<!-- ongoing box -->
+               
+<!--
+        <div class="col-xs-12 orderlist">
+            <h5 class="list-group-item-heading"> OrderId : 24758 </h5>
+            <hr style="margin: 0 0 5px 0;border:1px solid #726b6b">
+            <p class="list-group-item-text"><b>Rp. 45.000</b></p>
+            <p class="list-group-item-text"><b> 2 July 2018 - 10.00.45 WIB </b></p>
+        </div>
+
+        <div class="col-xs-12 cancel"> <br>
+            <a onclick="detailorder(12);" class="tombol"> Detail </a> &nbsp;
+            <a onclick="cancelorder(12);" class="tombol"> Batalkan </a>
+            <hr>
+        </div>
+-->
+        
+<!-- ongoing box -->
+        </div>
+
+    </div>
+
+
+  
+    <div id="2" class="car" style="display: none;">
+        
+        <br>
+        <div id="successbox">
+<!-- success box -->
+        
+<!-- success box -->
+        </div>
+        
+    </div>
+  
+      <div id="3" class="car" style="display: none;margin-top: 6%;">
+
+      </div>
+  
+      <script>
+          function openCity(evt, carName) {
+              var i, x, tablinks;
+              x = document.getElementsByClassName("car");
+              for (i = 0; i < x.length; i++) {
+                  x[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("tablink");
+              for (i = 0; i < x.length; i++) {
+                  tablinks[i].className = tablinks[i].className.replace(" w3-border-black", "");
+              }
+              document.getElementById(carName).style.display = "block";
+              evt.currentTarget.firstElementChild.className += " w3-border-black";
+          }
+      </script>
+    </div>
+</body>
+</html>

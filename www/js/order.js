@@ -1,0 +1,150 @@
+function orders(){
+
+    ongoing();
+    successed();
+}
+
+
+function ongoing(){
+       
+    $(document).ready(function (e) {   
+        
+        var nilai = '{ "customer":"'+localStorage.userid+'", "status":"0", "limit":"30" }';
+        
+        $.ajax({
+            type: 'POST',
+            url: api+'sales/get_sales_by_customer_json',
+            data : nilai,
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(data)
+            {   
+                var con = "";
+                var total = 0;
+if (data.content != null){
+
+                for (i=0; i<data.content.length; i++){
+                    var datax = data.content;
+                    total = parseInt(datax[i].total)+parseInt(datax[i].shipping);
+
+        
+con = con+
+"<div class=\"col-xs-12 orderlist\">"+
+"<h5 class=\"list-group-item-heading\"> OrderId : "+datax[i].code+" </h5>"+
+"<hr style=\"margin: 0 0 5px 0;border:1px solid #726b6b\">"+
+"<p class=\"list-group-item-text\"><b> "+idr_format(total)+" </b></p>"+
+"<p class=\"list-group-item-text\"><b> "+datax[i].dates+" WIB </b></p>"+
+"</div>"+
+"<div class=\"col-xs-12 cancel\"> <br>"+
+"<a onclick=\"detailorder("+datax[i].code+");\" class=\"tombol\"> Detail </a> &nbsp;"+
+"<a onclick=\"cancelorder("+datax[i].code+");\" class=\"tombol\"> Batalkan </a>"+
+"<hr> </div>";
+                
+                } // end looping
+              
+                $("#ongoingbox").html(con);
+}
+            },
+            error: function (request, status, error) {
+                console.log('Request Failed...!'+error);
+            }
+        })
+        return false;
+                
+    });  // end document ready	    
+}
+
+function successed(){
+       
+    $(document).ready(function (e) {   
+        
+        var nilai = '{ "customer":"'+localStorage.userid+'", "status":"1", "limit":"30" }';
+        
+        $.ajax({
+            type: 'POST',
+            url: api+'sales/get_sales_by_customer_json',
+            data : nilai,
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(data)
+            {   
+                var con = "";
+                var total = 0;
+if (data.content != null){
+
+                for (i=0; i<data.content.length; i++){
+                    var datax = data.content;
+                    total = parseInt(datax[i].total)+parseInt(datax[i].shipping);
+
+        
+con = con+
+"<div class=\"col-xs-12 orderlist\">"+
+"<h5 class=\"list-group-item-heading\"> OrderId : "+datax[i].code+" </h5>"+
+"<hr style=\"margin: 0 0 5px 0;border:1px solid #726b6b\">"+
+"<p class=\"list-group-item-text\"><b> "+idr_format(total)+" </b></p>"+
+"<p class=\"list-group-item-text\"><b> "+datax[i].dates+" WIB </b></p>"+
+"</div>"+
+"<div class=\"col-xs-12 cancel\"> <br>"+
+"<a onclick=\"detailorder("+datax[i].code+");\" class=\"tombol\"> Detail </a> &nbsp;"+
+"<a onclick=\"cancelorder("+datax[i].code+");\" class=\"tombol\"> Batalkan </a>"+
+"<hr> </div>";
+                
+                } // end looping
+              
+                $("#successbox").html(con);
+}
+            },
+            error: function (request, status, error) {
+                console.log('Request Failed...!'+error);
+            }
+        })
+        return false;
+                
+    });  // end document ready	    
+}
+
+function detailorder(code){
+
+    $(document).ready(function (e) {   
+      $("#myModal").modal('show');
+      
+    $.get(api+"sales/get_sales_transaction_json/"+code, function(data, status){
+          
+        var con = "";
+        var sales = data.content[0];
+        var shipping = data.shipping[0];
+        var transaction = data.transaction;
+        var total = parseInt(sales.total)+parseInt(sales.shipping);
+
+        $("#transtitle").html(sales.code+" - "+sales.payment_type);
+        $("#transdate").html(sales.dates+" WIB");
+        $("#address").html(shipping.destination);
+        $("#courrier").html(shipping.courier);
+        $("#shipcost").html(idr_format(shipping.amount));
+        $("#gtotal").html(idr_format(total));
+
+        for (i=0; i<transaction.length; i++){
+
+con = con+"<div style=\"width:40%; float:left;\">"+
+          "<img src=\""+transaction[i].image+"\" class=\"img-responsive\">"+
+          "</div>"+
+          "<div style=\"width:55%; float:left; margin-left:10px;\">"+
+          "<span class=\"prodetail\"> "+capitalizeFirstLetter(transaction[i].product)+" </span> <br>"+
+          "<span class=\"prodetail\"> ("+transaction[i].qty+") - "+idr_format(transaction[i].amount)+" </span> <br>"+
+          "<span class=\"prodetail\"> "+transaction[i].description+" </span>"+
+          "</div> <div class=\"clear\"></div> <br>";
+        }
+
+       $("#prodetailbox").html(con);
+    });
+
+
+    });  // end document ready	 
+}
+
+function cancelorder(uid){
+
+    $(document).ready(function (e) {   
+        $("#myModal2").modal('show');
+      });  // end document ready	 
+}
