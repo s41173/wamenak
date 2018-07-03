@@ -38,7 +38,7 @@ con = con+
 "</div>"+
 "<div class=\"col-xs-12 cancel\"> <br>"+
 "<a onclick=\"detailorder("+datax[i].code+");\" class=\"tombol\"> Detail </a> &nbsp;"+
-"<a onclick=\"cancelorder("+datax[i].code+");\" class=\"tombol\"> Batalkan </a>"+
+"<a onclick=\"cancelorder("+datax[i].code+");\" class=\"tombol\"> Batalkan Pesanan </a>"+
 "<hr> </div>";
                 
                 } // end looping
@@ -224,6 +224,6 @@ function submit_cancel(){
             })
             return false;
 
-        }else{ toast('Alasan Pembatalan Pesanan Diperlukan'); }
+        }else{ toast('Alasan Pembatalan Pesanan Diperlukan'); $("#tdescription").focus(); }
     });  // end document ready	 
 }
