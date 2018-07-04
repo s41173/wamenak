@@ -76,7 +76,6 @@ function otentikasi(page){
         return false;
 
     }); // end document ready
-
 }
 
 function logout(){
