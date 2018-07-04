@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+    
+    <!--Add to homescreen And color theme-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Wamenak">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <!-- Theme color for chrome, firefox and opera-->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+
+    <title>Wamenak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/w3style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/myJS.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-material-datetimepicker.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/toast.css">
+    
+    <script src="js/acl.js"></script>
+    <script src="js/routing.js"></script>
+    <script src="js/profil.js"></script>
+    
+    <style type="text/css">
+    
+        .material{ border: none; margin: 3px; padding: 5px;}
+        
+    </style>
+  
+</head>
+<body id="profil" onload="profile();">
+     
+  <!-- loader class -->
+  <div class="loader"></div>
+  <!-- loader class --> 
+         
+     <!-- Modal Cancel -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+          
+          <!-- snackbar -->
+    <div id="snackbar"></div> 
+     
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"> Edit Profil </h4>
+      </div>
+      <div class="modal-body">
+         <input type="text" id="inputname" class="form-control material">
+         <input type="email" id="inputemail" class="form-control material">
+         <input type="text" id="inputphone" readonly class="form-control material">
+         
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="tombol" onclick="submit_save()">Save</button>
+        <button type="button" class="tombol" data-dismiss="modal">Close</button>
+      </div>    
+    </div>
+
+  </div>
+</div>  
+<!-- Modal Cancel -->
+     
+      <header>
+        <div id="main-nav">
+
+            <nav class="navbar" style="margin-bottom: 0;">
+                
+                <div class="container">
+                    <div class="navbar-header">
+<button onclick="window.location='index.html'" id="back"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                        <div class="navbar-brand text-center">
+<img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin:-12% 0 0 -15%;">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+      </header>
+       
+    
+   <div class="container-fluid" id="profil">
+         <h3 class="text-center">Profil</h3>
+         <div class="row" style="background: #EBEBEB">
+            <div class="col-xs-7 text-left;">
+                <div style="margin-left:10px;">
+                    <h3 id="name"></h3>
+                    <p id="email"></p>
+                    <p id="phone"></p>
+                </div>
+            </div>
+            
+            <div class="col-xs-5 text-left" style="margin-top:35px; float:right;">
+               <button type="button" class="tombol" onclick="edit_profile();"> Edit Profile </button>
+            </div>
+             
+         </div>
+         <div class="row" id="info">
+             <div class="col-xs-12 text-left">
+                 <hr>
+                 <div class="list-group" id="list">
+                      <a href="ubah.html" class="list-group-item"> Term Of Service <span>&raquo;</span></a>
+                      <a href="alamat.html" class="list-group-item"> Privacy Policy <span>&raquo;</span></a>
+                 </div>
+             </div>
+         </div>
+         <button type="button" id="tombol" onclick="logout();"> Logout </button>
+    </div>
+    
+</body>
+</html>
