@@ -168,7 +168,7 @@ function calculate_distance(){
            calculate_shiprate();
         },
         error: function (request, status, error) {
-            console.log('Request Failed - Calculate-Distance'+error);
+            toast('Request Failed - Calculate-Distance'+error);
         }
     })
     return false;
@@ -204,7 +204,7 @@ function calculate_distance(){
         },
         error: function (request, status, error) {
             // console.log('Request Failed...!'+error);
-            console.log('Request Failed - Calculate-Shiprate'+error);
+            toast('Request Failed - Calculate-Shiprate'+error);
         }
     })
     return false;
