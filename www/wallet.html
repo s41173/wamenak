@@ -45,7 +45,7 @@
     
      <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     
-    <script type="text/javascript" src="https://maps-api-ssl.google.com/maps/api/js?key=AIzaSyAaCjY30PVJEpkf9mcZg8R6Rs5KepJQjOg"></script>  
+    <script type="text/javascript" src="https://maps-api-ssl.google.com/maps/api/js?key=AIzaSyCIyA_tbgcPHkf0NaVCgJZ3KtiCbYRaD0I"></script>  
 
 </head>
 <body onload="home();">
@@ -212,16 +212,74 @@
                 </div>
 
                 <div id="2" class="car" style="display: none;">
-                    <h4>Top Up dengan Driver Kami</h4>
+                   
+                   <style>
+                    .list-step-numbers {
+                    counter-reset: step;
+                    list-style-type: none;
+                    }
+                    .list-step-numbers li {
+                    position: relative;
+                    padding: 0 40px 10px 60px;
+                    min-height: 60px;
+                    border-left: 2px solid #4286f4;
+                    }
+                    .list-step-numbers li::before {
+                    counter-increment: step;
+                    content: counters(step,".") " ";
+                    position: absolute;
+                    left: -16px;
+                    top: 0;
+                    height: 30px;
+                    width: 30px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 30px;
+                    text-align: center;
+                    color: #000;
+                    background-color: #fff;
+                    border: 2px solid #000;
+                    border-radius: 50%;
+                    z-index: 2;
+                    }
+                    .list-step-numbers li:last-child {
+                    border-left: none;
+                    }
+                    .list-step-numbers li p {
+                        top: 10px;
+                        padding-top: 3px;
+                        padding-left: 20px;
+                    }
 
-                    <form action="" id="material">
-                        <div class="group">
-                            <input type="number"><span class="highlight"></span><span id="barname" class="bar"></span>
-                            <label>Masukkan Kode Digit</label>
-                        </div>
-            
-                        <button type="submit" class="btn">Top Up</button>
-                    </form>
+                    @media all and (max-width: 768px) {
+                    .list-step-numbers li {
+                        padding-left: 1rem;
+                    }
+                    }
+                </style>
+                   
+                    <h4>Top Up dengan Driver Kami</h4>
+                    <ul class="list-step-numbers" style="margin-top: 10px;">
+                        <li>
+                          <p>Topup hanya dapat dilakukan melalui driver/kurir yang sedang dalam status order Anda.</p>
+                        </li>
+                        <li>
+                          <p>Berikan uang tunai sejumlah nilai isi saldo yang diinginkan kepada driver/kurir tersebut (tidak ada biaya jasa).</p>
+                        </li>
+                        <li>
+                          <p>Cek saldo E-wallet Anda sebelum proses topup.</p>
+                        </li>
+                        <li>
+                          <p>Driver/kurir akan segera topup saldo ke E-wallet Anda.</p>
+                        </li>
+                        <li>
+                          <p>Pastikan saldo E-wallet Anda bertambah.</p>
+                        </li>
+                        <li>
+                          <p>Proses topup saldo selesai.</p>
+                        </li>
+                    </ul> <br>
+                    
                 </div>
 
                 <div id="3" class="car" style="display: none;">

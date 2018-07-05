@@ -58,10 +58,11 @@ function otentikasi(page){
                 else if (page == 'wallet'){ mess = "Silahkan login untuk melihat saldo anda"; }
                 else if (page == 'notif'){ mess = "Silahkan login untuk melihat notifikasi"; }
                 else if (page == 'order'){ mess = "Silahkan login untuk melihat halaman daftar pesanan"; }
+                else if (page == 'profil'){ mess = "Silahkan login untuk melihat halaman profil"; }
                 // window.location = page+".html";
                 
                 if (data.status == false){ 
-                    if (page == 'notif'){ toastpop(mess); }else{ toast(mess); }
+                    if (page == 'notif' || page == 'profil'){ toastpop(mess); }else{ toast(mess); }
                     setTimeout(function(){ window.location = "login.html"; }, 3000);
 
                 }else{ window.location = page+".html"; }

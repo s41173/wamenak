@@ -204,14 +204,12 @@ function sidemenu(){
     var con = "";
     if (localStorage.userid != undefined && localStorage.log != undefined){
 
-con  = "<li><a href=\"profil.html\">Akun Saya</a></li>"+
-       "<li><a onclick=\"otentikasi('order')\"> Daftar Pesanan </a></li>"+
+con  = "<li><a onclick=\"otentikasi('profil');\">Akun Saya</a></li>"+
+       "<li><a onclick=\"otentikasi('order');\"> Daftar Pesanan </a></li>"+
        "<li><a onclick=\"otentikasi('notif');\">Notifikasi</a></li>"+
        "<li><a href=\"cara-pesan.html\">Cara Pesan</a></li>"+
-       "<li><a href=\"tips.html\">Tips</a></li>"+
        "<li><a href=\"about.html\">Tentang Kami</a></li>"+
-       "<li><a href=\"contact.html\">Hubungi Kami</a></li>"+
-       "<li><a onclick=\"logout();\">Logout</a></li>";
+       "<li><a href=\"contact.html\">Hubungi Kami</a></li>";
     }else{
 
 con  =  "<li><a href=\"login.html\">Login</a></li>"+
