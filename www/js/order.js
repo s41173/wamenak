@@ -215,7 +215,8 @@ function submit_cancel(){
                 {   
                   if (data.status == true){ 
                       toast(data.error);
-                      setTimeout(function(){ $("#myModal2").modal('hide'); location.reload(); }, 3000);
+                      $("#myModal2").modal('hide');
+                      setTimeout(function(){ location.reload(); }, 3000);
                   }else{ toast(data.error); $("#tdescription").val(""); }
                 },
                 error: function (request, status, error) {
