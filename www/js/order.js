@@ -1,17 +1,44 @@
-function orders(){
+var start = 0;
+var limit = 30;
+var reachedMax = false;
+
+var starts = 0;
+var limits = 4;
+var reachedMaxs = false;
+
+$(document).ready(function (e) {   
 
     ongoing();
     successed();
     canceled();
-}
+
+});  // end document ready	
+
+// function orders(){
+
+//     ongoing();
+//     successed();
+//     canceled();
+// }
+
+$(window).scroll(function(){
+         
+    if ($(window).scrollTop() == $(document).height() - $(window).height()){
+        successed();
+    }
+    
+});
 
 
 function ongoing(){
        
     $(document).ready(function (e) {   
         
-        var nilai = '{ "customer":"'+localStorage.userid+'", "status":"0", "limit":"30" }';
+        var nilai = '{ "customer":"'+localStorage.userid+'", "status":"0", "limit":"'+limit+'", "start":"'+start+'" }';
         
+        if (reachedMax)
+            return;
+
         $.ajax({
             type: 'POST',
             url: api+'sales/get_sales_by_customer_json',
@@ -22,7 +49,7 @@ function ongoing(){
             {   
                 var con = "";
                 var total = 0;
-if (data.content != null){
+if (data.content != null && data.content != 'reachedMax'){
 
                 for (i=0; i<data.content.length; i++){
                     var datax = data.content;
@@ -42,9 +69,10 @@ con = con+
 "<hr> </div>";
                 
                 } // end looping
-              
-                $("#ongoingbox").html(con);
-}
+
+                start += limit;
+                $("#ongoingbox").append(con);
+}else{ reachedMax = true; }
             },
             error: function (request, status, error) {
                 console.log('Request Failed...!'+error);
@@ -59,8 +87,11 @@ function successed(){
        
     $(document).ready(function (e) {   
         
-        var nilai = '{ "customer":"'+localStorage.userid+'", "status":"1", "limit":"30" }';
+        var nilai = '{ "customer":"'+localStorage.userid+'", "status":"1", "limit":"'+limits+'", "start":"'+starts+'" }';
         
+        if (reachedMaxs)
+            return;
+
         $.ajax({
             type: 'POST',
             url: api+'sales/get_sales_by_customer_json',
@@ -71,7 +102,7 @@ function successed(){
             {   
                 var con = "";
                 var total = 0;
-if (data.content != null){
+if (data.content != null && data.content != 'reachedMax'){
 
                 for (i=0; i<data.content.length; i++){
                     var datax = data.content;
@@ -90,9 +121,9 @@ con = con+
 "<hr> </div>";
                 
                 } // end looping
-              
-                $("#successbox").html(con);
-}
+                starts += limits;
+                $("#successbox").append(con);
+}else{ reachedMaxs = true; }
             },
             error: function (request, status, error) {
                 console.log('Request Failed...!'+error);
