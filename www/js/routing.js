@@ -45,6 +45,10 @@ document.addEventListener('deviceready', function () {
   var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 5000 });
   // location
 
+  cordova.plugins.backgroundMode.isScreenOff(function(bool) {
+    cordova.plugins.backgroundMode.wakeUp(); 
+  });
+
   // onesignal
   var notificationOpenedCallback = function(jsonData) {
     console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
