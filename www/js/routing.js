@@ -69,16 +69,16 @@ var timePeriodToExit=2000;
 function bgmodeon(type){
   if (type == 1){
      cordova.plugins.backgroundMode.setEnabled(true);
-     alert('satu');
+     cordova.plugins.backgroundMode.on('enable', hidup);
+
   }else{
    cordova.plugins.backgroundMode.setEnabled(false); 
    alert('nol');
   }
 }
 
-function cekbgstatus(){
-  var stts = cordova.plugins.backgroundMode.isActive();
-  if (stts == 1){ alert('Aktif'); }else{ alert('Non Aktif'); }
+function hidup(){
+  alert('hallo aq hidup');
 }
 
 
