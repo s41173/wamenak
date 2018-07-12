@@ -7,10 +7,28 @@ document.addEventListener('deviceready', function () {
     //   the current GPS coordinates
     //
     function onSuccess(position) {
-      var element = document.getElementById('geolocation');
-      element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                          'Longitude: ' + position.coords.longitude     + '<br />' +
-                          '<hr />'      + element.innerHTML;
+      // var element = document.getElementById('geolocation');
+      // element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+      //                     'Longitude: ' + position.coords.longitude     + '<br />' +
+      //                     '<hr />'      + element.innerHTML;
+      var coor = position.coords.latitude+','+position.coords.longitude;
+      var nilai = '{ "coordinate":"'+coor+'" }';
+
+      $.ajax({
+          type: 'POST',
+          url: api+'courier/post_loc',
+          data : nilai,
+          contentType: "application/json",
+          dataType: 'json',
+          success: function(data)
+          {   
+            if (data.status == true){ toast("Location updated");}else{ toast(data.error); }
+          },
+          error: function (request, status, error) {
+              console.log('Request Failed...!'+error);
+          }
+      })
+      return false;
   }
 
   // onError Callback receives a PositionError object
@@ -22,7 +40,7 @@ document.addEventListener('deviceready', function () {
 
   // Options: throw an error if no update is received every 30 seconds.
   //
-  var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+  var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 10000 });
   // location
 
   // onesignal
