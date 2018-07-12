@@ -66,6 +66,21 @@ var timePeriodToExit=2000;
   // window.plugins.OneSignal.syncHashedEmail(userEmail);
 }, false);
 
+function bgmodeon(type){
+  if (type == 1){
+     cordova.plugins.backgroundMode.setEnabled(true);
+     alert('satu');
+  }else{
+   cordova.plugins.backgroundMode.setEnabled(false); 
+   alert('nol');
+  }
+}
+
+function cekbgstatus(){
+  var stts = cordova.plugins.backgroundMode.isActive();
+  if (stts == true){ alert('Aktif'); }else{ alert('Non Aktif'); }
+}
+
 
 
    function series(cid,catname){

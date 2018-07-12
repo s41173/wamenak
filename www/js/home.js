@@ -8,19 +8,6 @@ function home(){
     x.innerHTML=capitalizeFirstLetter(localStorage.username);
 }
 
-function bgmodeon(type){
-   if (type == 1){
-      cordova.plugins.backgroundMode.enable();
-   }else{
-    cordova.plugins.backgroundMode.disable(); 
-   }
-}
-
-function cekbgstatus(){
-    var stts = cordova.plugins.backgroundMode.isActive();
-    if (stts == true){ alert('Aktif'); }else{ alert('Non Aktif'); }
-}
-
 function slider(){
        
     $(document).ready(function (e) {   
