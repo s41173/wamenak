@@ -73,12 +73,13 @@ function bgmodeon(type){
 
   }else{
    cordova.plugins.backgroundMode.setEnabled(false); 
+   clearInterval();
    alert('nol');
   }
 }
 
 function hidup(){
-  alert('hallo aq hidup');
+  setInterval(function(){ alert("Hello"); }, 3000);
 }
 
 
