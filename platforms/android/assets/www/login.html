@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+    
+    <!--Add to homescreen And color theme-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Wamenak">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Theme color for chrome, firefox and opera-->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+
+    <title>Wamenak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="js/sweetalert/sweetalert.css">
+    
+    <link rel="stylesheet" href="css/toast.css">
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sweetalert/sweetalert.min.js"></script>
+    
+    <script src="js/acl.js"></script>
+    <script src="js/routing.js"></script>
+    
+    <script type="text/javascript">
+         $(document).ready(function (e) {
+             
+    // var api = "http://administrator.wamenak.com/";
+    $("#btnlogin").hide();
+        // ajax loading
+            
+    $('#btnotp').click(function() {
+        
+        var user = $("#user").val();
+        if (user){
+
+        var nilai = '{ "username":"'+user+'", "device":"'+localStorage.device+'" }';
+		$.ajax({
+			type: 'POST',
+			url: api+'customer/login',
+			data:  nilai,
+            contentType: "application/json",
+            dataType: 'json',
+			success: function(data) {
+				
+				if (data.status == true)
+				{   
+                    $("#husername").val(data.user);
+                    $("#huserid").val(data.userid);
+                    $("#hotp").val(data.log);
+                    
+                    $("#btnotp").hide();
+                    $("#btnlogin").show();
+                    
+                    $("#gotp").css("display", "block");
+                    $("#user").prop( "disabled", true );
+                    intervals();
+				}
+				else{ toast(data.error); }
+			},
+			error: function(e) 
+	    	{
+				$("#error").html(e).fadeIn();
+				console.log(e.responseText);	
+	    	} 
+		})
+		return false;
+
+        }else{ toast('Mobile No Required'); }
+    });
+    
+    $('#btnlogin').click(function() {
+        
+        var otp = $("#otptext").val();
+        var hotp = $("#hotp").val();
+        if (otp){
+
+            if (otp == hotp){
+                
+                localStorage.setItem("username", $("#husername").val());
+                localStorage.setItem("userid", $("#huserid").val());
+                localStorage.setItem("log", hotp);
+
+                window.location = "index.html";
+
+            }else{ /*swal('Invalid OTP Code', "", "error");*/ toast("Invalid OTP Code");  }
+
+        }else{ toast('OTP Code Required'); }
+	});
+             
+    $('#resendlink').click(function() {
+        
+        var nilai = '{ "customer":"'+$("#huserid").val()+'" }';
+        
+		$.ajax({
+			type: 'POST',
+			url: api+'api/resend_otp',
+			data:  nilai,
+            contentType: "application/json",
+            dataType: 'json',
+			success: function(data) {
+				
+				if (data.status == true)
+				{   
+                    $("#hotp").val(data.code);
+                    intervals();
+				}
+				else{ toast(data.error); }
+			},
+			error: function(e) 
+	    	{
+				$("#error").html(e).fadeIn();
+				console.log(e.responseText);
+	    	} 
+		})
+		return false;
+        
+	});
+             
+    function intervals(){
+        
+        $("#resend").css("display", "block");
+        $("#resendlink").css("display", "none");
+        
+        var duration = 60 * 1;
+        var timers = duration, minutes, seconds;
+        var myVar = setInterval(function () {
+            minutes = parseInt(timers / 60, 10)
+            seconds = parseInt(timers % 60, 10);
+    
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+    
+            // display.textContent = minutes + ":" + seconds;
+            $("#resend").html("Resend Code in 00:"+seconds);
+    
+            if (--timers < 0) {
+                timers = duration;
+            }
+
+        }, 1000);
+
+        setTimeout(function(){ clearInterval(myVar); $("#resend").css("display", "none"); $("#resendlink").css("display", "block");  }, 60000);
+    }
+                   
+    }); // end document ready
+     </script>   
+     
+    <style type="text/css">
+    
+        /*loader */
+        .loader {
+          border: 16px solid #000;
+          border-radius: 50%;
+          border-top: 16px solid #EAB700;
+          width: 75px;
+          height: 75px;
+          -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+          margin-left: auto;
+          margin-right: auto;
+          display: none;
+          z-index: 10;
+          position: absolute;
+          top: 25%;
+          left: 38%;
+        }
+
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
+        #resend{
+            text-align: center;
+            font-size: 9pt;
+            display: none;
+        }
+        
+        #resendlink{
+            text-align: center;
+            font-size: 10pt;
+            font-weight: bold;
+            color: #ff6f00 !important;
+            display: none;
+        }
+    
+    </style>
+        
+</head>
+<body id="register">
+     
+     <!-- snackbar -->
+     <div id="snackbar"></div>
+     
+      <header>
+          <div id="main-nav">
+			<nav class="navbar">
+               <div class="container">
+                    <div class="navbar-brand text-center">
+                        <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin-top:-12%;">
+                    </div>
+               </div>
+            </nav>
+		</div>
+      </header>
+       
+    
+     <div class="container-fluid" id="login">
+         
+    <!-- loader class -->
+    <div class="loader"></div>
+    <!-- loader class -->  
+        
+         <h3 class="text-center">Login</h3>
+         <form action="" id="material" class="ajaxform" style="margin: 0 0 10px 0; ">
+           
+            <div id="guser" class="group">
+<input type="number" id="user" required><span class="highlight"></span><span id="barname" class="bar"></span>
+            <label>No Handphone</label>
+            </div>
+            
+            <div id="gotp" class="group" style="display:none;">
+<input type="number" id="otptext"><span class="highlight"></span><span id="barmail" class="bar"></span>
+            <label> OTP Code </label>
+            </div>
+            
+            <input type="hidden" id="hotp">
+            <input type="hidden" id="husername">
+            <input type="hidden" id="huserid">
+            
+            <button type="button" id="btnotp" class="btn" value="otp"> GET OTP </button>
+            <button type="button" id="btnlogin" class="btn" value="otp"> Login </button>
+        </form>
+        
+        <script>
+            $(window, document, undefined).ready(function() {
+    
+              $('input').blur(function() {
+                var $this = $(this);
+                if ($this.val())
+                  $this.addClass('used');
+                else
+                  $this.removeClass('used');
+              });
+    
+              var $ripples = $('.ripples');
+    
+              $ripples.on('click.Ripples', function(e) {
+    
+                var $this = $(this);
+                var $offset = $this.parent().offset();
+                var $circle = $this.find('.ripplesCircle');
+    
+                var x = e.pageX - $offset.left;
+                var y = e.pageY - $offset.top;
+    
+                $circle.css({
+                  top: y + 'px',
+                  left: x + 'px'
+                });
+    
+                $this.addClass('is-active');
+    
+              });
+              $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
+                $(this).removeClass('is-active');
+              });
+    
+            });
+            </script>
+       
+        <center>
+        <span id="resend"> </span>
+        <a id="resendlink" style="display:none;">Resend</a>
+         </center> 
+        <p>Belum punya akun? <a href="signup.html" style="color:#8597bf;">Daftar Sekarang</a></p>
+        <hr>
+        
+<!--
+        <div class="row" id="social">
+            <div class="col-xs-6">
+                <button type="button" class="btn facebook" onclick="">
+                    <span><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</span>
+                </button>
+            </div>
+            <div class="col-xs-6">
+                <button type="button" class="btn gmail" onclick="">
+                    <span><i class="fa fa-google-plus" aria-hidden="true"></i> Google+</span>
+                </button>
+            </div>
+            
+        </div>
+-->
+        
+    </div>
+        
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    app.initialize(); // method penting untuk initilize
+</script>    
+    
+    
+</body>
+</html>

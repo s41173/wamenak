@@ -1,0 +1,83 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-background-mode": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "XWALK_VERSION": "23+",
+            "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+            "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+            "XWALK_MODE": "embedded",
+            "XWALK_MULTIPLEAPK": "true",
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        }
+    },
+    "dependent_plugins": {}
+}

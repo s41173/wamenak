@@ -610,6 +610,21 @@ module.exports = [
         "clobbers": [
             "OneSignal"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
+        "id": "cordova-plugin-background-mode.BackgroundMode",
+        "pluginId": "cordova-plugin-background-mode",
+        "clobbers": [
+            "cordova.plugins.backgroundMode",
+            "plugin.backgroundMode"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-background-mode/src/browser/BackgroundModeProxy.js",
+        "id": "cordova-plugin-background-mode.BackgroundMode.Proxy",
+        "pluginId": "cordova-plugin-background-mode",
+        "runs": true
     }
 ];
 module.exports.metadata = 
@@ -636,7 +651,8 @@ module.exports.metadata =
     "cordova-plugin-vibration": "2.1.6",
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-crosswalk-webview": "2.4.0",
-    "onesignal-cordova-plugin": "2.4.1"
+    "onesignal-cordova-plugin": "2.4.1",
+    "cordova-plugin-background-mode": "0.7.2"
 }
 // BOTTOM OF METADATA
 });

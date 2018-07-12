@@ -1,5 +1,8 @@
 document.addEventListener('deviceready', function () {
 
+  // background mode
+  cordova.plugins.backgroundMode.setEnabled(true);
+
   // onesignal
   var notificationOpenedCallback = function(jsonData) {
     console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));

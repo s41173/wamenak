@@ -125,5 +125,6 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <plugin name="onesignal-cordova-plugin" spec="~2.4.1" />
+    <plugin name="cordova-plugin-background-mode" spec="~0.7.2" />
     <engine name="android" spec="~6.1.2" />
 </widget>

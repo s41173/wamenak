@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+    
+    <!--Add to homescreen And color theme-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Wamenak">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <!-- Theme color for chrome, firefox and opera-->
+    <meta name="theme-color" content="#27a542">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#27a542">
+
+    <title>Wamenak</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/notif.css">
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-material-datetimepicker.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
+    
+    <link rel="stylesheet" href="js/sweetalert/sweetalert.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/sweetalert/sweetalert.min.js"></script>
+    
+    <script src="js/acl.js"></script>
+    <script src="js/routing.js"></script>
+    <script src="js/notif.js"></script>
+  
+</head>
+<body id="notif" onload="notif();">
+ 
+  <!-- loader class -->
+  <div class="loader"></div>
+  <!-- loader class -->  
+ 
+  <header>
+    <div id="main-nav">
+
+      <nav class="navbar" style="margin-bottom: 0;">
+
+        <div class="container">
+          <div class="navbar-header">
+          <button onclick="window.location='index.html'" id="back"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+          <div class="navbar-brand text-center">
+            <img src="img/mylogo.png" alt="" class="img-responsive" width="85" style="margin-top:-12%;">
+          </div>
+          <button type="button" class="navbar-toggle" id="bag" onclick="remove_notif();">
+            <img width="30px" src="img/trash.png" alt="" style="margin-top:5px;">
+          </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+       
+    <!-- snackbar -->
+    <div id="snackbar"></div>
+     
+    <h4 class="text-center">Notification</h4>
+
+
+    <div class="container-fluid" id="notifbox">
+
+       <!-- unread -->
+<!--
+        <a href="notif-message.html" style="color:#000; text-decoration: none;">
+            <div class="notif-icon">
+                <img src="img/notif.png" alt="" width="25">
+            </div>
+            <div class="notif-text">
+                <b>Promotion!</b>
+                <br>
+                <span class="unread"><b> 26 June at 12.37 </b></span>
+            </div>
+            <i class="fa fa-chevron-right notif-arrow" aria-hidden="true"></i>
+        </a>
+        <hr style="margin-top: -10px;">
+-->
+
+        <!-- read -->
+<!--
+        <a href="notif-message.html" style="color:#000; text-decoration: none;">
+            <div class="notif-icon">
+                <img src="img/notif-read.png" alt="" width="25">
+            </div>
+            <div class="notif-text">
+                <span>Promotion!</span>
+                <span class="read"><p>Save up to Rp 5000 this week</p></span>
+            </div>
+            <i class="fa fa-chevron-right notif-arrow" aria-hidden="true"></i>
+        </a>
+        <hr style="margin-top: -10px;">        
+-->
+        
+    </div>
+    
+</body>
+</html>
