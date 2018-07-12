@@ -40,6 +40,8 @@ document.addEventListener('deviceready', function () {
 
   // Options: throw an error if no update is received every 30 seconds.
   //
+  cordova.plugins.backgroundMode.setEnabled(true);
+  cordova.plugins.backgroundMode.on('enable', watchID);
   var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 10000 });
   // location
 
@@ -109,23 +111,16 @@ var timePeriodToExit=2000;
   // window.plugins.OneSignal.syncHashedEmail(userEmail);
 }, false);
 
-function bgmodeon(type){
-  if (type == 1){
-     cordova.plugins.backgroundMode.setEnabled(true);
-     cordova.plugins.backgroundMode.on('enable', notif_interval);
+// function bgmodeon(type){
+//   if (type == 1){
+//      cordova.plugins.backgroundMode.setEnabled(true);
+//      cordova.plugins.backgroundMode.on('enable', notif_interval);
 
-  }else{
-   cordova.plugins.backgroundMode.setEnabled(false); 
-   alert('nol');
-  }
-}
-
-function notif_interval(){
-  setInterval(function(){ 
-     
-     toast('set position');
-  }, 10000);
-}
+//   }else{
+//    cordova.plugins.backgroundMode.setEnabled(false); 
+//    alert('nol');
+//   }
+// }
 
 
 
