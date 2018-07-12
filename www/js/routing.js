@@ -69,17 +69,22 @@ var timePeriodToExit=2000;
 function bgmodeon(type){
   if (type == 1){
      cordova.plugins.backgroundMode.setEnabled(true);
-     cordova.plugins.backgroundMode.on('enable', hidup);
+     cordova.plugins.backgroundMode.on('enable', notif_interval);
 
   }else{
    cordova.plugins.backgroundMode.setEnabled(false); 
-   clearInterval();
    alert('nol');
   }
 }
 
-function hidup(){
-  setInterval(function(){ alert("Hello"); }, 3000);
+function notif_interval(){
+  setInterval(function(){ 
+    window.plugins.OneSignal
+    .startInit("95b026cd-a68a-42e4-bcb3-63d5bd93f341")
+    .handleNotificationOpened(notificationOpenedCallback)
+    .endInit();
+     toast('set position');
+  }, 10000);
 }
 
 
