@@ -1,11 +1,5 @@
 document.addEventListener('deviceready', function () {
 
-  // background mode
-  cordova.plugins.backgroundMode.setEnabled(true);
-
-  // Turn screen on and show app even locked
-  cordova.plugins.backgroundMode.unlock();
-
   // onesignal
   var notificationOpenedCallback = function(jsonData) {
     console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
