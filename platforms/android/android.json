@@ -13,18 +13,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"BackgroundMode\"><param name=\"android-package\" value=\"de.appplant.cordova.plugin.background.BackgroundMode\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"KeepRunning\" value=\"true\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"AndroidLaunchMode\" value=\"singleInstance\" />",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Battery\"><param name=\"android-package\" value=\"org.apache.cordova.batterystatus.BatteryListener\" /></feature>",
                             "count": 1
                         },
@@ -123,6 +111,22 @@
                         {
                             "xml": "<feature name=\"FileTransfer\"><param name=\"android-package\" value=\"org.apache.cordova.filetransfer.FileTransfer\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Insomnia\"><param name=\"android-package\" value=\"nl.xservices.plugins.Insomnia\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"BackgroundMode\"><param name=\"android-package\" value=\"de.appplant.cordova.plugin.background.BackgroundMode\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"KeepRunning\" value=\"true\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"AndroidLaunchMode\" value=\"singleInstance\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -130,10 +134,6 @@
             "AndroidManifest.xml": {
                 "parents": {
                     "/manifest/application": [
-                        {
-                            "xml": "<service android:name=\"de.appplant.cordova.plugin.background.ForegroundService\" />",
-                            "count": 1
-                        },
                         {
                             "xml": "<amazon:enable-feature android:name=\"com.amazon.device.messaging\" android:required=\"false\" xmlns:amazon=\"http://schemas.amazon.com/apk/res/android\" />",
                             "count": 1
@@ -145,13 +145,13 @@
                         {
                             "xml": "<receiver android:name=\"com.onesignal.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"com.phonegap.wamenak\" /></intent-filter></receiver>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<service android:name=\"de.appplant.cordova.plugin.background.ForegroundService\" />",
+                            "count": 1
                         }
                     ],
                     "/manifest": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
-                            "count": 1
-                        },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
                             "count": 1
@@ -166,6 +166,10 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"com.phonegap.wamenak.permission.RECEIVE_ADM_MESSAGE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
                             "count": 1
                         }
                     ],
@@ -225,9 +229,6 @@
     },
     "installed_plugins": {
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.phonegap.wamenak"
-        },
-        "cordova-plugin-background-mode": {
             "PACKAGE_NAME": "com.phonegap.wamenak"
         },
         "cordova-plugin-battery-status": {
@@ -294,6 +295,12 @@
         },
         "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-insomnia": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-background-mode": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
         }
     },
     "dependent_plugins": {},
@@ -304,15 +311,6 @@
             "pluginId": "cordova-plugin-device",
             "clobbers": [
                 "device"
-            ]
-        },
-        {
-            "id": "cordova-plugin-background-mode.BackgroundMode",
-            "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
-            "pluginId": "cordova-plugin-background-mode",
-            "clobbers": [
-                "cordova.plugins.backgroundMode",
-                "plugin.backgroundMode"
             ]
         },
         {
@@ -659,11 +657,27 @@
             "clobbers": [
                 "window.FileTransfer"
             ]
+        },
+        {
+            "id": "cordova-plugin-insomnia.Insomnia",
+            "file": "plugins/cordova-plugin-insomnia/www/Insomnia.js",
+            "pluginId": "cordova-plugin-insomnia",
+            "clobbers": [
+                "window.plugins.insomnia"
+            ]
+        },
+        {
+            "id": "cordova-plugin-background-mode.BackgroundMode",
+            "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
+            "pluginId": "cordova-plugin-background-mode",
+            "clobbers": [
+                "cordova.plugins.backgroundMode",
+                "plugin.backgroundMode"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-device": "1.1.7",
-        "cordova-plugin-background-mode": "0.7.2",
         "cordova-plugin-battery-status": "1.1.2",
         "cordova-plugin-camera": "2.1.1",
         "cordova-plugin-console": "1.0.7",
@@ -683,6 +697,8 @@
         "cordova-plugin-vibration": "2.1.6",
         "cordova-plugin-whitelist": "1.2.2",
         "onesignal-cordova-plugin": "2.4.1",
-        "cordova-plugin-file-transfer": "1.5.1"
+        "cordova-plugin-file-transfer": "1.5.1",
+        "cordova-plugin-insomnia": "4.3.0",
+        "cordova-plugin-background-mode": "0.7.2"
     }
 }

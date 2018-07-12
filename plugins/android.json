@@ -7,9 +7,6 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-background-mode": {
-            "PACKAGE_NAME": "com.phonegap.wamenak"
-        },
         "cordova-plugin-battery-status": {
             "PACKAGE_NAME": "com.phonegap.wamenak"
         },
@@ -76,6 +73,12 @@
             "PACKAGE_NAME": "com.phonegap.wamenak"
         },
         "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-insomnia": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
+        "cordova-plugin-background-mode": {
             "PACKAGE_NAME": "com.phonegap.wamenak"
         }
     },

@@ -9,15 +9,6 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-background-mode.BackgroundMode",
-        "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
-        "pluginId": "cordova-plugin-background-mode",
-        "clobbers": [
-            "cordova.plugins.backgroundMode",
-            "plugin.backgroundMode"
-        ]
-    },
-    {
         "id": "cordova-plugin-battery-status.battery",
         "file": "plugins/cordova-plugin-battery-status/www/battery.js",
         "pluginId": "cordova-plugin-battery-status",
@@ -361,13 +352,29 @@ module.exports = [
         "clobbers": [
             "window.FileTransfer"
         ]
+    },
+    {
+        "id": "cordova-plugin-insomnia.Insomnia",
+        "file": "plugins/cordova-plugin-insomnia/www/Insomnia.js",
+        "pluginId": "cordova-plugin-insomnia",
+        "clobbers": [
+            "window.plugins.insomnia"
+        ]
+    },
+    {
+        "id": "cordova-plugin-background-mode.BackgroundMode",
+        "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
+        "pluginId": "cordova-plugin-background-mode",
+        "clobbers": [
+            "cordova.plugins.backgroundMode",
+            "plugin.backgroundMode"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "cordova-plugin-device": "1.1.7",
-    "cordova-plugin-background-mode": "0.7.2",
     "cordova-plugin-battery-status": "1.1.2",
     "cordova-plugin-camera": "2.1.1",
     "cordova-plugin-console": "1.0.7",
@@ -387,7 +394,9 @@ module.exports.metadata =
     "cordova-plugin-vibration": "2.1.6",
     "cordova-plugin-whitelist": "1.2.2",
     "onesignal-cordova-plugin": "2.4.1",
-    "cordova-plugin-file-transfer": "1.5.1"
+    "cordova-plugin-file-transfer": "1.5.1",
+    "cordova-plugin-insomnia": "4.3.0",
+    "cordova-plugin-background-mode": "0.7.2"
 };
 // BOTTOM OF METADATA
 });

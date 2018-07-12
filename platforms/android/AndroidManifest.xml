@@ -9,7 +9,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="de.appplant.cordova.plugin.background.ForegroundService" />
         <amazon:enable-feature android:name="com.amazon.device.messaging" android:required="false" xmlns:amazon="http://schemas.amazon.com/apk/res/android" />
         <service android:exported="false" android:name="com.onesignal.ADMMessageHandler" />
         <receiver android:name="com.onesignal.ADMMessageHandler$Receiver" android:permission="com.amazon.device.messaging.permission.SEND">
@@ -19,9 +18,9 @@
                 <category android:name="com.phonegap.wamenak" />
             </intent-filter>
         </receiver>
+        <service android:name="de.appplant.cordova.plugin.background.ForegroundService" />
     </application>
     <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="21" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
@@ -38,4 +37,5 @@
     <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
     <permission android:name="com.phonegap.wamenak.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature" />
     <uses-permission android:name="com.phonegap.wamenak.permission.RECEIVE_ADM_MESSAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 </manifest>

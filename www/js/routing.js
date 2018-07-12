@@ -40,14 +40,8 @@ document.addEventListener('deviceready', function () {
 
   // Options: throw an error if no update is received every 30 seconds.
   //
-  cordova.plugins.backgroundMode.setEnabled(true);
-  cordova.plugins.backgroundMode.on('activate', watchID);
   var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 5000 });
   // location
-
-  cordova.plugins.backgroundMode.isScreenOff(function(bool) {
-    cordova.plugins.backgroundMode.wakeUp(); 
-  });
 
   // onesignal
   var notificationOpenedCallback = function(jsonData) {
@@ -114,17 +108,6 @@ var timePeriodToExit=2000;
   // This improves the effectiveness of OneSignal's "best-time" notification scheduling feature.
   // window.plugins.OneSignal.syncHashedEmail(userEmail);
 }, false);
-
-// function bgmodeon(type){
-//   if (type == 1){
-//      cordova.plugins.backgroundMode.setEnabled(true);
-//      cordova.plugins.backgroundMode.on('enable', notif_interval);
-
-//   }else{
-//    cordova.plugins.backgroundMode.setEnabled(false); 
-//    alert('nol');
-//   }
-// }
 
 
 

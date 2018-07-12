@@ -612,6 +612,22 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/cordova-plugin-insomnia/www/Insomnia.js",
+        "id": "cordova-plugin-insomnia.Insomnia",
+        "pluginId": "cordova-plugin-insomnia",
+        "clobbers": [
+            "window.plugins.insomnia"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-insomnia/src/browser/Insomnia.js",
+        "id": "cordova-plugin-insomnia.InsomniaProxy",
+        "pluginId": "cordova-plugin-insomnia",
+        "merges": [
+            "window.plugins.insomnia"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
         "id": "cordova-plugin-background-mode.BackgroundMode",
         "pluginId": "cordova-plugin-background-mode",
@@ -652,6 +668,7 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-crosswalk-webview": "2.4.0",
     "onesignal-cordova-plugin": "2.4.1",
+    "cordova-plugin-insomnia": "4.3.0",
     "cordova-plugin-background-mode": "0.7.2"
 }
 // BOTTOM OF METADATA

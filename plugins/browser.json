@@ -70,6 +70,9 @@
         "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "com.phonegap.wamenak"
         },
+        "cordova-plugin-insomnia": {
+            "PACKAGE_NAME": "com.phonegap.wamenak"
+        },
         "cordova-plugin-background-mode": {
             "PACKAGE_NAME": "com.phonegap.wamenak"
         }
