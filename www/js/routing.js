@@ -78,7 +78,7 @@ function bgmodeon(type){
 
 function cekbgstatus(){
   var stts = cordova.plugins.backgroundMode.isActive();
-  if (stts == true){ alert('Aktif'); }else{ alert('Non Aktif'); }
+  if (stts == 1){ alert('Aktif'); }else{ alert('Non Aktif'); }
 }
 
 
