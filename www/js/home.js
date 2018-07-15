@@ -11,6 +11,11 @@ function home(){
 function slider(){
        
     $(document).ready(function (e) {   
+
+        $(document).ajaxError(function(){
+            toast("No Internet Connection..!!");
+            setTimeout(function(){ navigator.app.exitApp(); }, 3500);
+        });
     
         $("#sliderbox").html("");
         $.get(api+"api/slider", function(data, status){
