@@ -1,6 +1,7 @@
 function home(){
 
     localStorage.removeItem("pid"); // remove product id
+    localStorage.removeItem("cat");
     slider();
     recommended();
     sidemenu();
@@ -86,12 +87,12 @@ function category(){
         $("#catbox").html("");
         $.get(api+"api/category", function(data, status){
             
-            var con = "";
+            var con = ""
             var classname = "";
             for (i=0; i<data.content.length; i++){
                 var datax = data.content;
 
-con = "<h1 class=\"text-center\" style=\"font-family:'Josefin Sans'; font-size: 18px;\">"+capitalizeFirstLetter(datax[i].name)+"</h1>";
+con = "<h1 class=\"text-left\" style=\"font-family:'Josefin Sans'; font-size: 18px;display: inline-block; margin:0 0 10px 0; padding:0; \" >"+capitalizeFirstLetter(datax[i].name)+"</h1>"+"<a onclick=\"viewmore("+datax[i].id+")\" class=\"vm ff2\" style=\"float: right; text-decoration: none; margin:3px 0 0 0; padding:0; font-size: 12px;\">View More <i class=\"fa fa-angle-double-right\" aria-hidden=\"true\"></i></a>";
 itemlist(con,datax[i].id)
             }
 
@@ -192,6 +193,12 @@ function add_cart(pid){
     }else{ toast("Silahkan masuk sebelum membeli produk ini"); }
 
 }
+
+function viewmore(cat){
+    
+    localStorage.setItem("cat", cat);
+    window.location = "viewmore.html";
+  }
 
 function detail(pid){
     
