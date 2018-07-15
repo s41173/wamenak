@@ -9,6 +9,11 @@ $(document).ready(function () {
         $(".loader").css("display", "none");
     });
 
+    $(document).ajaxError(function(){
+        toast("No Internet Connection..!!");
+        setTimeout(function(){ navigator.app.exitApp(); }, 3500);
+    });
+
 }); // end document ready
 
 
