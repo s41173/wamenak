@@ -20,6 +20,7 @@ con = con+"<div class=\"col-xs-6 vmenu\">"+
             }
 
             $("#morebox").html(con);
+            $("#cattitle").html(data.result);
         });
                 
     });  // end document ready	    
