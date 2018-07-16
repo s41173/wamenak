@@ -1,11 +1,25 @@
+var start = 0;
+var limit = 6;
+var reachedMax = false;
+
+$(window).scroll(function(){
+         
+    if ($(window).scrollTop() == $(document).height() - $(window).height()){
+        getmore();
+    }
+    
+});
+
+
 
 function getmore(){
     
     $(document).ready(function (e) {   
             
-        $("#morebox").html("");
-        $.get(api+"product/get_list/"+localStorage.cat+"/null/100", function(data, status){
+        if (reachedMax) return;
+        $.get(api+"product/get_list/"+localStorage.cat+"/null/"+limit+"/"+start, function(data, status){
             
+if (data.content != null && data.content != 'reachedMax'){
             var con = "";
             for (i=0; i<data.content.length; i++){
                 var datax = data.content;
@@ -19,7 +33,11 @@ con = con+"<div class=\"col-xs-6 vmenu\">"+
       "</div>";
             }
 
-            $("#morebox").html(con);
+            // $("#morebox").html(con);
+            start += limit;
+            $("#morebox").append(con);
+}else{ reachedMax = true; }
+
             $("#cattitle").html(data.result);
         });
                 
